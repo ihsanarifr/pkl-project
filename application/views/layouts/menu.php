@@ -25,7 +25,7 @@ else
         <li><a href="#contact">Data Nilai</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo base_url() ?>profile"><?php $this->ion_auth->get_users_groups()->name?></a></li>
+            <li><a href="<?php echo base_url() ?>profile"><?php echo $this->ion_auth->get_users_groups($this->ion_auth->user()->row()->id)->row()->name ?></a></li>
             <li><a href="<?php echo base_url() ?>auth/logout">Keluar</a></li>
         </ul>
     <?php
