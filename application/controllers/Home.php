@@ -15,8 +15,8 @@ class Home extends CI_Controller {
 		$data['main']='home/index';
 		
 		$data['judul']='Home PKL Project';
-		$data['css']=array('plugins/select2/select2','plugins/select2/select2-bootstrap','plugins/datepicker/datepicker3');
-        $data['js']=array('plugins/select2/select2.min','plugins/datepicker/bootstrap-datepicker');
+		// $data['css']='';
+        // $data['js']='';
 		$this->load->view('layouts/master',$data);
 	}
 }
