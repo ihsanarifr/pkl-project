@@ -28,46 +28,97 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-                    <br><br>
-                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>NIS - Nama</th>
-                            <th>Sekolah</th>
-                            <th>Pembimbing</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>
-                                <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">Nama Orangnya</a></td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>
-                                <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">Nama Orangnya</a></td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>
-                                <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a  href="#1" data-toggle="tab">Sedang Berjalan</a></li>
+                        <li><a href="#2" data-toggle="tab">Sudah Selesai</a></li>
+                        
+                    </ul>
+                    <div class="tab-content ">
+                        <div class="tab-pane active" id="1">
+                            <br><br>
+                            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>NIS - Nama</th>
+                                    <th>Sekolah</th>
+                                    <th>Pembimbing</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>
+                                        <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Nama Orangnya</a></td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>
+                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Nama Orangnya</a></td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>
+                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="tab-pane" id="2">
+                            <br><br>
+                            <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>NIS - Nama</th>
+                                    <th>Sekolah</th>
+                                    <th>Pembimbing</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>
+                                        <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Nama Orangnya</a></td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>
+                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Nama Orangnya</a></td>
+                                    <td>a</td>
+                                    <td>a</td>
+                                    <td>
+                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,9 +127,7 @@
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+    $('#example').DataTable();
+    $('#example1').DataTable();
 } );
 </script>

@@ -27,11 +27,13 @@ else
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url('grup_user')?>">Group Users</a></li>
             <li><a href="<?php echo site_url('unit')?>">Unit</a></li>
-            <li><a href="<?php echo site_url('unit')?>">Status Kehadiran</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="<?php echo site_url('unit')?>">Program Keahlian</a></li>
-            <li><a href="<?php echo site_url('unit')?>">Sekolah</a></li>
-            <li><a href="<?php echo site_url('unit')?>">Kelas</a></li>
+            <li><a href="<?php echo site_url('status_kehadiran')?>">Status Kehadiran</a></li>
+            <li><a href="<?php echo site_url('kategori_penilaian')?>">Kategori Penilaian</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<?php echo site_url('program_keahlian')?>">Program Keahlian</a></li>
+            <li><a href="<?php echo site_url('sekolah')?>">Sekolah</a></li>
+            <li><a href="<?php echo site_url('kelas')?>">Kelas</a></li>
           </ul>
         </li>
         </ul>
