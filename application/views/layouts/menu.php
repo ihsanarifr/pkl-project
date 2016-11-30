@@ -25,8 +25,13 @@ else
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-th-list"></i> Referensi <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('grup_user')?>"><i class="glyphicon glyphicon-user"></i> Group Users</a></li>
-            <li><a href="<?php echo site_url('unit')?>"><i class="glyphicon glyphicon-tower"></i> Unit</a></li>
+            <li><a href="<?php echo site_url('grup_user')?>">Group Users</a></li>
+            <li><a href="<?php echo site_url('unit')?>">Unit</a></li>
+            <li><a href="<?php echo site_url('unit')?>">Status Kehadiran</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<?php echo site_url('unit')?>">Program Keahlian</a></li>
+            <li><a href="<?php echo site_url('unit')?>">Sekolah</a></li>
+            <li><a href="<?php echo site_url('unit')?>">Kelas</a></li>
           </ul>
         </li>
         </ul>

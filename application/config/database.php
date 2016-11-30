@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'pkl',
+	'hostname' => 'garadev.com',
+	'username' => 'k5520385_ipb',
+	'password' => '@didsi1p8@',
+	'database' => 'k5520385_prakerin',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

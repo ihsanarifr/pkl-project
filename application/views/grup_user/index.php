@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Data Siswa</a></li>
+            <li class="active"><a href="#">Data Grup Pengguna</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,10 +21,10 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Data Siswa
+                    Grup Pengguna
                     </h3>
 
-                    <a href="<?php echo site_url('data_siswa/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Mahasiswa</a>
+                    <a href="<?php echo site_url('data_siswa/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Grup</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -32,35 +32,31 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>NIS - Nama</th>
-                            <th>Sekolah</th>
-                            <th>Pembimbing</th>
+                            <th>No</th>
+                            <th>Nama</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                            <td>a</td>
-                            <td>a</td>
+                            <td>1</td>
+                            <td>Nama Orangnya</td>
                             <td>
                                 <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="#">Nama Orangnya</a></td>
-                            <td>a</td>
-                            <td>a</td>
+                            <td>2</td>
+                            <td>Nama Orangnya</td>
                             <td>
                                 <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="#">Nama Orangnya</a></td>
-                            <td>a</td>
-                            <td>a</td>
+                            <td>3</td>
+                            <td>Nama Orangnya</td>
                             <td>
                                 <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
