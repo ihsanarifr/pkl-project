@@ -15,10 +15,10 @@ class Grup_user extends CI_Controller
 	public function index()
 	{
 		$data['main']='grup_user/index';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Data Siswa PKL';
 		$data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min','jquery.dataTables','dataTables.tableTools','dataTables.bootstrap');
+        $data['js']= array('js/datatables.min');
 		$this->load->view('layouts/master',$data);
 	}   
 
@@ -32,7 +32,7 @@ class Grup_user extends CI_Controller
         $data['main']='data_siswa/view';
 		$data['menu']=1;
         $data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min','jquery.dataTables','dataTables.tableTools','dataTables.bootstrap');
+        $data['js']= array('js/datatables.min');
 		$data['judul']='Lihat Siswa PKL';
 		$this->load->view('layouts/master',$data);
     }
