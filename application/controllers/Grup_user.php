@@ -54,6 +54,7 @@ class Grup_user extends CI_Controller
     {
         $this->form_validation->set_rules('nama', 'Nama Grup', 'required');
 
+
         $data = array(
             'name' => $this->input->post('nama'),
         );
@@ -71,6 +72,7 @@ class Grup_user extends CI_Controller
         }
         else
         {
+            // memanggil fungsi di model grup_user_model
             $this->grup_user_model->save($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Simpan data grup pengguna sudah selesai');
