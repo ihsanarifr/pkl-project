@@ -6,6 +6,7 @@
     <p>Institut Pertanian Bogor</p>
     <p>
         <a class="btn btn-lg btn-primary" href="<?php echo base_url()?>auth/register" role="button">Mendaftar</a>
+        Assiii
     </p>
     </div>
 </div> <!-- /container -->
