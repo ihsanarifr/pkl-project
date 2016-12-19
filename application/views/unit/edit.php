@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">&nbsp;&nbsp;</label>
+                            <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                             </div>
