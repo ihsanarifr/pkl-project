@@ -59,7 +59,7 @@ else
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-th-list"></i> Input Kegiatan <span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('rencana_kegaitan')?>"><i class="glyphicon glyphicon-pencil"></i> Rencana Kegiatan</a></li>
+            <li><a href="<?php echo site_url('rencana_kegiatan')?>"><i class="glyphicon glyphicon-pencil"></i> Rencana Kegiatan</a></li>
             <li><a href="<?php echo site_url('absensi_kegiatan')?>"><i class="glyphicon glyphicon-pencil"></i> Absensi</a></li>
             <li><a href="<?php echo site_url('log_kegiatan')?>"><i class="glyphicon glyphicon-pencil"></i> Log Kegiatan</a></li>
             <li><a href="<?php echo site_url('permasalahan_kerja')?>"><i class="glyphicon glyphicon-pencil"></i> Permasalahan Kerja</a></li>

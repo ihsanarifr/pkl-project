@@ -22,7 +22,7 @@ class Grup_user extends CI_Controller
         
 
 		$data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
 	}   
 
@@ -36,7 +36,7 @@ class Grup_user extends CI_Controller
         $data['main']='data_siswa/view';
 		$data['menu']=1;
         $data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$data['judul']='Lihat Siswa PKL';
 		$this->load->view('layouts/master',$data);
     }

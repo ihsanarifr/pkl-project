@@ -23,7 +23,7 @@ class Status_kehadiran extends CI_Controller
         
 
 		$data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
 	}   
 
@@ -37,7 +37,7 @@ class Status_kehadiran extends CI_Controller
         $data['main']='status_kehadiran/view';
 		$data['menu']=3;
         $data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$data['judul']='Lihat Status Kehadiran PKL';
 		$this->load->view('layouts/master',$data);
     }

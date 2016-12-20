@@ -23,7 +23,7 @@ class Unit extends CI_Controller
         
 
 		$data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
 	}   
 
@@ -37,7 +37,7 @@ class Unit extends CI_Controller
         $data['main']='unit/view';
 		$data['menu']=1;
         $data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$data['judul']='Lihat Unit PKL';
 		$this->load->view('layouts/master',$data);
     }
