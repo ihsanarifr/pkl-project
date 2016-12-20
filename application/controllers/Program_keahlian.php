@@ -18,7 +18,7 @@ class Program_keahlian extends CI_Controller
 		$data['menu']=1;
 		$data['judul']='Data Program Keahlian';
 		$data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min','jquery.dataTables','dataTables.tableTools','dataTables.bootstrap');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
 	}   
 
