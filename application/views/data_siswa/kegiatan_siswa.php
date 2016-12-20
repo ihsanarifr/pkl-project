@@ -47,7 +47,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
+                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
                                     <td>a</td>
                                     <td>a</td>
                                     <td>
@@ -56,7 +56,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="#">Nama Orangnya</a></td>
+                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
                                     <td>a</td>
                                     <td>a</td>
                                     <td>
@@ -89,7 +89,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
+                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
                                     <td>a</td>
                                     <td>a</td>
                                     <td>
@@ -98,7 +98,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a href="#">Nama Orangnya</a></td>
+                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
                                     <td>a</td>
                                     <td>a</td>
                                     <td>

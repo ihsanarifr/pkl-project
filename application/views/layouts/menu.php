@@ -25,7 +25,7 @@ else
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> Data Siswa <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="<?php echo site_url('data_siswa')?>">Biodata Siswa</a></li>
-                <li><a href="<?php echo site_url('data_siswa/kegiatan')?>">Kegiatan PKL</a></li>
+                <li><a href="<?php echo site_url('data_siswa/kegiatan_siswa')?>">Kegiatan PKL</a></li>
             </ul>
         </li>
         <li class="dropdown">
