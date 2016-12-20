@@ -13,7 +13,7 @@
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('data_siswa/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama Grup</label>
+                            <label class="col-sm-2 control-label">Nama</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
                             </div>
