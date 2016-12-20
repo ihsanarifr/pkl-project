@@ -29,4 +29,5 @@ class Grup_user_model extends CI_Model
     {
         $this->db->delete('groups',array('id'=>$id));
     }
+    
 }
