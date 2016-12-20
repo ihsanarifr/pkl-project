@@ -21,7 +21,13 @@ else
     <!--Administrator-->
         <ul class="nav navbar-nav">
         <li <?php if($menu == 0){ echo 'class="active"'; }?> ><a href="<?php echo site_url('/')?>"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
-        <li <?php if($menu == 1){ echo 'class="active"'; }?> ><a href="<?php echo site_url('data_siswa')?>"><i class="glyphicon glyphicon-user"></i> Data Siswa</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> Data Siswa <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="<?php echo site_url('data_siswa')?>">Biodata Siswa</a></li>
+                <li><a href="<?php echo site_url('data_siswa/kegiatan_siswa')?>">Kegiatan PKL</a></li>
+            </ul>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-th-list"></i> Referensi <span class="caret"></span></a>
           <ul class="dropdown-menu">
