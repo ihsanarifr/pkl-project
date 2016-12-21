@@ -27,7 +27,7 @@ class Absensi extends CI_Controller
     public function add()
     {
         $data['main']='absensi/create';
-		$data['menu']=1;
+		$data['menu']=0;
 		$data['judul']='Tambah Absensi';
 		$this->load->view('layouts/master',$data);
     }
