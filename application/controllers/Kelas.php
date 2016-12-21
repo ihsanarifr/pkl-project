@@ -21,6 +21,7 @@ class Grup_user extends CI_Controller
         $data['kelas'] = $this->kelas_model->viewall()->result();
         
 
+<<<<<<< HEAD
         $data['css']=array('css/datatables.min');
         $data['js']= array('js/datatables.min');
         $this->load->view('layouts/master',$data);
@@ -32,6 +33,17 @@ class Grup_user extends CI_Controller
         {
             redirect('/');
         }
+=======
+	public function index()
+	{
+		$data['main']='kelas/index';
+		$data['menu']=1;
+		$data['judul']='Data Kelas';
+		$data['css']=array('css/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
+		$this->load->view('layouts/master',$data);
+	}   
+>>>>>>> 64a3dd2560885312655746cc67d10c85e4877875
 
         $data['main']='kelas/view';
         $data['menu']=1;

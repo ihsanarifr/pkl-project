@@ -27,15 +27,14 @@
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('grup_user/update')?>" method="post"> 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama Grup</label>
+                    <form action="<?php echo site_url('unit/update')?>" method="post" class="form-horizontal"> 
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">unit</label>
                             <div class="col-sm-10">
                                 <input type="hidden" name="id" value="<?php echo $grup_user->id ?>">
                                 <input type="text" class="form-control" name="nama" placeholder="Nama Group" value="<?php echo $grup_user->nama ?>">
                             </div>
                         </div>
-                        <br><br>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">

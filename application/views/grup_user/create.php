@@ -27,7 +27,7 @@
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('grup_user/save')?>" method="post"> 
+                    <form action="<?php echo site_url('grup_user/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Grup</label>
                             <div class="col-sm-10">

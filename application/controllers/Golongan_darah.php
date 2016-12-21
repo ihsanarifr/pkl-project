@@ -18,7 +18,7 @@ class Golongan_darah extends CI_Controller
 		$data['menu']=1;
 		$data['judul']='Data Golongan Darah';
 		$data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min','jquery.dataTables','dataTables.tableTools','dataTables.bootstrap');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
 	}   
 
