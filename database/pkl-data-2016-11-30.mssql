@@ -1,0 +1,53 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 30, 2016 at 07:29 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `pkl`
+--
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'Administrator'),
+(2, 'members', 'General User'),
+(3, 'Pembimbing', 'Pembimbing');
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1480483564, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+(2, '127.0.0.1', 'siswa@gmail.com', '$2y$08$aV8.rc.1UzxkpLxl4x9HAeZHtw7/75qOsHJDwzXjbo7/O0s2vhSKS', NULL, 'siswa@gmail.com', NULL, NULL, NULL, NULL, 1480452665, 1480475897, 1, 'siswa', 'siswa', 'siswa', '085222828740'),
+(3, '127.0.0.1', 'pembimbing@gmail.com', '$2y$08$dNIbRJSDubhfsNquzD3VJ.zgTYHfrL6ID3Si38B2QOt7IsaTc9bQS', NULL, 'pembimbing@gmail.com', NULL, NULL, NULL, NULL, 1480452705, 1480475958, 1, 'Pembimbing', 'pembimbing', 'pembimbing', '085222828740');
+
+--
+-- Dumping data for table `users_groups`
+--
+
+INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 2),
+(5, 3, 3);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,7 +1,7 @@
 <div class="container">
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-    <h1>PKL Project</h1>
+    <h1>SIM PKL</h1>
     <p>Sistem Informasi Penerimaan Siswa PKL</p>
     <p>Institut Pertanian Bogor</p>
     <p>

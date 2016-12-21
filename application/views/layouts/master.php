@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PKL Project</title>
+    <title><?php echo $judul ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url() ?>assets/css/navbar-fixed-top.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/datatables.min.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -24,6 +25,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="<?php echo base_url()?>assets/js/jquery-1.12.3.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+    
     <?php if(isset($css))
     {
         for($i=0;$i<count($css);$i++)
@@ -71,11 +75,5 @@
     <div class="content">
         <?php $this->load->view($main) ?>
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
   </body>
 </html>
