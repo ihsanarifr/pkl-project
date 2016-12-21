@@ -11,131 +11,45 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4">
-                            <img class="thumbnail" src="<?php echo base_url()?>assets/images/sample.svg" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <table class="table table-striped">
-                                <tr>
-                                    <td width="200">Nama</td>
-                                    <td width="30">:</td>
-                                    <td>Nama Aslina</td>
-                                </tr>
-                                <tr>
-                                    <td width="100">Nama</td>
-                                    <td>:</td>
-                                    <td>Nama Aslina</td>
-                                </tr>
-                                <tr>
-                                    <td width="100">Nama</td>
-                                    <td>:</td>
-                                    <td>Nama Aslina</td>
-                                </tr>
-                                <tr>
-                                    <td width="100">Nama</td>
-                                    <td>:</td>
-                                    <td>Nama Aslina</td>
-                                </tr>
-                                <tr>
-                                    <td width="100">Nama</td>
-                                    <td>:</td>
-                                    <td>Nama Aslina</td>
-                                </tr>
-                                <tr>
-                                    <td width="100">Nama</td>
-                                    <td>:</td>
-                                    <td>Nama Aslina</td>
-                                </tr>
-                            </table>                            
-                        </div>
+                        <?php $this->load->view('data_siswa/profil')?>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a  href="#1" data-toggle="tab">Rencana Kegiatan</a></li>
-                                <li><a href="#2" data-toggle="tab">Absensi</a></li>
-                                <li><a href="#3" data-toggle="tab">Log Kegiatan</a></li>
-                                <li><a href="#4" data-toggle="tab">Penilaian</a></li>
-                            </ul>
-
-                            <div class="tab-content ">
-                                <div class="tab-pane active" id="1">
-                                    <br>
-                                    <table id="table1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Tanggal</th>
-                                                <th>Kegiatan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td><a href="#">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane" id="2">
-                                    <br>
-                                    <table id="table2" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Tanggal</th>
-                                                <th>Hari</th>
-                                                <th>Masuk</th>
-                                                <th>Pulang</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="#">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane" id="3">
-                                    <br>
-                                    <table id="table3" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Tanggal</th>
-                                                <th>Hari</th>
-                                                <th>Kegiatan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="#">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane" id="4">
-                                    <h3>Nilai Siswa</h3>
-                                </div>
-                            </div>
+                            <a href="<?php echo site_url('data_siswa/add_kegiatan')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Kegiatan Prakerin</a>
+                            <div class="clearfix"></div><br>
+                            <table id="table2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Tanggal Pelaksanaan</th>
+                                        <th>Unit</th>
+                                        <th>Pembimbing Sekolah</th>
+                                        <th>Pembimbing Unit</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="<?php echo site_url('data_siswa/detail_kegiatan/')?>/1">Tanggal Pelaksanan</a></td>
+                                        <td>a</td>
+                                        <td>a</td>
+                                        <td>a</td>
+                                        <td>
+                                            <a href="<?php echo site_url('data_siswa/edit_kegiatan')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                            <a href="<?php echo site_url('data_siswa/delete_kegiatan')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="<?php echo site_url('data_siswa/detail_kegiatan/')?>/1">Nama Orangnya</a></td>
+                                        <td>a</td>
+                                        <td>a</td>
+                                        <td>a</td>
+                                        <td>
+                                            <a href="<?php echo site_url('data_siswa/edit_kegiatan')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                            <a href="<?php echo site_url('data_siswa/delete_kegiatan')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
