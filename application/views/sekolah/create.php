@@ -31,19 +31,19 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Sekolah</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" nama="nama" placeholder="Nama Sekolah">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Sekolah">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Alamat</label>
+                            <label class="col-sm-2 control-label">Alamat Sekolah</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" nama="alamat" placeholder="Alamat Sekolah">
+                                <input type="text" class="form-control" name="alamat" placeholder="Alamat Sekolah">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Hp</label>
+                            <label class="col-sm-2 control-label">Nomor Telepon</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" nama="hp" placeholder="Hp">
+                                <input type="text" class="form-control" name="hp" placeholder="Nomor Telepon">
                             </div>
                         </div>
                         <div class="form-group">

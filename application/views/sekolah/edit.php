@@ -27,24 +27,24 @@
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('nama_sekolah/update')?>" method="post" class="form-horizontal"> 
+                    <form action="<?php echo site_url('sekolah/update')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Sekolah</label>
                             <div class="col-sm-10">
-                                <input type="hidden" nama="id" value="<?php echo $nama_sekolah->id ?>">
-                                <input type="text" class="form-control" nama="nama" placeholder="Nama sekolah" value="<?php echo $nama_sekolah->nama?>">
+                                <input type="hidden" name="id" value="<?php echo $sekolah->id ?>">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama sekolah" value="<?php echo $sekolah->nama?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Alamat</label>
+                            <label class="col-sm-2 control-label">Alamat Sekolah</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" nama="alamat" placeholder="Alamat" value="<?php echo $nama_sekolah->alamat?>">
+                                <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $sekolah->alamat?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Hp</label>
+                            <label class="col-sm-2 control-label">Nomor Telepon</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" nama="hp" placeholder="Hp" value="<?php echo $nama_sekolah->hp?>">
+                                <input type="text" class="form-control" name="hp" placeholder="Nomor Telepon" value="<?php echo $sekolah->hp?>">
                             </div>
                         </div>
                         <div class="form-group">
