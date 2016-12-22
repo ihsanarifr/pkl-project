@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Edit </a></li>
+            <li class="active"><a href="#">Edit Sekolah</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,18 +21,30 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Edit Sekolah
+                    Edit sekolah
                     </h3>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('nama_sekolah/update')?>" method="post" class="form-horizontal"> 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Sekolah</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="<?php echo $nama_sekolah->id ?>">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Sekolah" value="<?php echo $nama_sekolah->nama ?>">
+                                <input type="hidden" nama="id" value="<?php echo $nama_sekolah->id ?>">
+                                <input type="text" class="form-control" nama="nama" placeholder="Nama sekolah" value="<?php echo $nama_sekolah->nama?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Alamat</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" nama="alamat" placeholder="Alamat" value="<?php echo $nama_sekolah->alamat?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Hp</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" nama="hp" placeholder="Hp" value="<?php echo $nama_sekolah->hp?>">
                             </div>
                         </div>
                         <div class="form-group">

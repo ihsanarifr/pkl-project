@@ -15,7 +15,7 @@ class Sekolah extends CI_Controller
 	public function index()
 	{
 		$data['main']='sekolah/index';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Data Sekolah';
 
         $data['nama_sekolah'] = $this->sekolah_model->viewall()->result();
@@ -28,7 +28,7 @@ class Sekolah extends CI_Controller
     {
         if(empty($id))
         {
-            redirect('home');
+            redirect('/');
         }
 
         $data['main']='sekolah/view';
@@ -51,17 +51,20 @@ class Sekolah extends CI_Controller
     public function save()
     {
         $this->form_validation->set_rules('nama', 'Nama Sekolah', 'required');
-
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+         $this->form_validation->set_rules('hp', 'Hp', 'required');
 
         $data = array(
             'nama' => $this->input->post('nama'),
+            'alamat' => $this->input->post('alamat'),
+            'hp' => $this->input->post('hp'),
         );
 
         if ($this->form_validation->run() == FALSE)
         {
             $data['main']='sekolah/create';
             $data['menu']=1;
-            $data['judul']='Tambah Sekolah';
+            $data['judul']='Tambah sekolah';
             
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', validation_errors());
@@ -70,10 +73,9 @@ class Sekolah extends CI_Controller
         }
         else
         {
-            // memanggil fungsi di model grup_user_model
             $this->sekolah_model->save($data);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Simpan data Sekolah pengguna sudah selesai');
+            $this->session->set_flashdata('message', 'Simpan data unit pengguna sudah selesai');
             redirect('nama_sekolah');
         }
     }
@@ -95,12 +97,16 @@ class Sekolah extends CI_Controller
     }
 
     public function update()
-    {
-      $this->form_validation->set_rules('nama', 'Nama Grup', 'required');
+     {
+        $this->form_validation->set_rules('nama', 'Nama Sekolah', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+         $this->form_validation->set_rules('hp', 'Hp', 'required');
 
         $data = array(
             'id' => $this->input->post('id'),
             'nama' => $this->input->post('nama'),
+            'alamat' => $this->input->post('alamat'),
+             'hp' => $this->input->post('hp'),
         );
 
         if ($this->form_validation->run() == FALSE)
@@ -114,7 +120,7 @@ class Sekolah extends CI_Controller
         {
             $this->sekolah_model->update($data);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Ubah data sekolah pengguna sudah selesai');
+            $this->session->set_flashdata('message', 'Ubah data sekolah sudah selesai');
             redirect('nama_sekolah');
         }
     }

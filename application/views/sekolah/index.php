@@ -42,7 +42,8 @@
                         <?php foreach($nama_sekolah as $row) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $row->name ?></td>
+                            <td><?php echo $row->nama ?></td>
+                            <td><?php echo $row->hp ?></td>
                             <td>
                                 <a href="<?php echo site_url('sekolah/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit </a>
                                 <a href="<?php echo site_url('sekolah/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus </a>

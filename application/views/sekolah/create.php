@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Tambah sekolah</a></li>
+            <li class="active"><a href="#">Tambah Sekolah</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,24 +21,35 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Tambah sekolah
+                    Tambah Sekolah
                     </h3>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('nama_sekolah/save')?>" method="post" class="form-horizontal"> 
+                    <form action="<?php echo site_url('sekolah/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama sekolah</label>
+                            <label class="col-sm-2 control-label">Nama Sekolah</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama sekolah">
+                                <input type="text" class="form-control" nama="nama" placeholder="Nama Sekolah">
                             </div>
                         </div>
-                        <br><br>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Alamat</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" nama="alamat" placeholder="Alamat Sekolah">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Hp</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" nama="hp" placeholder="Hp">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan </button>
                             </div>
                         </div>
                     </form>
