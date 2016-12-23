@@ -21,8 +21,8 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Kelas
-                    </h3>
+                   Kelas                    
+                </h3>
                     <a href="<?php echo site_url('kelas/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Grup</a>
                     <div class="clearfix"></div>
                 </div>

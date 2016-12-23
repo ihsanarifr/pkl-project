@@ -2,7 +2,7 @@
 
 class kelas_model extends CI_Model
 {
-   public function viewall()
+    public function viewall()
     {
         return $this->db->get('kelas');
     }
@@ -28,5 +28,5 @@ class kelas_model extends CI_Model
     public function delete($id)
     {
         $this->db->delete('kelas',array('id'=>$id));
-    } 
+    }
 }

@@ -27,7 +27,7 @@
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('kelas/save')?>" method="post" class="form-horizontal"> 
+                    <form action="<?php echo site_url('kelas/save')?>" method="post"> 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Kelas</label>
                             <div class="col-sm-10">

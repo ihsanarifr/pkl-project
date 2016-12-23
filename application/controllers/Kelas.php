@@ -1,18 +1,18 @@
     <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kelas extends CI_Controller
+class Grup_user extends CI_Controller
 {
     function __construct(){
-    	parent::__construct();
-    	if($this->ion_auth->logged_in() != true){
-    		redirect('auth/login');
-    	}
+        parent::__construct();
+        if($this->ion_auth->logged_in() != true){
+            redirect('auth/login');
+        }
 
         $this->load->model('kelas_model');
-  	}
+    }
 
-	public function index()
+    public function index()
 	{
 		$data['main']='kelas/index';
 		$data['menu']=1;
@@ -25,21 +25,32 @@ class Kelas extends CI_Controller
 		$this->load->view('layouts/master',$data);
 	}   
 
-    
+    public function view($id)
+    {
+        if(empty($id))
+        {
+            redirect('/');
+        }
+        $data['main']='kelas/view';
+        $data['menu']=1;
+        $data['css']=array('css/datatables.min');
+        $data['js']= array('js/datatables.min');
+        $data['judul']='Lihat Siswa PKL';
+        $this->load->view('layouts/master',$data);
+    }
 
     public function add()
     {
+
         $data['main']='kelas/create';
-		$data['menu']=1;
-		$data['judul']='Tambah Kelas';
-		$this->load->view('layouts/master',$data);
+        $data['menu']=1;
+        $data['judul']='Tambah Kelas';
+        $this->load->view('layouts/master',$data);
     }
 
     public function save()
     {
         $this->form_validation->set_rules('nama', 'Kelas', 'required');
-
-
         $data = array(
             'nama' => $this->input->post('nama'),
         );
@@ -48,7 +59,7 @@ class Kelas extends CI_Controller
         {
             $data['main']='kelas/create';
             $data['menu']=1;
-            $data['judul']='Tambah Siswa PKL';
+            $data['judul']='Tambah Kelas';
             
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', validation_errors());
@@ -57,7 +68,6 @@ class Kelas extends CI_Controller
         }
         else
         {
-            // memanggil fungsi di model grup_user_model
             $this->kelas_model->save($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Simpan data kelas sudah selesai');
@@ -73,12 +83,11 @@ class Kelas extends CI_Controller
         }
 
         $data['main']='kelas/edit';
-		$data['menu']=1;
-		$data['judul']='Edit Kelas';
+        $data['menu']=1;
+        $data['judul']='Edit kelas';
 
         $data['kelas'] = $this->kelas_model->select_by_id($id)->row();
-		$this->load->view('layouts/master',$data);
-
+        $this->load->view('layouts/master',$data);
     }
 
     public function update()
