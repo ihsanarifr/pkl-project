@@ -1,4 +1,4 @@
-    <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kelas extends CI_Controller
@@ -13,19 +13,7 @@ class Kelas extends CI_Controller
     }
 
     public function index()
-<<<<<<< HEAD
     {
-        $data['main']='kelas/index';
-        $data['menu']=1;
-        $data['judul']='Data Kelas';
-        $data['css']=array('css/datatables.min');
-        $data['js']= array('js/datatables.min','jquery.dataTables','dataTables.tableTools','dataTables.bootstrap');
-        $this->load->view('layouts/master',$data);
-    }   
-
-    
-=======
-	{
 		$data['main']='kelas/index';
 		$data['menu']=1;
 		$data['judul']='Data Kelas';
@@ -50,7 +38,6 @@ class Kelas extends CI_Controller
         $data['judul']='Lihat Siswa PKL';
         $this->load->view('layouts/master',$data);
     }
->>>>>>> 3c56b0c45389af91ddcd2f2920255582ba8b12ba
 
     public function add()
     {
@@ -62,8 +49,6 @@ class Kelas extends CI_Controller
 
     public function save()
     {
-<<<<<<< HEAD
-=======
         $this->form_validation->set_rules('nama', 'Kelas', 'required');
         $data = array(
             'nama' => $this->input->post('nama'),
@@ -77,8 +62,15 @@ class Kelas extends CI_Controller
             
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', validation_errors());
->>>>>>> 3c56b0c45389af91ddcd2f2920255582ba8b12ba
-
+            $this->load->view('layouts/master',$data);
+        }
+        else
+        {
+            $this->kelas_model->save($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Simpan data kelas sudah selesai');
+            redirect('kelas');
+        }
     }
 
     public function edit($id)
@@ -87,37 +79,48 @@ class Kelas extends CI_Controller
         {
             redirect('home');
         }
-
         $data['main']='kelas/edit';
         $data['menu']=1;
-        $data['judul']='Edit Kelas';
+        $data['judul']='Edit kelas';
+        $data['kelas'] = $this->kelas_model->select_by_id($id)->row();
         $this->load->view('layouts/master',$data);
     }
 
     public function update()
     {
-<<<<<<< HEAD
-=======
         $this->form_validation->set_rules('nama', 'Kelas', 'required');
-
         $data = array(
             'id' => $this->input->post('id'),
             'nama' => $this->input->post('nama'),
         );
-
         if ($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', validation_errors());
->>>>>>> 3c56b0c45389af91ddcd2f2920255582ba8b12ba
-
+            return $this->edit($data['id']);
+        }
+        else
+        {
+            $this->kelas_model->update($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Ubah data kelas sudah selesai');
+            redirect('kelas');
+        }
     }
-
     public function delete($id)
     {
         if(empty($id))
         {
-            redirect('home');
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('kelas');
+        }
+        else
+        {
+            $this->kelas_model->delete($id);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Hapus data kelas sudah selesai');
+            redirect('kelas');   
         }
     }
 }
