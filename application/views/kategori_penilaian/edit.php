@@ -31,8 +31,8 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Penilaian</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama" value="">
+                                <input type="hidden" name="id" value="<?php echo $kategori_penilaian->id ?>">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?php echo $kategori_penilaian->nama?>">
                             </div>
                         </div>
                         <br><br>
