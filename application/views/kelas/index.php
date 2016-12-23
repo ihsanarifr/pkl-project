@@ -21,9 +21,9 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                   Kelas
-                    </h3>
-                    <a href="<?php echo site_url('kelas/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Grup</a>
+                   Kelas                    
+                </h3>
+                    <a href="<?php echo site_url('kelas/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Kelas</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -42,7 +42,7 @@
                         <?php foreach($kelas as $row) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $row->name ?></td>
+                            <td><?php echo $row->nama ?></td>
                             <td>
                                 <a href="<?php echo site_url('kelas/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a href="<?php echo site_url('kelas/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
