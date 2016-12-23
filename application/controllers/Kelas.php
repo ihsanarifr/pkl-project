@@ -1,4 +1,4 @@
-<?php
+    <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kelas extends CI_Controller
@@ -17,6 +17,9 @@ class Kelas extends CI_Controller
 		$data['main']='kelas/index';
 		$data['menu']=1;
 		$data['judul']='Data Kelas';
+
+        $data['kelas'] = $this->kelas_model->viewall()->result();
+
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
@@ -34,7 +37,32 @@ class Kelas extends CI_Controller
 
     public function save()
     {
+        $this->form_validation->set_rules('nama', 'Kelas', 'required');
 
+
+        $data = array(
+            'nama' => $this->input->post('nama'),
+        );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['main']='kelas/create';
+            $data['menu']=1;
+            $data['judul']='Tambah Siswa PKL';
+            
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', validation_errors());
+
+            $this->load->view('layouts/master',$data);
+        }
+        else
+        {
+            // memanggil fungsi di model grup_user_model
+            $this->kelas_model->save($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Simpan data kelas sudah selesai');
+            redirect('kelas');
+        }
     }
 
     public function edit($id)
@@ -47,20 +75,51 @@ class Kelas extends CI_Controller
         $data['main']='kelas/edit';
 		$data['menu']=1;
 		$data['judul']='Edit Kelas';
+
+        $data['kelas'] = $this->kelas_model->select_by_id($id)->row();
 		$this->load->view('layouts/master',$data);
 
     }
 
     public function update()
     {
+        $this->form_validation->set_rules('nama', 'Kelas', 'required');
 
+        $data = array(
+            'id' => $this->input->post('id'),
+            'nama' => $this->input->post('nama'),
+        );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', validation_errors());
+
+            return $this->edit($data['id']);
+        }
+        else
+        {
+            $this->kelas_model->update($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Ubah data kelas sudah selesai');
+            redirect('kelas');
+        }
     }
 
     public function delete($id)
     {
         if(empty($id))
         {
-            redirect('home');
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('kelas');
+        }
+        else
+        {
+            $this->kelas_model->delete($id);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Hapus data kelas sudah selesai');
+            redirect('kelas');   
         }
     }
 }
