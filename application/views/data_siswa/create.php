@@ -26,7 +26,11 @@
                             <label class="col-sm-2 control-label">Golongan Darah</label>
                             <div class="col-sm-4">
                                 <select name="gol_darah_id" id="" class="form-control">
+                                    <option value="">-</option>
                                     <option value="">A</option>
+                                    <option value="">B</option>
+                                    <option value="">AB</option>
+                                    <option value="">O</option>
                                 </select>
                             </div>
                         </div>
@@ -74,7 +78,12 @@
                             <label class="col-sm-2 control-label">Program keahlian</label>
                             <div class="col-sm-4">
                                 <select name="program_keahlian_id" id="" class="form-control">
-                                    <option value="">A</option>
+                                    <option value="">-</option>
+                                    <option value="">Multimedia</option>
+                                    <option value="">Rekayasa Perangkat Lunak</option>
+                                    <option value="">Administrasi Perkantoran</option>
+                                    <option value="">Teknik Komputer Jaringan</option>
+
                                 </select>
                             </div>
                         </div>
@@ -91,3 +100,11 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+    var table = $('#example').DataTable();
+    var tt = new $.fn.dataTable.TableTools( table );
+ 
+    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+} );
+</script>

@@ -48,7 +48,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><a href="#">Nama Orangnya</a></td>
+                                <td><a href="#">Nama Orangnyaas</a></td>
                                 <td>a</td>
                                 <td>a</td>
                                 <td>

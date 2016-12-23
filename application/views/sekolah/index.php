@@ -51,6 +51,7 @@
                                 <a href="<?php echo site_url('sekolah/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus </a>
                             </td>
                         </tr>
+                        
                         <?php
                         }
                         ?>

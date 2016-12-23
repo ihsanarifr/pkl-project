@@ -2,7 +2,7 @@
 
 class kelas_model extends CI_Model
 {
-  public function viewall()
+public function viewall()
     {
         return $this->db->get('kelas');
     }
@@ -10,7 +10,7 @@ class kelas_model extends CI_Model
     public function select_by_id($id)
     {
         $this->db->where('kelas.id',$id);
-        return $this->db->get('kelas');
+        return $this->db->get('groups');
     }
 
     public function save($data)
@@ -28,5 +28,5 @@ class kelas_model extends CI_Model
     public function delete($id)
     {
         $this->db->delete('kelas',array('id'=>$id));
-    }  
+    }    
 }

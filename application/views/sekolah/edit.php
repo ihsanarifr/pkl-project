@@ -47,6 +47,7 @@
                                 <input type="text" class="form-control" name="hp" placeholder="Nomor Telepon" value="<?php echo $sekolah->hp?>">
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">
