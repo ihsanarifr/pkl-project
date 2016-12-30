@@ -10,6 +10,11 @@ class Data_siswa extends CI_Controller
     	}
 
         $this->load->model('siswa_model');
+        $this->load->model('program_keahlian_model');
+        $this->load->model('sekolah_model');
+        $this->load->model('golongan_darah_model');
+      
+      
   	}
 
 	public function index()
@@ -17,6 +22,7 @@ class Data_siswa extends CI_Controller
 		$data['main']='data_siswa/index';
 		$data['menu']=1;
 		$data['judul']='Data Siswa PKL';
+         $data['siswa'] = $this->siswa_model->viewall()->result();
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
@@ -41,8 +47,64 @@ class Data_siswa extends CI_Controller
     {
         $data['main']='data_siswa/create';
 		$data['menu']=1;
+        $data['program_keahlian'] = $this->program_keahlian_model->viewall()->result();
+        $data['nama_sekolah'] = $this->sekolah_model->viewall()->result();
+        $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
+        
 		$data['judul']='Tambah Siswa PKL';
 		$this->load->view('layouts/master',$data);
+    }
+
+     public function save()
+    {
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nomor_induk', 'Nomor Induk', 'required');
+        $this->form_validation->set_rules('gol_darah_id', 'Golongan Darah', 'required');
+        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('ayah', 'Nama Ayah', 'required');
+        $this->form_validation->set_rules('ibu', 'Ibu', 'required');
+        $this->form_validation->set_rules('kabkot', 'Kabupaten/Kota', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('sekolah_id', 'Nama Sekolah', 'required');
+        $this->form_validation->set_rules('program_keahlian_id', 'Program keahlian', 'required');
+
+
+        $data = array(
+            'nama' => $this->input->post('nama'),
+            'nomor_induk' => $this->input->post('nomor_induk'),
+            'gol_darah_id' => $this->input->post('gol_darah_id'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'ayah' => $this->input->post('ayah'),
+            'ibu' => $this->input->post('ibu'),
+            'kabkot' => $this->input->post('kabkot'),
+            'alamat' => $this->input->post('alamat'),
+            'sekolah_id' => $this->input->post('sekolah_id'),
+            'program_keahlian_id' => $this->input->post('program_keahlian_id'),
+            
+            
+        );
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['main']='data_siswa/create';
+            $data['menu']=1;
+            $data['judul']='Tambah siswa';
+            $data['program_keahlian'] = $this->program_keahlian_model->viewall()->result();
+            $data['nama_sekolah'] = $this->sekolah_model->viewall()->result();
+            $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
+         
+            
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', validation_errors());
+
+            $this->load->view('layouts/master',$data);
+        }
+        else
+        {
+            $this->sekolah_model->save($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Simpan data unit pengguna sudah selesai');
+            redirect('siswa');
+        }
     }
 
     public function edit($id)
@@ -54,6 +116,9 @@ class Data_siswa extends CI_Controller
 
         $data['main']='data_siswa/edit';
 		$data['menu']=1;
+        $data['program_keahlian'] = $this->program_keahlian_model->viewall()->result();
+        $data['nama_sekolah'] = $this->sekolah_model->viewall()->result();
+        $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
 		$data['judul']='Edit Siswa PKL';
 		$this->load->view('layouts/master',$data);
 
@@ -61,14 +126,60 @@ class Data_siswa extends CI_Controller
 
     public function update()
     {
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nomor_induk', 'Nomor Induk', 'required');
+        $this->form_validation->set_rules('gol_darah_id', 'Golongan Darah', 'required');
+        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('ayah', 'Nama Ayah', 'required');
+        $this->form_validation->set_rules('ibu', 'Ibu', 'required');
+        $this->form_validation->set_rules('kabkot', 'Kabupaten/Kota', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('sekolah_id', 'Nama Sekolah', 'required');
+        $this->form_validation->set_rules('program_keahlian_id', 'Program keahlian', 'required');
 
+        $data = array(
+             'nama' => $this->input->post('nama'),
+            'nomor_induk' => $this->input->post('nomor_induk'),
+            'gol_darah_id' => $this->input->post('gol_darah_id'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'ayah' => $this->input->post('ayah'),
+            'ibu' => $this->input->post('ibu'),
+            'kabkot' => $this->input->post('kabkot'),
+            'alamat' => $this->input->post('alamat'),
+            'sekolah_id' => $this->input->post('sekolah_id'),
+            'program_keahlian_id' => $this->input->post('program_keahlian_id'),
+        );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', validation_errors());
+
+            return $this->edit($data['id']);
+        }
+        else
+        {
+            $this->siswa_model->update($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Ubah data sekolah sudah selesai');
+            redirect('siswa');
+        }
     }
 
     public function delete($id)
     {
         if(empty($id))
         {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
             redirect('home');
+        }
+        else
+        {
+            $this->sekolah_model->delete($id);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Hapus data grup pengguna sudah selesai');
+            redirect('siswa');   
         }
     }
 

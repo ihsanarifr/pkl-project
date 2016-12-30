@@ -24,7 +24,7 @@
                     Data Siswa
                     </h3>
 
-                    <a href="<?php echo site_url('data_siswa/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Mahasiswa</a>
+                    <a href="<?php echo site_url('data_siswa/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Siswa</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
