@@ -28,4 +28,5 @@ class Golongan_darah_model extends CI_Model
     public function delete($id)
     {
         $this->db->delete('gol_darah',array('id'=>$id)); 
+    }
 }
