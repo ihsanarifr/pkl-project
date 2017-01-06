@@ -9,12 +9,12 @@ class Permasalahan extends CI_Controller
     		redirect('auth/login');
     	}
 
-        $this->load->model('permasalah_model');
+        $this->load->model('permasalahan_model');
   	}
 
 	public function index()
 	{
-		$data['main']='permasalah/index';
+		$data['main']='permasalahan/index';
 		$data['menu']=1;
 		$data['judul']='Data Rencana Kegiatan';
 		$data['css']=array('css/datatables.min');

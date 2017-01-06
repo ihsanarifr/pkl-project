@@ -47,6 +47,8 @@
                                 <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $unit->alamat?>">
                             </div>
                         </div>
+        
+                   
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">

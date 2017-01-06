@@ -35,6 +35,31 @@
                             </div>
                         </div>
                         <br><br>
+                            <label class="col-sm-2 control-label">Uraian Kegiatan</label>
+                            <div class="col-sm-10">
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="uraian_kegiatan" placeholder="Uraian Kegiatan" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tanggal Mulai</label>
+                            <div class="col-sm-4">
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="tanggal_mulai" placeholder="Tanggal Mulai" value="">
+                            </div>
+                            <label class="col-sm-2 control-label">Tanggal Selesai</label>
+                            <div class="col-sm-4">
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="tanggal_selesai" placeholder="Tanggal Selesai" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Keterangan</label>
+                            <div class="col-sm-10">
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="keterangan" placeholder="Keterangan" value="">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">
