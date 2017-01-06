@@ -36,6 +36,7 @@
                             <th width="10px">No</th>
                             <th>Nama Sekolah</th>
                             <th> Nomor Telepon </th>
+                            <th>Alamat</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -46,11 +47,15 @@
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $row->nama ?></td>
                             <td><?php echo $row->hp ?></td>
+                            <td><?php echo $row->alamat ?></td>
+
+
                             <td>
                                 <a href="<?php echo site_url('sekolah/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit </a> &nbsp
                                 <a href="<?php echo site_url('sekolah/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus </a>
                             </td>
                         </tr>
+                        
                         <?php
                         }
                         ?>

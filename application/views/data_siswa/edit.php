@@ -26,7 +26,10 @@
                             <label class="col-sm-2 control-label">Golongan Darah</label>
                             <div class="col-sm-4">
                                 <select name="gol_darah_id" id="" class="form-control">
-                                    <option value="">A</option>
+                                    <option value="">-</option>
+                                    <?php foreach($gol_darah as $row){?>
+                                        <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
@@ -67,14 +70,21 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Sekolah</label>
                             <div class="col-sm-4">
-                                <select name="sekolah_id" id="" class="form-control">
-                                    <option value="">A</option>
+                                 <select name="sekolah_id" id="" class="form-control">
+                                    <option value="">-</option>
+                                    <?php foreach($nama_sekolah as $row){?>
+                                        <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <label class="col-sm-2 control-label">Program keahlian</label>
                             <div class="col-sm-4">
                                 <select name="program_keahlian_id" id="" class="form-control">
-                                    <option value="">A</option>
+                                    <option value="">-</option>
+                                     <?php foreach($program_keahlian as $row){?>
+                                        <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
+                                    <?php } ?>
+                                    
                                 </select>
                             </div>
                         </div>

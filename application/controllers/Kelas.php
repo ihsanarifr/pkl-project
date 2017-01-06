@@ -1,4 +1,4 @@
-    <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kelas extends CI_Controller
@@ -13,7 +13,7 @@ class Kelas extends CI_Controller
     }
 
     public function index()
-	{
+    {
 		$data['main']='kelas/index';
 		$data['menu']=1;
 		$data['judul']='Data Kelas';
@@ -41,7 +41,6 @@ class Kelas extends CI_Controller
 
     public function add()
     {
-
         $data['main']='kelas/create';
         $data['menu']=1;
         $data['judul']='Tambah Kelas';
@@ -63,7 +62,6 @@ class Kelas extends CI_Controller
             
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', validation_errors());
-
             $this->load->view('layouts/master',$data);
         }
         else
@@ -81,11 +79,9 @@ class Kelas extends CI_Controller
         {
             redirect('home');
         }
-
         $data['main']='kelas/edit';
         $data['menu']=1;
         $data['judul']='Edit kelas';
-
         $data['kelas'] = $this->kelas_model->select_by_id($id)->row();
         $this->load->view('layouts/master',$data);
     }
@@ -93,17 +89,14 @@ class Kelas extends CI_Controller
     public function update()
     {
         $this->form_validation->set_rules('nama', 'Kelas', 'required');
-
         $data = array(
             'id' => $this->input->post('id'),
             'nama' => $this->input->post('nama'),
         );
-
         if ($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', validation_errors());
-
             return $this->edit($data['id']);
         }
         else
@@ -114,7 +107,6 @@ class Kelas extends CI_Controller
             redirect('kelas');
         }
     }
-
     public function delete($id)
     {
         if(empty($id))
