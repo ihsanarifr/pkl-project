@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Data Grup Pengguna</a></li>
+            <li class="active"><a href="#">Data Rencana Kegiatan</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,7 +21,7 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Grup Pengguna
+                    Rencana Kegiatan
                     </h3>
                     <a href="<?php echo site_url('rencana_kegiatan/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Rencana Kegiatan</a>
                     <div class="clearfix"></div>
@@ -33,19 +33,24 @@
                     <thead>
                         <tr>
                             <th width="10px">No</th>
-                            <th>Nama Group</th>
+                            <th>Nama Rencana</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach($rencana_kegiatan as $row) {?>
                         <tr>
-                            <td>a</td>
-                            <td>a</td>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $row->name ?></td>
                             <td>
-                                <a href="<?php echo site_url('grup_user/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('grup_user/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('rencana_kegiatan/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a href="<?php echo site_url('rencana_kegiatan/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                 </div>
