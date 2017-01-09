@@ -22,7 +22,7 @@ class Data_siswa extends CI_Controller
 		$data['main']='data_siswa/index';
 		$data['menu']=1;
 		$data['judul']='Data Siswa PKL';
-         $data['siswa'] = $this->siswa_model->viewall()->result();
+        $data['siswa'] = $this->siswa_model->viewall();
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
@@ -38,6 +38,7 @@ class Data_siswa extends CI_Controller
         $data['main']='data_siswa/view';
 		$data['menu']=1;
         $data['css']=array('css/datatables.min');
+        $data['siswa']= $this->siswa_model->siswa_detail_by_id($id);
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$data['judul']='Lihat Siswa PKL';
 		$this->load->view('layouts/master',$data);
