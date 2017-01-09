@@ -22,7 +22,7 @@ class Data_siswa extends CI_Controller
 		$data['main']='data_siswa/index';
 		$data['menu']=1;
 		$data['judul']='Data Siswa PKL';
-         $data['siswa'] = $this->siswa_model->viewall()->result();
+        $data['siswa'] = $this->siswa_model->viewall();
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
@@ -38,6 +38,7 @@ class Data_siswa extends CI_Controller
         $data['main']='data_siswa/view';
 		$data['menu']=1;
         $data['css']=array('css/datatables.min');
+        $data['siswa']= $this->siswa_model->siswa_detail_by_id($id);
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$data['judul']='Lihat Siswa PKL';
 		$this->load->view('layouts/master',$data);
@@ -202,4 +203,41 @@ class Data_siswa extends CI_Controller
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);   
     }
+
+    public function lihat()
+    {
+        $sql = "select u.*,s.*,ur.id id_dari_tabel_user,ug.user_id,ug.group_id from users u join users_groups ug on u.id=ug.user_id join user ur on ur.id=u.id join siswa s on s.id=u.id where ug.group_id=2";
+        $query = $this->db->query($sql);
+        echo "<pre>";
+        print_r($query->result());
+    }
+    
+
+    public function insert()
+    {
+        $data = array(
+            'unit_id'=>5,
+            'kelas_id'=>18,
+            'tanggal_mulai'=>'2017-01-01',
+            'tanggal_selesai'=>'2017-02-01',
+            'jabatan_pembimbing'=>'kepala direktorat',
+            'siswa_id'=>2
+        );
+      
+        $data3 = array(
+           'unit_id'=>5,
+            'kelas_id'=>18,
+            'tanggal_mulai'=>'2016-01-01',
+            'tanggal_selesai'=>'2016-02-01',
+            'jabatan_pembimbing'=>'kepala direktorat',
+            'siswa_id'=>2
+        );
+        
+
+        $this->db->insert('prakerin_siswa',$data);
+        $this->db->insert('prakerin_siswa',$data3);
+        echo "success";
+    }
+
+    
 }
