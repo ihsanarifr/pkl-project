@@ -13,8 +13,7 @@ class Data_siswa extends CI_Controller
         $this->load->model('program_keahlian_model');
         $this->load->model('sekolah_model');
         $this->load->model('golongan_darah_model');
-      
-      
+        //$this->load->model('grup_user_model');
   	}
 
 	public function index()
@@ -50,6 +49,7 @@ class Data_siswa extends CI_Controller
         $data['program_keahlian'] = $this->program_keahlian_model->viewall()->result();
         $data['nama_sekolah'] = $this->sekolah_model->viewall()->result();
         $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
+        //$data['groups'] = $this->grup_user_model->viewall()->result();
         
 		$data['judul']='Tambah Siswa PKL';
 		$this->load->view('layouts/master',$data);
@@ -68,21 +68,6 @@ class Data_siswa extends CI_Controller
         $this->form_validation->set_rules('sekolah_id', 'Nama Sekolah', 'required');
         $this->form_validation->set_rules('program_keahlian_id', 'Program keahlian', 'required');
 
-
-        $data = array(
-            'nama' => $this->input->post('nama'),
-            'nomor_induk' => $this->input->post('nomor_induk'),
-            'gol_darah_id' => $this->input->post('gol_darah_id'),
-            'tempat_lahir' => $this->input->post('tempat_lahir'),
-            'ayah' => $this->input->post('ayah'),
-            'ibu' => $this->input->post('ibu'),
-            'kabkot' => $this->input->post('kabkot'),
-            'alamat' => $this->input->post('alamat'),
-            'sekolah_id' => $this->input->post('sekolah_id'),
-            'program_keahlian_id' => $this->input->post('program_keahlian_id'),
-            
-            
-        );
         if ($this->form_validation->run() == FALSE)
         {
             $data['main']='data_siswa/create';
@@ -91,6 +76,7 @@ class Data_siswa extends CI_Controller
             $data['program_keahlian'] = $this->program_keahlian_model->viewall()->result();
             $data['nama_sekolah'] = $this->sekolah_model->viewall()->result();
             $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
+            //$data['groups'] = $this->grup_user_model->viewall()->result();
          
             
             $this->session->set_flashdata('status','danger');
@@ -100,10 +86,51 @@ class Data_siswa extends CI_Controller
         }
         else
         {
-            $this->sekolah_model->save($data);
-            $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Simpan data unit pengguna sudah selesai');
-            redirect('siswa');
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            $email = $this->input->post('username');
+            $additional_data = array(
+                'first_name' => $this->input->post('nama'),
+            );
+            $group = array('2'); // Sets user to admin.
+
+            if ($this->ion_auth->register($username, $password, $email, $additional_data, $group))
+            {
+                $messages = $this->ion_auth->messages();
+                echo $messages;
+
+                $data = array(
+                    'id'=> $this->siswa_model->last_user_id(),
+                    'nama' => $this->input->post('nama'),
+                    'nomor_induk' => $this->input->post('nomor_induk'),
+                    'gol_darah_id' => $this->input->post('gol_darah_id'),
+                    'tempat_lahir' => $this->input->post('tempat_lahir'),
+                    'ayah' => $this->input->post('ayah'),
+                    'ibu' => $this->input->post('ibu'),
+                    'kabkot' => $this->input->post('kabkot'),
+                    'alamat' => $this->input->post('alamat'),
+                    'nama_sekolah_id' => $this->input->post('sekolah_id'),
+                    'program_keahlian_id' => $this->input->post('program_keahlian_id'),
+                );
+
+                $data_user = array(
+                    'id' => $this->siswa_model->last_user_id(),
+                   'username' =>$this->input->post('username'),
+                    'password' => $this->input->post('password'),
+                    'jenis_user_id'=> 2,
+                );
+
+                $this->siswa_model->save_user($data_user);
+                $this->siswa_model->save($data);
+                $this->session->set_flashdata('status','success');
+                $this->session->set_flashdata('message', 'Simpan data siswa pengguna sudah selesai');
+            }
+            else
+            {
+                $this->session->set_flashdata('status','danger');
+                $this->session->set_flashdata('message',  $this->ion_auth->errors());
+            }
+            redirect('data_siswa');
         }
     }
 
@@ -121,7 +148,6 @@ class Data_siswa extends CI_Controller
         $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
 		$data['judul']='Edit Siswa PKL';
 		$this->load->view('layouts/master',$data);
-
     }
 
     public function update()
@@ -162,7 +188,7 @@ class Data_siswa extends CI_Controller
             $this->siswa_model->update($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Ubah data sekolah sudah selesai');
-            redirect('siswa');
+            redirect('data_siswa');
         }
     }
 
@@ -179,7 +205,7 @@ class Data_siswa extends CI_Controller
             $this->sekolah_model->delete($id);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Hapus data grup pengguna sudah selesai');
-            redirect('siswa');   
+            redirect('data_siswa');   
         }
     }
 
@@ -201,5 +227,10 @@ class Data_siswa extends CI_Controller
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);   
+    }
+
+    public function example()
+    {
+        echo $this->siswa_model->last_user_id();
     }
 }

@@ -1,8 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Siswa_model extends CI_Model
+class siswa_model extends CI_Model
 {
-   public function viewall()
+    public function viewall()
     {
         return $this->db->get('siswa');
     }
@@ -10,7 +10,7 @@ class Siswa_model extends CI_Model
     public function select_by_id($id)
     {
         $this->db->where('siswa.id',$id);
-        return $this->db->get('unit');
+        return $this->db->get('siswa');
     }
 
     public function save($data)
@@ -28,5 +28,15 @@ class Siswa_model extends CI_Model
     public function delete($id)
     {
         $this->db->delete('siswa',array('id'=>$id));
-    } 
+    }
+
+    public function last_user_id()
+    {
+       return $this->db->get('users')->last_row()->id;
+    }
+    
+    public function save_user($data)
+    {
+       $this->db->insert('user',$data);  
+    }
 }

@@ -12,6 +12,18 @@
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('data_siswa/update')?>" method="post" class="form-horizontal"> 
+                    <div class="form-group">
+                            <label class="col-sm-2 control-label">Usename</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="username" placeholder="username">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama</label>
                             <div class="col-sm-10">
@@ -25,8 +37,9 @@
                             </div>
                             <label class="col-sm-2 control-label">Golongan Darah</label>
                             <div class="col-sm-4">
-                                <select name="gol_darah_id" id="" class="form-control">
-                                    <option value="">-</option>
+                              <select name="gol_darah_id" id="" class="form-control">
+                                    <option value=""> - </option>
+                                    
                                     <?php foreach($gol_darah as $row){?>
                                         <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
                                     <?php } ?>
@@ -70,25 +83,23 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Sekolah</label>
                             <div class="col-sm-4">
-                                 <select name="sekolah_id" id="" class="form-control">
+                                <select name="sekolah_id" id="" class="form-control">
                                     <option value="">-</option>
                                     <?php foreach($nama_sekolah as $row){?>
                                         <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
-                            <label class="col-sm-2 control-label">Program keahlian</label>
+                            <label class="col-sm-2 control-label">Program keahlian</label> 
                             <div class="col-sm-4">
                                 <select name="program_keahlian_id" id="" class="form-control">
                                     <option value="">-</option>
-                                     <?php foreach($program_keahlian as $row){?>
+                                    <?php foreach($program_keahlian as $row){?>
                                         <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
                                     <?php } ?>
-                                    
                                 </select>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">

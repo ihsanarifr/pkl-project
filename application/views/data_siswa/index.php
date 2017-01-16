@@ -28,6 +28,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
+                    <?php $this->load->view('layouts/alert')?>
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -38,8 +39,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                        
                             <tr>
                                 <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
+                                 <td>sekolah</td>
+                                <td>a</td>
+                                <td>
+                                    <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                    <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">Nama Orangnyaa</a></td>
                                 <td>a</td>
                                 <td>a</td>
                                 <td>
@@ -48,20 +59,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><a href="#">Nama Orangnyaas</a></td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>
-                                    <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                    <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td><a href="#">Nama Orangnya</a></td>
                                 <td>a</td>
                                 <td>a</td>
                                 <td>
-                                    <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                     <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                     <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                 </td>
                             </tr>
