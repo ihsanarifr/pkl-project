@@ -34,11 +34,12 @@
                             <tr>
                                 <th>NIS - Nama</th>
                                 <th>Sekolah</th>
-                                <th>Pembimbing</th>
+                                <th>Program Keahlian</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                         
                             <tr>
                                 <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
@@ -65,8 +66,25 @@
                                 <td>
                                      <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                     <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+=======
+                            <?php
+                            foreach($siswa as $si)
+                            {
+                            ?>
+                            <tr>
+                                <td><a href="<?php echo site_url('data_siswa/view')?>/<?php echo $si->id ?>"><?php echo $si->nama?></a></td>
+                                <td><?php echo $si->nama_sekolah?></td>
+                                <td><?php echo $si->nama_program_keahlian?></td>
+                                <td>
+                                    <a href="<?php echo site_url('data_siswa/edit')?>/<?php echo $si->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                    <a href="<?php echo site_url('data_siswa/delete')?>/<?php echo $si->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    <a href="<?php echo site_url('data_siswa/change_password')?>/<?php echo $si->id ?>" class="label label-info"><i class="glyphicon glyphicon-lock"></i> Ganti Password</a>
+>>>>>>> 5256a444e7724348dad1bcdf11e9bada7e116ce0
                                 </td>
                             </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
