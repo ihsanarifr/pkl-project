@@ -9,7 +9,7 @@ class siswa_model extends CI_Model
                 join siswa s on s.id=u.id
                 join nama_sekolah ns on ns.id=s.nama_sekolah_id
                 join program_keahlian pk on pk.id=s.program_keahlian_id
-                where u.id=2');
+                where u.jenis_user_id=2');
         return $query->result();
     }
 
@@ -36,7 +36,6 @@ class siswa_model extends CI_Model
         $this->db->delete('siswa',array('id'=>$id));
     }
 
-<<<<<<< HEAD
     public function last_user_id()
     {
        return $this->db->get('users')->last_row()->id;
@@ -46,7 +45,6 @@ class siswa_model extends CI_Model
     {
        $this->db->insert('user',$data);  
     }
-=======
     public function siswa_detail_by_id($id)
     {
         $query = $this->db->query('select s.*,ns.nama nama_sekolah,pk.nama nama_program_keahlian,go.nama nama_golongan_darah, jk.nama nama_jenis_kelamin
@@ -60,5 +58,4 @@ class siswa_model extends CI_Model
                 where u.id=2');
         return $query->row();
     } 
->>>>>>> 5256a444e7724348dad1bcdf11e9bada7e116ce0
 }

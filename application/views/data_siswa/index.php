@@ -39,34 +39,6 @@
                             </tr>
                         </thead>
                         <tbody>
-<<<<<<< HEAD
-                        
-                            <tr>
-                                <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                                 <td>sekolah</td>
-                                <td>a</td>
-                                <td>
-                                    <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                    <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Nama Orangnyaa</a></td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>
-                                    <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                    <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Nama Orangnya</a></td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>
-                                     <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                    <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-=======
                             <?php
                             foreach($siswa as $si)
                             {
@@ -79,7 +51,6 @@
                                     <a href="<?php echo site_url('data_siswa/edit')?>/<?php echo $si->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                     <a href="<?php echo site_url('data_siswa/delete')?>/<?php echo $si->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                     <a href="<?php echo site_url('data_siswa/change_password')?>/<?php echo $si->id ?>" class="label label-info"><i class="glyphicon glyphicon-lock"></i> Ganti Password</a>
->>>>>>> 5256a444e7724348dad1bcdf11e9bada7e116ce0
                                 </td>
                             </tr>
                             <?php

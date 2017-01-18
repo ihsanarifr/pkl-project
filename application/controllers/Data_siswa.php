@@ -230,12 +230,6 @@ class Data_siswa extends CI_Controller
 		$this->load->view('layouts/master',$data);   
     }
 
-<<<<<<< HEAD
-    public function example()
-    {
-        echo $this->siswa_model->last_user_id();
-    }
-=======
     public function lihat()
     {
         $sql = "select u.*,s.*,ur.id id_dari_tabel_user,ug.user_id,ug.group_id from users u join users_groups ug on u.id=ug.user_id join user ur on ur.id=u.id join siswa s on s.id=u.id where ug.group_id=2";
@@ -243,34 +237,4 @@ class Data_siswa extends CI_Controller
         echo "<pre>";
         print_r($query->result());
     }
-    
-
-    public function insert()
-    {
-        $data = array(
-            'unit_id'=>5,
-            'kelas_id'=>18,
-            'tanggal_mulai'=>'2017-01-01',
-            'tanggal_selesai'=>'2017-02-01',
-            'jabatan_pembimbing'=>'kepala direktorat',
-            'siswa_id'=>2
-        );
-      
-        $data3 = array(
-           'unit_id'=>5,
-            'kelas_id'=>18,
-            'tanggal_mulai'=>'2016-01-01',
-            'tanggal_selesai'=>'2016-02-01',
-            'jabatan_pembimbing'=>'kepala direktorat',
-            'siswa_id'=>2
-        );
-        
-
-        $this->db->insert('prakerin_siswa',$data);
-        $this->db->insert('prakerin_siswa',$data3);
-        echo "success";
-    }
-
-    
->>>>>>> 5256a444e7724348dad1bcdf11e9bada7e116ce0
 }
