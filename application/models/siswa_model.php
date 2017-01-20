@@ -22,6 +22,7 @@ class siswa_model extends CI_Model
     public function save($data)
     {
         $this->db->insert('siswa',$data);
+        
     }
 
     public function update($data)
@@ -47,15 +48,15 @@ class siswa_model extends CI_Model
     }
     public function siswa_detail_by_id($id)
     {
-        $query = $this->db->query('select s.*,ns.nama nama_sekolah,pk.nama nama_program_keahlian,go.nama nama_golongan_darah, jk.nama nama_jenis_kelamin
-                from user u
-                join users us on us.id=u.id
-                join siswa s on s.id=u.id
-                join nama_sekolah ns on ns.id=s.nama_sekolah_id
-                join program_keahlian pk on pk.id=s.program_keahlian_id
-                join gol_darah go on go.id=s.gol_darah_id
-                join jenis_kelamin jk on jk.id=s.jenis_kelamin_id
-                where u.id=2');
+        $query = $this->db->query("select s.*,ns.nama nama_sekolah,pk.nama nama_program_keahlian,go.nama nama_golongan_darah, jk.nama nama_jenis_kelamin
+                    from user u
+                    left join users us on us.id=u.id
+                    left join siswa s on s.id=u.id
+                    left outer join nama_sekolah ns on ns.id=s.nama_sekolah_id
+                    left outer join program_keahlian pk on pk.id=s.program_keahlian_id
+                    left outer join gol_darah go on go.id=s.gol_darah_id
+                    left outer join jenis_kelamin jk on jk.id=s.jenis_kelamin_id
+                    where u.id=$id");
         return $query->row();
     } 
 }

@@ -139,7 +139,9 @@ class Data_siswa extends CI_Controller
     {
         if(empty($id))
         {
-            redirect('home');
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('data_siswa');
         }
 
         $data['main']='data_siswa/edit';
@@ -147,6 +149,8 @@ class Data_siswa extends CI_Controller
         $data['program_keahlian'] = $this->program_keahlian_model->viewall()->result();
         $data['nama_sekolah'] = $this->sekolah_model->viewall()->result();
         $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
+         $data['siswa'] = $this->siswa_model->select_by_id($id)->row();
+
 		$data['judul']='Edit Siswa PKL';
 		$this->load->view('layouts/master',$data);
     }
@@ -165,7 +169,8 @@ class Data_siswa extends CI_Controller
         $this->form_validation->set_rules('program_keahlian_id', 'Program keahlian', 'required');
 
         $data = array(
-             'nama' => $this->input->post('nama'),
+            'id' => $this->input->post('id'),
+            'nama' => $this->input->post('nama'),
             'nomor_induk' => $this->input->post('nomor_induk'),
             'gol_darah_id' => $this->input->post('gol_darah_id'),
             'tempat_lahir' => $this->input->post('tempat_lahir'),
@@ -173,7 +178,7 @@ class Data_siswa extends CI_Controller
             'ibu' => $this->input->post('ibu'),
             'kabkot' => $this->input->post('kabkot'),
             'alamat' => $this->input->post('alamat'),
-            'sekolah_id' => $this->input->post('sekolah_id'),
+            'nama_sekolah_id' => $this->input->post('sekolah_id'),
             'program_keahlian_id' => $this->input->post('program_keahlian_id'),
         );
 
@@ -206,6 +211,7 @@ class Data_siswa extends CI_Controller
             $this->sekolah_model->delete($id);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Hapus data grup pengguna sudah selesai');
+            $this->db->delete('siswa',array('id'=>$id));
             redirect('data_siswa');   
         }
     }
