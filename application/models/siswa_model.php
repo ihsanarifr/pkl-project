@@ -59,4 +59,49 @@ class siswa_model extends CI_Model
                     where u.id=$id");
         return $query->row();
     } 
+
+    public function save_kegiatan_prakerin($data)
+    {
+        $this->db->insert('prakerin_siswa',$data);
+        
+    }
+
+    public function siswa_sedang_berlangsung(){
+        $query = $this->db->query("select prak.id, s.nama, s.nomor_induk, nms.nama as sekolah, ps.nama as pembimbing, prak.tanggal_mulai , prak.tanggal_selesai
+            from siswa s
+            left outer join nama_sekolah nms on s.nama_sekolah_id = nms.id
+            left outer join pembimbing_sekolah ps on ps.nama_sekolah_id = nms.id
+            left outer join prakerin_siswa prak on prak.siswa_id = s.id
+            where NOW() >= prak.tanggal_mulai AND NOW() <= prak.tanggal_selesai");
+        return $query->result();
+    }
+
+    public function siswa_selesai(){
+        $query = $this->db->query("select prak.id, s.nama, s.nomor_induk, nms.nama as sekolah, ps.nama as pembimbing, prak.tanggal_mulai , prak.tanggal_selesai
+            from siswa s
+            left outer join nama_sekolah nms on s.nama_sekolah_id = nms.id
+            left outer join pembimbing_sekolah ps on ps.nama_sekolah_id = nms.id
+            left outer join prakerin_siswa prak on prak.siswa_id = s.id
+            where (NOW() >= prak.tanggal_selesai)");
+        return $query->result();
+    }
+
+    public function kegiatan_siswa_update($data)
+    {
+        $id = $data['id'];
+        $this->db->where('id',$id);
+        $this->db->update('prakerin_siswa',$data);
+    }
+
+    public function get_data_by_id($id){
+        $query = $this->db->query("select prak.id, s.id id_siswa, prak.unit_id id_unit, prak.pembimbing_unit_id, prak.pembimbing_sekolah_id, prak.tanggal_mulai, prak.tanggal_selesai, prak.kelas_id id_kelas, prak.jabatan_pembimbing, prak.jabatan_pembimbing_sekolah
+            from siswa s
+            left outer join nama_sekolah nms on s.nama_sekolah_id = nms.id
+            left outer join pembimbing_sekolah ps on ps.nama_sekolah_id = nms.id
+            left outer join prakerin_siswa prak on prak.siswa_id = s.id
+            where prak.id = $id");
+        return $query->row();
+    }
+
+    
 }

@@ -13,6 +13,11 @@ class Data_siswa extends CI_Controller
         $this->load->model('program_keahlian_model');
         $this->load->model('sekolah_model');
         $this->load->model('golongan_darah_model');
+       
+        $this->load->model('unit_model');
+        $this->load->model('kelas_model');
+        $this->load->model('Pembimbing_unit_model');
+        $this->load->model('Pembimbing_sekolah_model');
         //$this->load->model('grup_user_model');
   	}
 
@@ -221,9 +226,167 @@ class Data_siswa extends CI_Controller
         $data['main']='data_siswa/kegiatan_siswa';
 		$data['menu']=1;
 		$data['judul']='Data Kegiatan Siswa PKL';
+        $data['siswa_sedang_berlangsung'] = $this->siswa_model->siswa_sedang_berlangsung();
+        $data['siswa_selesai'] = $this->siswa_model->siswa_selesai();
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
+    }
+
+    public function kegiatan_siswa_view($id)
+    {
+        if(empty($id))
+        {
+            redirect('/');
+        }
+
+        $data['main']='data_siswa/kegiatan_siswa_view';
+        $data['menu']=1;
+        $data['css']=array('css/datatables.min');
+        $data['siswa']= $this->siswa_model->siswa_detail_by_id($id);
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
+        $data['judul']='Lihat Siswa PKL';
+        $this->load->view('layouts/master',$data);
+    }
+    public function kegiatan_siswa_add()
+    {
+        $data['main']='data_siswa/create_kegiatan_siswa';
+        $data['menu']=1;
+        $data['unit'] = $this->unit_model->viewall()->result();
+        $data['kelas'] = $this->kelas_model->viewall()->result();
+        $data['siswa'] = $this->siswa_model->viewall();
+        $data['pembimbing_unit'] = $this->Pembimbing_unit_model->viewall();
+        $data['pembimbing_sekolah'] = $this->Pembimbing_sekolah_model->viewall();
+        //$data['groups'] = $this->grup_user_model->viewall()->result();
+        
+        $data['judul']='Tambah Siswa PKL';
+        $this->load->view('layouts/master',$data);
+    }
+
+    public function kegiatan_siswa_edit($id)
+    {
+        if(empty($id))
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('data_siswa/kegiatan_siswa');
+        }
+
+        $data['query'] = $this->siswa_model->get_data_by_id($id);  
+        $data['unit'] = $this->unit_model->viewall()->result();
+        $data['kelas'] = $this->kelas_model->viewall()->result();
+        $data['siswa'] = $this->siswa_model->viewall();
+        $data['pembimbing_unit'] = $this->Pembimbing_unit_model->viewall();
+        $data['pembimbing_sekolah'] = $this->Pembimbing_sekolah_model->viewall();
+
+        $data['main']='data_siswa/edit_kegiatan_siswa';
+        $data['menu']=1;
+        $data['judul']='Edit Siswa PKL';
+
+        //print_r($data);exit;
+        $this->load->view('layouts/master',$data);
+    }
+
+      public function kegiatan_siswa_save()
+    {
+        $this->form_validation->set_rules('siswa_id', 'Nama Siswa', 'required');
+        $this->form_validation->set_rules('unit_id', 'Unit', 'required');
+        $this->form_validation->set_rules('pembimbing_unit_id', 'Pembimbing Unit', 'required');
+        $this->form_validation->set_rules('pembimbing_sekolah_id', 'Pembimbing Sekolah', 'required');
+        $this->form_validation->set_rules('tanggal_mulai', 'Tanggal Masuk', 'required');
+        $this->form_validation->set_rules('tanggal_selesai', 'Tanggal Keluar', 'required');
+        $this->form_validation->set_rules('kelas_id', 'Kelas', 'required');
+        $this->form_validation->set_rules('jabatan_pembimbing', 'Jabatan Pembimbing', 'required');
+        $this->form_validation->set_rules('jabatan_pembimbing_sekolah', 'Jabatan Pembimbing Sekolah', 'required');
+        
+        $data = array(
+                    //'id'=> $this->siswa_model->last_user_id(),
+                    'siswa_id' => $this->input->post('siswa_id'),
+                    'unit_id' => $this->input->post('unit_id'),
+                    'pembimbing_unit_id' => $this->input->post('pembimbing_unit_id'),
+                    'pembimbing_sekolah_id' => $this->input->post('pembimbing_sekolah_id'),
+                    'tanggal_mulai' => $this->input->post('tanggal_mulai'),
+                    'tanggal_selesai' => $this->input->post('tanggal_selesai'),
+                    'kelas_id' => $this->input->post('kelas_id'),
+                    'jabatan_pembimbing' => $this->input->post('jabatan_pembimbing'),
+                    'jabatan_pembimbing_sekolah' => $this->input->post('jabatan_pembimbing_sekolah'),
+                );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $data['main']='data_siswa/create_kegiatan_siswa';
+            $data['menu']=1;
+            $data['judul']='Tambah Siswa PKL';
+            
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', validation_errors());
+
+            $this->load->view('layouts/master',$data);
+        }
+        else
+        {
+            // memanggil fungsi di model grup_user_model
+            $this->siswa_model->save_kegiatan_prakerin($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Simpan data grup pengguna sudah selesai');
+            redirect('data_siswa/kegiatan_siswa');
+        }
+    }
+    public function kegiatan_siswa_update()
+    {
+        $this->form_validation->set_rules('siswa_id', 'Nama Siswa', 'required');
+        $this->form_validation->set_rules('unit_id', 'Unit', 'required');
+        $this->form_validation->set_rules('pembimbing_unit_id', 'Pembimbing Unit', 'required');
+        $this->form_validation->set_rules('pembimbing_sekolah_id', 'Pembimbing Sekolah', 'required');
+        $this->form_validation->set_rules('tanggal_mulai', 'Tanggal Masuk', 'required');
+        $this->form_validation->set_rules('tanggal_selesai', 'Tanggal Keluar', 'required');
+        $this->form_validation->set_rules('kelas_id', 'Kelas', 'required');
+        $this->form_validation->set_rules('jabatan_pembimbing', 'Jabatan Pembimbing', 'required');
+        $this->form_validation->set_rules('jabatan_pembimbing_sekolah', 'Jabatan Pembimbing Sekolah', 'required');
+        $data = array(
+             'siswa_id' => $this->input->post('siswa_id'),
+                    'unit_id' => $this->input->post('unit_id'),
+                    'pembimbing_unit_id' => $this->input->post('pembimbing_unit_id'),
+                    'pembimbing_sekolah_id' => $this->input->post('pembimbing_sekolah_id'),
+                    'tanggal_mulai' => $this->input->post('tanggal_mulai'),
+                    'tanggal_selesai' => $this->input->post('tanggal_selesai'),
+                    'kelas_id' => $this->input->post('kelas_id'),
+                    'jabatan_pembimbing' => $this->input->post('jabatan_pembimbing'),
+                    'jabatan_pembimbing_sekolah' => $this->input->post('jabatan_pembimbing_sekolah'),
+        );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', validation_errors());
+
+            return $this->edit($data['id']);
+        }
+        else
+        {
+            $this->siswa_model->update($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Ubah data sekolah sudah selesai');
+            redirect('data_siswa/kegiatan_siswa');
+        }
+    }
+
+    public function kegiatan_siswa_delete($id)
+    {
+        if(empty($id))
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('home');
+        }
+        else
+        {
+            $this->siswa_model->delete($id);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Hapus data grup pengguna sudah selesai');
+            $this->db->delete('prakerin_siswa',array('id'=>$id));
+            redirect('data_siswa/kegiatan_siswa');   
+        }
     }
 
     public function detail_kegiatan($id)
@@ -242,5 +405,9 @@ class Data_siswa extends CI_Controller
         $query = $this->db->query($sql);
         echo "<pre>";
         print_r($query->result());
+    }
+
+    public function cek(){
+       print_r($this->Pembimbing_unit_model->viewall());
     }
 }
