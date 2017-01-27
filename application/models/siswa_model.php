@@ -32,6 +32,7 @@ class siswa_model extends CI_Model
         $this->db->update('siswa',$data);
     }
 
+
     public function delete($id)
     {
         $this->db->delete('siswa',array('id'=>$id));
@@ -60,7 +61,7 @@ class siswa_model extends CI_Model
         return $query->row();
     } 
 
-    public function save_kegiatan_prakerin($data)
+    public function kegiatan_siswa_save($data)
     {
         $this->db->insert('prakerin_siswa',$data);
         
@@ -93,6 +94,8 @@ class siswa_model extends CI_Model
         $this->db->update('prakerin_siswa',$data);
     }
 
+    
+
     public function get_data_by_id($id){
         $query = $this->db->query("select prak.id, s.id id_siswa, prak.unit_id id_unit, prak.pembimbing_unit_id, prak.pembimbing_sekolah_id, prak.tanggal_mulai, prak.tanggal_selesai, prak.kelas_id id_kelas, prak.jabatan_pembimbing, prak.jabatan_pembimbing_sekolah
             from siswa s
@@ -102,6 +105,5 @@ class siswa_model extends CI_Model
             where prak.id = $id");
         return $query->row();
     }
-
     
-}
+    }

@@ -13,6 +13,7 @@ class Data_siswa extends CI_Controller
         $this->load->model('program_keahlian_model');
         $this->load->model('sekolah_model');
         $this->load->model('golongan_darah_model');
+        $this->load->model('prakerin_siswa_model');
        
         $this->load->model('unit_model');
         $this->load->model('kelas_model');
@@ -43,6 +44,7 @@ class Data_siswa extends CI_Controller
 		$data['menu']=1;
         $data['css']=array('css/datatables.min');
         $data['siswa']= $this->siswa_model->siswa_detail_by_id($id);
+        $data['prakerin'] = $this->prakerin_siswa_model->check_prakerin_by_user($id);
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$data['judul']='Lihat Siswa PKL';
 		$this->load->view('layouts/master',$data);
@@ -67,6 +69,7 @@ class Data_siswa extends CI_Controller
         $this->form_validation->set_rules('nomor_induk', 'Nomor Induk', 'required');
         $this->form_validation->set_rules('gol_darah_id', 'Golongan Darah', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
         $this->form_validation->set_rules('ayah', 'Nama Ayah', 'required');
         $this->form_validation->set_rules('ibu', 'Ibu', 'required');
         $this->form_validation->set_rules('kabkot', 'Kabupaten/Kota', 'required');
@@ -111,6 +114,7 @@ class Data_siswa extends CI_Controller
                     'nomor_induk' => $this->input->post('nomor_induk'),
                     'gol_darah_id' => $this->input->post('gol_darah_id'),
                     'tempat_lahir' => $this->input->post('tempat_lahir'),
+                    'tanggal_lahir' => $this->input->post('tanggal_lahir'),
                     'ayah' => $this->input->post('ayah'),
                     'ibu' => $this->input->post('ibu'),
                     'kabkot' => $this->input->post('kabkot'),
@@ -166,6 +170,7 @@ class Data_siswa extends CI_Controller
         $this->form_validation->set_rules('nomor_induk', 'Nomor Induk', 'required');
         $this->form_validation->set_rules('gol_darah_id', 'Golongan Darah', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
         $this->form_validation->set_rules('ayah', 'Nama Ayah', 'required');
         $this->form_validation->set_rules('ibu', 'Ibu', 'required');
         $this->form_validation->set_rules('kabkot', 'Kabupaten/Kota', 'required');
@@ -179,6 +184,7 @@ class Data_siswa extends CI_Controller
             'nomor_induk' => $this->input->post('nomor_induk'),
             'gol_darah_id' => $this->input->post('gol_darah_id'),
             'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'tanggal_lahir' => $this->input->post('tanggal_lahir'),
             'ayah' => $this->input->post('ayah'),
             'ibu' => $this->input->post('ibu'),
             'kabkot' => $this->input->post('kabkot'),
@@ -198,7 +204,7 @@ class Data_siswa extends CI_Controller
         {
             $this->siswa_model->update($data);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Ubah data sekolah sudah selesai');
+            $this->session->set_flashdata('message', 'Ubah data siswa sudah selesai');
             redirect('data_siswa');
         }
     }
@@ -209,13 +215,13 @@ class Data_siswa extends CI_Controller
         {
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
-            redirect('home');
+            redirect('data_siswa');
         }
         else
         {
-            $this->sekolah_model->delete($id);
+            $this->siswa_model->delete($id);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Hapus data grup pengguna sudah selesai');
+            $this->session->set_flashdata('message', 'Hapus data siswa pengguna sudah selesai');
             $this->db->delete('siswa',array('id'=>$id));
             redirect('data_siswa');   
         }
@@ -326,7 +332,7 @@ class Data_siswa extends CI_Controller
         else
         {
             // memanggil fungsi di model grup_user_model
-            $this->siswa_model->save_kegiatan_prakerin($data);
+            $this->siswa_model->kegiatan_siswa_save($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Simpan data grup pengguna sudah selesai');
             redirect('data_siswa/kegiatan_siswa');
@@ -334,6 +340,7 @@ class Data_siswa extends CI_Controller
     }
     public function kegiatan_siswa_update()
     {
+        $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('siswa_id', 'Nama Siswa', 'required');
         $this->form_validation->set_rules('unit_id', 'Unit', 'required');
         $this->form_validation->set_rules('pembimbing_unit_id', 'Pembimbing Unit', 'required');
@@ -344,7 +351,8 @@ class Data_siswa extends CI_Controller
         $this->form_validation->set_rules('jabatan_pembimbing', 'Jabatan Pembimbing', 'required');
         $this->form_validation->set_rules('jabatan_pembimbing_sekolah', 'Jabatan Pembimbing Sekolah', 'required');
         $data = array(
-             'siswa_id' => $this->input->post('siswa_id'),
+                    'id' => $this->input->post('id'),
+                    'siswa_id' => $this->input->post('siswa_id'),
                     'unit_id' => $this->input->post('unit_id'),
                     'pembimbing_unit_id' => $this->input->post('pembimbing_unit_id'),
                     'pembimbing_sekolah_id' => $this->input->post('pembimbing_sekolah_id'),
@@ -354,7 +362,7 @@ class Data_siswa extends CI_Controller
                     'jabatan_pembimbing' => $this->input->post('jabatan_pembimbing'),
                     'jabatan_pembimbing_sekolah' => $this->input->post('jabatan_pembimbing_sekolah'),
         );
-
+        //print_r($data);exit;
         if ($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('status','danger');
@@ -364,7 +372,8 @@ class Data_siswa extends CI_Controller
         }
         else
         {
-            $this->siswa_model->update($data);
+
+            $this->siswa_model->kegiatan_siswa_update($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Ubah data sekolah sudah selesai');
             redirect('data_siswa/kegiatan_siswa');

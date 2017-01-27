@@ -10,7 +10,7 @@
 <div class="col-md-8">
     <table class="table table-striped">
         <tr>
-            <td width="200">Nomo Induk Siswa</td>
+            <td width="200">Nomor Induk Siswa</td>
             <td width="30">:</td>
             <td><?php echo $siswa->nomor_induk?></td>
         </tr>
@@ -33,11 +33,6 @@
             <td width="100">Golongan Darah</td>
             <td>:</td>
             <td><?php echo $siswa->nama_golongan_darah?></td>
-        </tr>
-        <tr>
-            <td width="100">Jenis Kelamin</td>
-            <td>:</td>
-            <td><?php echo $siswa->nama_jenis_kelamin?></td>
         </tr>
         <tr>
             <td width="100">Alamat</td>

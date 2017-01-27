@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Data Siswa</a></li>
+            <li><a href="<?php echo site_url('index')?>">Home</a></li>
+            <li class="active"><a href="<?php echo site_url('data_siswa')?>">Data Siswa</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -44,7 +44,7 @@
                             {
                             ?>
                             <tr>
-                                <td><a href="<?php echo site_url('data_siswa/view')?>/<?php echo $si->id ?>"><?php echo $si->nama?></a></td>
+                                <td><a href="<?php echo site_url('data_siswa/view')?>/<?php echo $si->id ?>"><?php echo $si->nomor_induk ?> - <?php echo $si->nama ?></a></td>
                                 <td><?php echo $si->nama_sekolah?></td>
                                 <td><?php echo $si->nama_program_keahlian?></td>
                                 <td>

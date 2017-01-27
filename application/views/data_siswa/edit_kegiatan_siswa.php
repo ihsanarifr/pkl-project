@@ -12,7 +12,8 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('data_siswa/kegiatan_siswa_update')?>" method="post" class="form-horizontal"> 
+                    <form action="<?php echo site_url('data_siswa/kegiatan_siswa_update')?>" method="post" class="form-horizontal">
+                         <input type="hidden" name="id" value="<?php echo $query->id; ?>"> 
                          <div class="form-group">
                            <label class="col-sm-2 control-label">Nama Siswa <?php echo $query->id_siswa; ?></label>
                             <div class="col-sm-4">
@@ -73,7 +74,7 @@
                                 </select>
                             </div>
                         </div>
-                     <div class="form-group">
+                     <div class="form-group">                        
                         <label class="col-sm-2 control-label"> Tanggal masuk </label>
                         <div class="col-xs-2">
                             <input type="text" class="form-control" name= "tanggal_mulai" placeholder="tanggal masuk" value="<?php echo $query->tanggal_mulai; ?>">                            
@@ -126,9 +127,12 @@
 </div>
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
+    $('#datepicker').datepicker();
     var table = $('#example').DataTable();
     var tt = new $.fn.dataTable.TableTools( table );
  
     $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+
+
 } );
 </script>

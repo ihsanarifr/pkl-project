@@ -21,6 +21,7 @@
                                     
                                     <?php foreach($siswa as $row){?>
                                         <option value="<?php echo $row->id; ?>"><?php echo $row->nomor_induk ?> - <?php echo $row->nama ?></option>
+                                        
                                     <?php } ?>
                                 </select>
                             </div>
