@@ -47,7 +47,7 @@ class Prakerin_siswa_model extends CI_Model
     }
 
     public function get_data_by_siswa($id){
-        $query = $this->db->query("select prak.id, s.nama, s.id, s.nomor_induk, nms.nama as sekolah, ps.nama as pembimbing_sekolah, pu.nama as pembimbing_unit, prak.tanggal_mulai , prak.tanggal_selesai, prak.unit_id, u.nama nama_unit
+        $query = $this->db->query("select prak.id, s.nama, s.id id_siswa, s.nomor_induk, nms.nama as sekolah, ps.nama as pembimbing_sekolah, pu.nama as pembimbing_unit, prak.tanggal_mulai , prak.tanggal_selesai, prak.unit_id, u.nama nama_unit
             from siswa s
             join nama_sekolah nms on s.nama_sekolah_id = nms.id
             join pembimbing_sekolah ps on ps.nama_sekolah_id = nms.id

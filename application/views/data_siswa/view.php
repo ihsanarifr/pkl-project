@@ -43,8 +43,8 @@
                                 <td><?php echo $ps->pembimbing_unit?></td>
 
                                         <td>
-                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/<?php echo $ps->id?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
                                       <?php } ?>
