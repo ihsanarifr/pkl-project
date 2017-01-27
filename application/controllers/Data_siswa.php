@@ -19,6 +19,13 @@ class Data_siswa extends CI_Controller
         $this->load->model('kelas_model');
         $this->load->model('Pembimbing_unit_model');
         $this->load->model('Pembimbing_sekolah_model');
+
+        $this->load->library(array('ion_auth','form_validation'));
+		$this->load->helper(array('url','language'));
+        $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+
+		$this->lang->load('auth');
+        $this->load->library('upload');
         //$this->load->model('grup_user_model');
   	}
 
@@ -406,6 +413,151 @@ class Data_siswa extends CI_Controller
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);   
+    }
+
+    public function change_password($id)
+	{
+		$this->form_validation->set_rules('old', $this->lang->line('change_password_validation_old_password_label'), 'required');
+		$this->form_validation->set_rules('new', $this->lang->line('change_password_validation_new_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
+		$this->form_validation->set_rules('new_confirm', $this->lang->line('change_password_validation_new_password_confirm_label'), 'required');
+
+		if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login', 'refresh');
+		}
+
+        if(empty($id))
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('data_siswa');
+        }
+
+		$user = $this->ion_auth->user($id)->row();
+		
+        if ($this->form_validation->run() == false)
+		{
+			// display the form
+			// set the flash data error message if there is one				
+			$this->session->set_flashdata('status','danger');			
+			$this->session->set_flashdata('message',(validation_errors()) ? validation_errors() : $this->session->flashdata('message'));
+
+			$this->data['min_password_length'] = $this->config->item('min_password_length', 'ion_auth');
+			$this->data['old_password'] = array(
+				'name' => 'old',
+				'id'   => 'old',
+				'type' => 'password',
+				'class' => 'form-control'
+			);
+			$this->data['new_password'] = array(
+				'name'    => 'new',
+				'id'      => 'new',
+				'type'    => 'password',
+				'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
+				'class' => 'form-control'
+			);
+			$this->data['new_password_confirm'] = array(
+				'name'    => 'new_confirm',
+				'id'      => 'new_confirm',
+				'type'    => 'password',
+				'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
+				'class' => 'form-control'
+			);
+			$this->data['user_id'] = array(
+				'name'  => 'user_id',
+				'id'    => 'user_id',
+				'type'  => 'hidden',
+				'value' => $user->id,
+				'class' => 'form-control'
+			);
+
+			// render
+			// $this->_render_page('auth/change_password', $this->data);
+            $this->data['user'] = $user->id;
+			$this->data['main']='data_siswa/change_password';
+            $this->data['menu']=1;
+            $this->data['judul']='Data Siswa PKL';
+            $this->data['css']=array('css/datatables.min');
+            $this->data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
+            $this->load->view('layouts/master',$this->data);
+		}
+		else
+		{
+			$identity = $user->username;
+			$change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
+
+			if ($change)
+			{
+				//if the password was successfully changed
+				$this->session->set_flashdata('status','success');				
+				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				redirect('data_siswa');
+				$this->logout();
+			}
+			else
+			{
+				$this->session->set_flashdata('status','danger');				
+				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				redirect('data_siswa/change_password/'.$id, 'refresh');
+			}
+		}
+	}
+
+    public function change_photo_profile($id)
+    {
+
+        if(empty($id))
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('data_siswa');
+        }
+        // print_r($this->siswa_model->select_by_id($id)->row());
+        // die();
+        $data['siswa'] = $this->siswa_model->select_by_id($id)->row();
+        $data['main']='data_siswa/change_photo_profile';
+        $data['menu']=1;
+        $data['judul']='Data Siswa PKL';
+        $data['css']=array('');
+        $data['js']= array('');
+        $this->load->view('layouts/master',$data);
+    }
+
+    public function upload_photo()
+    {
+        $user = $this->siswa_model->select_by_id($this->input->post('user_id'))->row();
+        // print_r($this->input->post('file_upload'));
+        // die();
+        $config ['upload_path'] = "./assets/images/users/"; // lokasi folder yang akan digunakan untuk menyimpan file
+        $config ['allowed_types'] = 'gif|jpg|png|JPEG'; // extension yang diperbolehkan untuk diupload
+        $config ['file_name'] = "PHOTO" . $user->id;
+        $config ['max_size'] = '5120';
+        $config['max_width'] = '2288'; //lebar maksimum 1288 px
+        $config['max_height'] = '1768'; //tinggi maksimu 768 px
+        $this->upload->initialize($config); // meng set config yang sudah di atur
+
+        if (!$this->upload->do_upload('file_upload')) 
+        {
+            $this->session->set_flashdata("status",'danger');
+            $this->session->set_flashdata('message', $this->upload->display_errors());
+            redirect('data_siswa/view/'.$user->id);
+        } 
+        else 
+        {
+            // cek dulu jika ada isinya maka foto akan dihapus dan diganti ke yang baru
+            if ($user->foto != "") {
+                $file_name = './assets/images/users/' . $user->foto . '';
+                unlink($file_name) or die('failed deleting: ' . $file_name);
+            }
+            $data = array(
+                'id'=>$user->id,
+                'foto' => $this->upload->file_name
+            );
+            $this->siswa_model->update($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Berkas Foto Sudah diunggah');
+            redirect('data_siswa/view/'.$user->id);
+        }
     }
 
     public function lihat()
