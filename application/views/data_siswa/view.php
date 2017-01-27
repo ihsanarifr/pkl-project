@@ -28,26 +28,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><a href="<?php echo site_url('data_siswa/detail_kegiatan/')?>/1">Tanggal Pelaksanan</a></td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
+                               <?php
+                            foreach($prakerin_siswa as $ps)
+                            {
+                            ?>
+                                <tr>
+                                <td>
+                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_view')?>/<?php echo $ps->id ?>"> 
+                                    <?php echo $ps->tanggal_mulai?> - <?php echo $ps->tanggal_selesai?></a>
+                                </td>
+                                <td><?php echo $ps->nama_unit?></td>
+                                <td><?php echo $ps->pembimbing_sekolah?></td>
+                                <td><?php echo $ps->pembimbing_unit?></td>
+
                                         <td>
-                                            <a href="<?php echo site_url('data_siswa/edit_kegiatan')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                            <a href="<?php echo site_url('data_siswa/delete_kegiatan')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="<?php echo site_url('data_siswa/detail_kegiatan/')?>/1">Nama Orangnya</a></td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>
-                                            <a href="<?php echo site_url('data_siswa/edit_kegiatan')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                            <a href="<?php echo site_url('data_siswa/delete_kegiatan')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                        </td>
-                                    </tr>
+                                      <?php } ?>
                                 </tbody>
                             </table>
                         </div>

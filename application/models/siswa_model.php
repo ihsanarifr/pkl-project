@@ -104,6 +104,5 @@ class siswa_model extends CI_Model
             left outer join prakerin_siswa prak on prak.siswa_id = s.id
             where prak.id = $id");
         return $query->row();
-    }
-    
-    }
+    }    
+}
