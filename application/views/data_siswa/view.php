@@ -10,6 +10,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <?php $this->load->view('layouts/alert')?>
                     <div class="row">
                         <?php $this->load->view('data_siswa/profil')?>
                     </div>

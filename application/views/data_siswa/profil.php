@@ -2,7 +2,7 @@
     <?php if(empty($siswa->foto)){ ?>
         <img class="thumbnail" src="<?php echo base_url()?>assets/images/sample.svg" alt="...">
     <?php }else{ ?>
-        <img class="thumbnail" src="<?php echo base_url()?>assets/images/<?php echo $siswa->foto ?>" alt="...">
+        <img class="thumbnail" src="<?php echo base_url()?>assets/images/users/<?php echo $siswa->foto ?>" width="250">
     <?php } ?>
     <a href="<?php echo site_url('data_siswa/change_password')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-lock"></i> Ganti Password</a>
     <a href="<?php echo site_url('data_siswa/change_photo_profile')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-user"></i> Ganti Foto</a>

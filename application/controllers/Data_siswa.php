@@ -25,6 +25,7 @@ class Data_siswa extends CI_Controller
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
 		$this->lang->load('auth');
+        $this->load->library('upload');
         //$this->load->model('grup_user_model');
   	}
 
@@ -501,6 +502,63 @@ class Data_siswa extends CI_Controller
 			}
 		}
 	}
+
+    public function change_photo_profile($id)
+    {
+
+        if(empty($id))
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('data_siswa');
+        }
+        // print_r($this->siswa_model->select_by_id($id)->row());
+        // die();
+        $data['siswa'] = $this->siswa_model->select_by_id($id)->row();
+        $data['main']='data_siswa/change_photo_profile';
+        $data['menu']=1;
+        $data['judul']='Data Siswa PKL';
+        $data['css']=array('');
+        $data['js']= array('');
+        $this->load->view('layouts/master',$data);
+    }
+
+    public function upload_photo()
+    {
+        $user = $this->siswa_model->select_by_id($this->input->post('user_id'))->row();
+        // print_r($this->input->post('file_upload'));
+        // die();
+        $config ['upload_path'] = "./assets/images/users/"; // lokasi folder yang akan digunakan untuk menyimpan file
+        $config ['allowed_types'] = 'gif|jpg|png|JPEG'; // extension yang diperbolehkan untuk diupload
+        $config ['file_name'] = "PHOTO" . $user->id;
+        $config ['max_size'] = '5120';
+        $config['max_width'] = '2288'; //lebar maksimum 1288 px
+        $config['max_height'] = '1768'; //tinggi maksimu 768 px
+        $this->upload->initialize($config); // meng set config yang sudah di atur
+
+        if (!$this->upload->do_upload('file_upload')) 
+        {
+            $this->session->set_flashdata("status",'danger');
+            $this->session->set_flashdata('message', $this->upload->display_errors());
+            redirect('data_siswa/view/'.$user->id);
+        } 
+        else 
+        {
+            // cek dulu jika ada isinya maka foto akan dihapus dan diganti ke yang baru
+            if ($user->foto != "") {
+                $file_name = './assets/images/users/' . $user->foto . '';
+                unlink($file_name) or die('failed deleting: ' . $file_name);
+            }
+            $data = array(
+                'id'=>$user->id,
+                'foto' => $this->upload->file_name
+            );
+            $this->siswa_model->update($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Berkas Foto Sudah diunggah');
+            redirect('data_siswa/view/'.$user->id);
+        }
+    }
 
     public function lihat()
     {
