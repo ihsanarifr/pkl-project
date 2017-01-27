@@ -43,7 +43,7 @@ class Aspek_penilaian extends CI_Controller
 
         $data = array(
             'name' => $this->input->post('nama'),
-        };
+        );
 
         if ($this->form_validation->run() == FALSE)
         {
