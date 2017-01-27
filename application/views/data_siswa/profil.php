@@ -14,7 +14,7 @@
             <td width="30">:</td>
             <td><?php echo $siswa->nomor_induk?></td>
         </tr>
-        <tr>
+        <tr>           
             <td width="100">Nama Lengkap</td>
             <td>:</td>
             <td><?php echo $siswa->nama?></td>

@@ -35,6 +35,7 @@ class siswa_model extends CI_Model
 
     public function delete($id)
     {
+
         $this->db->delete('siswa',array('id'=>$id));
     }
 
