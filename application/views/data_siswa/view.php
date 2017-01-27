@@ -16,7 +16,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="<?php echo site_url('data_siswa/add_kegiatan')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Kegiatan Prakerin</a>
+                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Kegiatan Prakerin</a>
                             <div class="clearfix"></div><br>
                             <table id="table2" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>

@@ -36,7 +36,9 @@ else
             <li role="separator" class="divider"></li>
             <li><a href="<?php echo site_url('status_kehadiran')?>">Status Kehadiran</a></li>
             <li><a href="<?php echo site_url('kategori_penilaian')?>">Kategori Penilaian</a></li>
+            <li><a href="<?php echo site_url('aspek_penilaian')?>">Aspek Penilaian</a></li>
             <li role="separator" class="divider"></li>
+            <li><a href="<?php echo site_url('golongan_darah')?>">Golongan Darah</a></li>
             <li><a href="<?php echo site_url('program_keahlian')?>">Program Keahlian</a></li>
             <li><a href="<?php echo site_url('sekolah')?>">Sekolah</a></li>
             <li><a href="<?php echo site_url('kelas')?>">Kelas</a></li>
