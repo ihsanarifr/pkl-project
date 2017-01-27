@@ -217,7 +217,7 @@ class Data_siswa extends CI_Controller
     }
 
     public function delete($id)
-    {
+    {      
         if(empty($id))
         {
             $this->session->set_flashdata('status','danger');
@@ -225,7 +225,7 @@ class Data_siswa extends CI_Controller
             redirect('data_siswa');
         }
         else
-        {
+        {        
             $this->siswa_model->delete($id);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Hapus data siswa pengguna sudah selesai');
