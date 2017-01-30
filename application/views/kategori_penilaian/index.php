@@ -38,14 +38,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                       <?php $no = 1; ?>
+                        <?php foreach($kategori_penilaian as $row) {?>
                         <tr>
-                            <td>a</td>
-                            <td>a</td>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $row->nama ?></td>
+                           
                             <td>
                                 <a href="<?php echo site_url('kategori_penilaian/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a href="<?php echo site_url('kategori_penilaian/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                 </div>
