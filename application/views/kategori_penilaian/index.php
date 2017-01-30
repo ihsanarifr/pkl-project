@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Data Kategori Penilaian</a></li>
+            <li class="active"><a href="#">Data kategori Penilaian</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -23,7 +23,7 @@
                     <h3 class="panel-title pull-left">
                     Grup Pengguna
                     </h3>
-                    <a href="<?php echo site_url('kategori_penilaian/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Kategori Penilaian</a>
+                    <a href="<?php echo site_url('kategori_penilaian/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah kategori Penilaian</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -38,15 +38,22 @@
                         </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
                        <?php $no = 1; ?>
+=======
+                        <?php $no = 1; ?>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                         <?php foreach($kategori_penilaian as $row) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $row->nama ?></td>
+<<<<<<< HEAD
                            
+=======
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                             <td>
-                                <a href="<?php echo site_url('kategori_penilaian/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('kategori_penilaian/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('kategori_penilaian/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a href="<?php echo site_url('kategori_penilaian/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php
