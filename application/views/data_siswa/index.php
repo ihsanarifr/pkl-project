@@ -23,8 +23,9 @@
                     <h3 class="panel-title pull-left">
                     Data Siswa
                     </h3>
-
+                    <?php if($this->ion_auth->is_admin()) { ?>
                     <a href="<?php echo site_url('data_siswa/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Siswa</a>
+                    <?php } ?>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -35,7 +36,9 @@
                                 <th>NIS - Nama</th>
                                 <th>Sekolah</th>
                                 <th>Program Keahlian</th>
+                            <?php if($this->ion_auth->is_admin()) {?>
                                 <th>Action</th>
+                            <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,11 +50,13 @@
                                 <td><a href="<?php echo site_url('data_siswa/view')?>/<?php echo $si->id ?>"><?php echo $si->nomor_induk ?> - <?php echo $si->nama ?></a></td>
                                 <td><?php echo $si->nama_sekolah?></td>
                                 <td><?php echo $si->nama_program_keahlian?></td>
+                                <?php if($this->ion_auth->is_admin()) {?>
                                 <td>
                                     <a href="<?php echo site_url('data_siswa/edit')?>/<?php echo $si->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                     <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('data_siswa/delete')?>/<?php echo $si->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                     <a href="<?php echo site_url('data_siswa/change_password')?>/<?php echo $si->id ?>" class="label label-info"><i class="glyphicon glyphicon-lock"></i> Ganti Password</a>
                                 </td>
+                                <?php } ?>
                             </tr>
                             <?php
                             }
