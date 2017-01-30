@@ -29,10 +29,14 @@
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('kelas/update')?>" method="post"> 
                         <div class="form-group">
+<<<<<<< HEAD
                             <label class="col-sm-2 control-label">kelas</label>
+=======
+                            <label class="col-sm-2 control-label">Nama Kelas</label>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                             <div class="col-sm-10">
                                 <input type="hidden" name="id" value="<?php echo $kelas->id ?>">
-                                <input type="text" class="form-control" name="nama" placeholder="kelas" value="<?php echo $kelas->nama ?>">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Group" value="<?php echo $kelas->nama ?>">
                             </div>
                         </div>
                         <br><br>
@@ -48,12 +52,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-} );
-</script>

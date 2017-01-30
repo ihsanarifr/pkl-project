@@ -8,6 +8,7 @@ class Auth extends CI_Controller {
 		$this->load->database();
 		$this->load->library(array('ion_auth','form_validation'));
 		$this->load->helper(array('url','language'));
+		$this->load->model('prakerin_siswa_model');
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -64,6 +65,24 @@ class Auth extends CI_Controller {
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
+
+				//permission when user is siswa
+				if($this->ion_auth->get_users_groups()->row()->id == 2)
+				{
+					$user_id = $this->ion_auth->user()->row()->id;
+					// check if null prakerin
+					$check_prakerin = $this->prakerin_siswa_model->check_prakerin_by_user($user_id);
+					if(!empty($check_prakerin))
+					{
+						//check if date now between date prakerin and get prakerin id
+						$prakerin_id =  $this->prakerin_siswa_model->check_prakerin_today($user_id);
+						$this->session->set_userdata('prakerin_id',$prakerin_id);
+					}
+					else
+					{
+						$this->session->set_userdata('prakerin_id',0);
+					}
+				}
 				redirect('/', 'refresh');
 			}
 			else
