@@ -49,7 +49,7 @@
                                 <td><?php echo $si->nama_program_keahlian?></td>
                                 <td>
                                     <a href="<?php echo site_url('data_siswa/edit')?>/<?php echo $si->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                    <a href="<?php echo site_url('data_siswa/delete')?>/<?php echo $si->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('data_siswa/delete')?>/<?php echo $si->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                     <a href="<?php echo site_url('data_siswa/change_password')?>/<?php echo $si->id ?>" class="label label-info"><i class="glyphicon glyphicon-lock"></i> Ganti Password</a>
                                 </td>
                             </tr>
