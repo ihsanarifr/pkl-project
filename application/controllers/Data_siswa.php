@@ -14,6 +14,10 @@ class Data_siswa extends CI_Controller
         $this->load->model('sekolah_model');
         $this->load->model('golongan_darah_model');
         $this->load->model('prakerin_siswa_model');
+        $this->load->model('absensi_model');
+        $this->load->model('rencana_kegiatan_model');
+        $this->load->model('log_kegiatan_model');
+        $this->load->model('penilaian_model');
        
         $this->load->model('unit_model');
         $this->load->model('kelas_model');
@@ -256,7 +260,11 @@ class Data_siswa extends CI_Controller
         $data['main']='data_siswa/kegiatan_siswa_view';
         $data['menu']=1;
         $data['css']=array('css/datatables.min');
-        $data['siswa']= $this->siswa_model->siswa_detail_by_id($id);
+        $data['prakerin_siswa']= $this->prakerin_siswa_model->get_kegiatan_siswa_by_id($id);
+        $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->get_by_prakerin_id($id);
+        $data['absensi_kegiatan'] = $this->absensi_model->get_by_prakerin_id($id);
+        $data['log_kegiatan'] = $this->log_kegiatan_model->get_by_prakerin_id($id);
+        $data['penilaian'] = $this->penilaian_model->get_by_prakerin_id($id);
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
         $data['judul']='Lihat Siswa PKL';
         $this->load->view('layouts/master',$data);
