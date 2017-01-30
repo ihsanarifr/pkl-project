@@ -17,12 +17,26 @@ class Golongan_darah extends CI_Controller
 		$data['main']='golongan_darah/index';
 		$data['menu']=1;
 		$data['judul']='Data Golongan Darah';
+        $data['gol_darah'] = $this->golongan_darah_model->viewall()->result();
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
 	}   
 
-    
+    public function view($id)
+    {
+        if(empty($id))
+        {
+            redirect('/');
+        }
+
+        $data['main']='golongan_darah/view';
+        $data['menu']=1;
+        $data['css']=array('css/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
+        $data['judul']='Lihat Unit PKL';
+        $this->load->view('layouts/master',$data);
+    }
 
     public function add()
     {
@@ -42,7 +56,7 @@ class Golongan_darah extends CI_Controller
 
         if ($this->form_validation->run() == FALSE)
         {
-            $data['main']='Golongan_darah/create';
+            $data['main']='golongan_darah/create';
             $data['menu']=1;
             $data['judul']='Tambah Program Keahlian';
             
@@ -53,10 +67,10 @@ class Golongan_darah extends CI_Controller
         }
         else
         {
-            $this->program_keahlian_model->save($data);
+            $this->golongan_darah_model->save($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Simpan Golongan Darah sudah selesai');
-            redirect('gol_darah');
+            redirect('golongan_darah');
         }
     }
 
@@ -71,6 +85,8 @@ class Golongan_darah extends CI_Controller
         $data['main']='golongan_darah/edit';
 		$data['menu']=1;
 		$data['judul']='Edit Golongan Darah';
+
+        $data['gol_darah'] = $this->golongan_darah_model->select_by_id($id)->row();
 		$this->load->view('layouts/master',$data);
 
     }
@@ -96,7 +112,7 @@ class Golongan_darah extends CI_Controller
             $this->golongan_darah_model->update($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Ubah data Golongan Darah sudah selesai');
-            redirect('gol_darah');
+            redirect('golongan_darah');
         }
     }
 
@@ -106,14 +122,14 @@ class Golongan_darah extends CI_Controller
         {
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
-            redirect('gol_darah');
+            redirect('golongan_darah');
         }
         else
         {
             $this->golongan_darah_model->delete($id);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Hapus data Golongan Darah sudah selesai');
-            redirect('gol_darah');   
+            redirect('golongan_darah');   
         }
     }
 }

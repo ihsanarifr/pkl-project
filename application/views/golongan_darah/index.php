@@ -23,7 +23,7 @@
                     <h3 class="panel-title pull-left">
                    Golongan Darah
                     </h3>
-                    <a href="<?php echo site_url('gol_darah/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Golongan Darah</a>
+                    <a href="<?php echo site_url('golongan_darah/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Golongan Darah</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -33,19 +33,19 @@
                     <thead>
                         <tr>
                             <th width="10px">No</th>
-                            <th>Nama Golongan Darah</th>
+                            <th>Jenis Golongan Darah</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <?php foreach($Golongan_darah as $row) {?>
+                        <?php foreach($gol_darah as $row) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $row->nama ?></td>
                             <td>
-                                <a href="<?php echo site_url('Golongan_darah/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('Golongan_darah/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('golongan_darah/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a href="<?php echo site_url('golongan_darah/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php

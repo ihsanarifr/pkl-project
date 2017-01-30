@@ -27,9 +27,9 @@
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('gol_darah/save')?>" method="post"> 
+                    <form action="<?php echo site_url('golongan_darah/save')?>" method="post"> 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama Golongan Darah</label>
+                            <label class="col-sm-2 control-label">Jenis Golongan Darah</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="nama" placeholder="Nama Golongan Darah">
                             </div>

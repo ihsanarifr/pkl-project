@@ -9,7 +9,7 @@ class Golongan_darah_model extends CI_Model
 
     public function select_by_id($id)
     {
-        $this->db->where('gol_darah',$id);
+        $this->db->where('gol_darah.id',$id);
         return $this->db->get('gol_darah');
     }
 
@@ -27,6 +27,6 @@ class Golongan_darah_model extends CI_Model
 
     public function delete($id)
     {
-        $this->db->delete('gol_darah',array('id'=>$id)); 
-    }
+        $this->db->delete('gol_darah',array('id'=>$id));
+    } 
 }
