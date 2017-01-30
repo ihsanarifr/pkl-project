@@ -24,7 +24,7 @@
                     Data Siswa
                     </h3>
 
-                    <a href="<?php echo site_url('data_siswa/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Mahasiswa</a>
+                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Siswa</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -46,33 +46,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                            foreach($siswa_sedang_berlangsung as $ps)
+                            {
+                            ?>
                                 <tr>
-                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td>
-                                        <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td>
-                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Nama Orangnya</a></td>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td>
-                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                    </td>
-                                </tr>
+                                <td><a href="<?php echo site_url('data_siswa/kegiatan_siswa_view')?>/<?php echo $ps->id ?>">  <?php echo $ps->nomor_induk?> <?php echo $ps->nama?></a></td>
+                                <td><?php echo $ps->sekolah?></td>
+                                <td><?php echo $ps->pembimbing?></td>
+                                <td>
+                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/<?php echo $ps->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                             <?php } ?>
                             </tbody>
                         </table>
                         </div>
@@ -88,33 +75,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                               <?php
+                            foreach($siswa_selesai as $ps)
+                            {
+                            ?>
                                 <tr>
-                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td>
-                                        <a href="<?php echo site_url('data_siswa/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="<?php echo site_url('data_siswa/detail_kegiatan')?>/1">Nama Orangnya</a></td>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td>
-                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Nama Orangnya</a></td>
-                                    <td>a</td>
-                                    <td>a</td>
-                                    <td>
-                                        <a href="" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                        <a href="" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                    </td>
-                                </tr>
+                                <td><a href="<?php echo site_url('data_siswa/kegiatan_siswa_view')?>/<?php echo $ps->id ?>"> <?php echo $ps->nomor_induk?> <?php echo $ps->nama?></a></td>
+                                <td><?php echo $ps->sekolah?></td>
+                                <td><?php echo $ps->pembimbing?></td>
+                                <td>
+                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/<?php echo $ps->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                            <?php } ?>
                             </tbody>
                         </table>
                         </div>

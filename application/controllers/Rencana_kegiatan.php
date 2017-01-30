@@ -15,7 +15,7 @@ class Rencana_kegiatan extends CI_Controller
 	public function index()
 	{
 		$data['main']='rencana_kegiatan/index';
-		$data['menu']=1;
+		$data['menu']=0;
 		$data['judul']='Data Rencana Kegiatan';
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');

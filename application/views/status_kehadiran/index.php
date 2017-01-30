@@ -21,7 +21,7 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Unit
+                    Status Kehadiran
                     </h3>
                     <a href="<?php echo site_url('status_kehadiran/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Status Kehadiran</a>
                     <div class="clearfix"></div>

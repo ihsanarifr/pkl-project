@@ -13,7 +13,11 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
+<<<<<<< HEAD
             <li class="active"><a href="#">Golongan Darah</a></li>
+=======
+            <li class="active"><a href="#">Data Golongan Darah</a></li>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,9 +25,15 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
+<<<<<<< HEAD
                     Golongan Darah
                     </h3>
                     <a href="<?php echo site_url('golongan_darah/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Grup</a>
+=======
+                   Golongan Darah
+                    </h3>
+                    <a href="<?php echo site_url('golongan_darah/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Golongan Darah</a>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -33,16 +43,27 @@
                     <thead>
                         <tr>
                             <th width="10px">No</th>
+<<<<<<< HEAD
                             <th>Golongan Darah</th>
+=======
+                            <th>Jenis Golongan Darah</th>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
+<<<<<<< HEAD
                         <?php foreach($golongan_darah as $row) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $row->name ?></td>
+=======
+                        <?php foreach($gol_darah as $row) {?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $row->nama ?></td>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                             <td>
                                 <a href="<?php echo site_url('golongan_darah/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a href="<?php echo site_url('golongan_darah/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>

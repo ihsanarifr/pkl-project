@@ -13,7 +13,11 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
+<<<<<<< HEAD
             <li class="active"><a href="#">Tambah Golongan Darah </a></li>
+=======
+            <li class="active"><a href="#">Tambah Data Golongan Darah</a></li>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
             </ol>
         </div>
         <div class="col-md-12">
@@ -27,11 +31,19 @@
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
+<<<<<<< HEAD
                     <form action="<?php echo site_url('golongan_darah/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Golongan darah</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="nama" placeholder="Nama Group">
+=======
+                    <form action="<?php echo site_url('golongan_darah/save')?>" method="post"> 
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Jenis Golongan Darah</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Golongan Darah">
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                             </div>
                         </div>
                         <br><br>
