@@ -55,6 +55,8 @@ class Data_siswa extends CI_Controller
         $data['main']='data_siswa/edit';
 		$data['menu']=1;
 		$data['judul']='Edit Siswa PKL';
+
+        $data['data_siswa'] = $this->siswa_model->select_by_id($id)->row();
 		$this->load->view('layouts/master',$data);
 
     }
