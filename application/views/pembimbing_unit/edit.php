@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('home')?>">Home</a></li>
-            <li class="active"><a href="#">Tambah Data Program Keahlian</a></li>
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="#">Edit aspek penilaian</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,21 +21,21 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Tambah Program Keahlian
+                    Edit aspek penilaian
                     </h3>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('program_keahlian/save')?>" method="post"> 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama program Keahlian</label>
+                    <form action="<?php echo site_url('unit/update')?>" method="post" class="form-horizontal"> 
+                         <div class="form-aspek">
+                            <label class="col-sm-2 control-label">unit</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Program Keahlian">
+                                <input type="hidden" name="id" value="<?php echo $grup_user->id ?>">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama aspek penilaian" value="<?php echo $aspek_penilaian->name ?>">
                             </div>
                         </div>
-                        <br><br>
-                        <div class="form-group">
+                        <div class="form-aspek">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>

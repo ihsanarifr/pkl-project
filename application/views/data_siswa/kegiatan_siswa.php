@@ -23,7 +23,6 @@
                     <h3 class="panel-title pull-left">
                     Data Siswa
                     </h3>
-
                     <a href="<?php echo site_url('data_siswa/kegiatan_siswa_add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Siswa</a>
                     <div class="clearfix"></div>
                 </div>
@@ -56,7 +55,7 @@
                                 <td><?php echo $ps->pembimbing?></td>
                                 <td>
                                     <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/<?php echo $ps->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                 </td>
                             </tr>
                              <?php } ?>
@@ -85,7 +84,7 @@
                                 <td><?php echo $ps->pembimbing?></td>
                                 <td>
                                     <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/<?php echo $ps->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                    <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                 </td>
                             </tr>
                             <?php } ?>

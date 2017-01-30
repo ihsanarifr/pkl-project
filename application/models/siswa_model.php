@@ -4,12 +4,40 @@ class siswa_model extends CI_Model
 {
     public function viewall()
     {
-        $query = $this->db->query('select s.*,ns.nama nama_sekolah,pk.nama nama_program_keahlian from user u
+        $this->lang->load('auth');
+
+        if($this->ion_auth->is_admin())
+        {
+            $query = $this->db->query('select s.*,ns.nama nama_sekolah,pk.nama nama_program_keahlian from user u
                 join users us on us.id=u.id
                 join siswa s on s.id=u.id
                 join nama_sekolah ns on ns.id=s.nama_sekolah_id
                 join program_keahlian pk on pk.id=s.program_keahlian_id
-                where u.jenis_user_id=2');
+                where u.jenis_user_id=2');   
+        }
+        else if($this->ion_auth->in_group('Pembimbing Sekolah'))
+        {
+            $user_id = $this->ion_auth->user()->row()->id;
+            $query = $this->db->query("select distinct s.*,ns.nama nama_sekolah,pk.nama nama_program_keahlian from user u
+                    join users us on us.id=u.id
+                    join siswa s on s.id=u.id
+                    join nama_sekolah ns on ns.id=s.nama_sekolah_id
+                    join program_keahlian pk on pk.id=s.program_keahlian_id
+                    join prakerin_siswa ps on ps.siswa_id=s.id
+                    where u.jenis_user_id=2 and ps.pembimbing_sekolah_id=$user_id"); 
+        }
+        else if($this->ion_auth->in_group('Pembimbing Unit'))
+        {
+            $user_id = $this->ion_auth->user()->row()->id;
+            $query = $this->db->query("select distinct s.*,ns.nama nama_sekolah,pk.nama nama_program_keahlian from user u
+                    join users us on us.id=u.id
+                    join siswa s on s.id=u.id
+                    join nama_sekolah ns on ns.id=s.nama_sekolah_id
+                    join program_keahlian pk on pk.id=s.program_keahlian_id
+                    join prakerin_siswa ps on ps.siswa_id=s.id
+                    where u.jenis_user_id=2 and ps.pembimbing_unit_id=$user_id");
+        }
+
         return $query->result();
     }
 
