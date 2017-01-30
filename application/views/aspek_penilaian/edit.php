@@ -21,18 +21,48 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Edit Program Keahlian
+                    Edit Aspek Penilaian
                     </h3>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('program_keahlian/update')?>" method="post"> 
+                    <form action="<?php echo site_url('aspek_penilaian/update')?>" method="post" class="form-horizontal"> 
+                        <input type="hidden" name="id" value="<?php echo $aspek_penilaian->id?>">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama Program Keahlian</label>
+                            <label class="col-sm-2 control-label">Nama aspek penilaian</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="<?php echo $program_keahlian->id ?>">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Program Keahlian" value="<?php echo $program_keahlian->nama ?>">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama aspek penilaian" value="<?php echo $aspek_penilaian->nama?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Nama Sekolah </label>
+                            <div class="col-sm-4">
+                              <select name="nama_sekolah_id" id="" class="form-control">
+                                    <option value=""> - </option>
+                                   <?php foreach($sekolah as $row){
+                                        if($aspek_penilaian->nama_sekolah_id == $row->id){ ?>
+                                            <option value="<?php echo $row->id; ?>" selected><?php echo $row->nama ?></option>
+                                        <?php }else{ ?>
+                                            <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
+                                    <?php }
+                                     } ?>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-2 form-control`l-label"> Kelompok Penilaian </label>
+                            <div class="col-sm-4">
+                              <select name="kelompok_penilaian_id" id="" class="form-control">
+                                    <option value=""> - </option>
+                                    <?php foreach($kategori_penilaian as $row){
+                                        if($aspek_penilaian->kelompok_penilaian_id == $row->id){ ?>
+                                            <option value="<?php echo $row->id; ?>" selected><?php echo $row->nama ?></option>
+                                        <?php }else{ ?>
+                                            <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
+                                    <?php }
+                                     } ?>
+                                </select>
                             </div>
                         </div>
                         <br><br>

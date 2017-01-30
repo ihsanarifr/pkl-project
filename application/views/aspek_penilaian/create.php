@@ -34,6 +34,29 @@
                                 <input type="text" class="form-control" name="nama" placeholder="Nama aspek penilaian">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Nama Sekolah </label>
+                            <div class="col-sm-4">
+                              <select name="nama_sekolah_id" id="" class="form-control">
+                                    <option value=""> - </option>
+                                    
+                                    <?php foreach($sekolah as $row){?>
+                                        <option value="<?php echo $row->id; ?>"> <?php echo $row->nama ?> </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label"> Kelompok Penilaian </label>
+                            <div class="col-sm-4">
+                              <select name="kelompok_penilaian_id" id="" class="form-control">
+                                    <option value=""> - </option>
+                                    <?php foreach($kategori_penilaian as $row){?>
+                                        <option value="<?php echo $row->id; ?>"> <?php echo $row->nama ?> </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
                         <br><br>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>

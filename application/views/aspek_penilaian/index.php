@@ -23,6 +23,7 @@
                     <h3 class="panel-title pull-left">
                     aspek penilaian
                     </h3>
+
                     <a href="<?php echo site_url('aspek_penilaian/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah aspek</a>
                     <div class="clearfix"></div>
                 </div>
@@ -33,24 +34,30 @@
                     <thead>
                         <tr>
                             <th width="10px">No</th>
-                            <th>Nama Group</th>
+                            <th>Nama </th>
+                            <th>Nama Sekolah</th>
+                            <th>Kelompok Penilaian</th>
                             <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <?php foreach($aspek_penilaian as $row) {?>
+                        <?php foreach($aspek_penilaian as $row) 
+                        {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $row->name ?></td>
+                            <td><?php echo $row->nama ?></td>
+                             <td><?php echo $row->nama_sekolah ?></td>
+                              <td><?php echo $row->nama_kelompok_penilaian ?></td>
+
                             <td>
                                 <a href="<?php echo site_url('aspek_penilaian/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a href="<?php echo site_url('aspek_penilaian/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php
-                        }
-                        ?>
+                        } ?>
                     </tbody>
                 </table>
                 </div>
