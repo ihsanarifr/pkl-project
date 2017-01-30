@@ -57,4 +57,15 @@ class Prakerin_siswa_model extends CI_Model
             where s.id = $id");
         return $query->result();
     }
+
+    public function get_kegiatan_siswa_by_id($id)
+    {
+        return $this->db->select('ps.*,u.nama nama_unit, u.bidang bidang_unit,pu.nama nama_pembimbing_unit, pu.nip nip_pembimbing_unit,p.nama nama_pembimbing_sekolah, p.no_hp nomor_pembimbing_sekolah')
+                ->from('prakerin_siswa ps')
+                ->join('unit u','u.id=ps.unit_id')
+                ->join('siswa s','s.id=ps.siswa_id')
+                ->join('pembimbing_unit pu','pu.id=ps.pembimbing_unit_id')
+                ->join('pembimbing_sekolah p','p.id=ps.pembimbing_sekolah_id')
+                ->where('ps.id',$id)->get()->row();
+    }
 }

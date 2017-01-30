@@ -2,6 +2,7 @@
 
 class Rencana_kegiatan_model extends CI_Model
 {
+<<<<<<< HEAD
     public function viewall()
     {
         return $this->db->get('groups');
@@ -28,5 +29,10 @@ class Rencana_kegiatan_model extends CI_Model
     public function delete($id)
     {
         $this->db->delete('groups',array('id'=>$id));
+=======
+    public function get_by_prakerin_id($id)
+    {
+        return $this->db->where('prakerin_siswa_id',$id)->get('rencana_kegiatan')->result();
+>>>>>>> 3370d79c8f3fdc9905bf4ea4bb993a825eaa45f3
     }
 }

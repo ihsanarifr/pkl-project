@@ -33,6 +33,8 @@ else
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url('grup_user')?>">Group Users</a></li>
             <li><a href="<?php echo site_url('unit')?>">Unit</a></li>
+            <li><a href="<?php echo site_url('pembimbing_sekolah')?>">Pembimbing Sekolah</a></li>
+            <li><a href="<?php echo site_url('pembimbing_unit')?>">Pembimbing Unit</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="<?php echo site_url('status_kehadiran')?>">Status Kehadiran</a></li>
             <li><a href="<?php echo site_url('kategori_penilaian')?>">Kategori Penilaian</a></li>

@@ -16,7 +16,9 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                            <?php if($this->ion_auth->is_admin()) {?>
                             <a href="<?php echo site_url('data_siswa/kegiatan_siswa_add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Kegiatan Prakerin</a>
+                            <?php } ?>
                             <div class="clearfix"></div><br>
                             <table id="table2" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
@@ -25,7 +27,7 @@
                                         <th>Unit</th>
                                         <th>Pembimbing Sekolah</th>
                                         <th>Pembimbing Unit</th>
-                                        <th>Action</th>
+                                        <?php if($this->ion_auth->is_admin()) {?><th>Action</th><?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,13 +43,14 @@
                                 <td><?php echo $ps->nama_unit?></td>
                                 <td><?php echo $ps->pembimbing_sekolah?></td>
                                 <td><?php echo $ps->pembimbing_unit?></td>
-
-                                        <td>
-                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/<?php echo $ps->id?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                            <a href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-                                        </td>
-                                    </tr>
-                                      <?php } ?>
+                                <?php if($this->ion_auth->is_admin()) {?>
+                                <td>
+                                    <a href="<?php echo site_url('data_siswa/kegiatan_siswa_edit')?>/<?php echo $ps->id?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                    <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('data_siswa/kegiatan_siswa_delete')?>/<?php echo $ps->id?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                </td>
+                                <?php } ?>
+                            </tr>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
