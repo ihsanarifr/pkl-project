@@ -23,11 +23,12 @@
                     <h3 class="panel-title pull-left">
                     Data Siswa
                     </h3>
-
                     <a href="<?php echo site_url('data_siswa/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Mahasiswa</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
+                    <?php $this->load->view('layouts/alert')?>
+                    <br><br>
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -77,5 +78,7 @@
 $(document).ready(function() {
     $('#example').DataTable();
     $('#example1').DataTable();
+    
+    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
 } );
 </script>

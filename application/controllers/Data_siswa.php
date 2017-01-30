@@ -17,6 +17,10 @@ class Data_siswa extends CI_Controller
 		$data['main']='data_siswa/index';
 		$data['menu']=1;
 		$data['judul']='Data Siswa PKL';
+
+        $data['data_siswa'] = $this->siswa_model->viewall()->result();
+        
+
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
@@ -39,6 +43,7 @@ class Data_siswa extends CI_Controller
 
     public function add()
     {
+
         $data['main']='data_siswa/create';
 		$data['menu']=1;
 		$data['judul']='Tambah Siswa PKL';
@@ -61,14 +66,43 @@ class Data_siswa extends CI_Controller
 
     public function update()
     {
+        $this->form_validation->set_rules('nama', 'Nama Siswa', 'required');
 
+        $data = array(
+            'id' => $this->input->post('id'),
+            'name' => $this->input->post('nama'),
+        );
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', validation_errors());
+
+            return $this->edit($data['id']);
+        }
+        else
+        {
+            $this->grup_user_model->update($data);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Ubah data siswa sudah selesai');
+            redirect('data_siswa');
+        }
     }
 
     public function delete($id)
     {
         if(empty($id))
         {
-            redirect('home');
+            $this->session->set_flashdata('status','danger');
+            $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
+            redirect('data_siswa');
+        }
+        else
+        {
+            $this->data_siswa_model->delete($id);
+            $this->session->set_flashdata('status','success');
+            $this->session->set_flashdata('message', 'Hapus data siswa sudah selesai');
+            redirect('data_siswa');   
         }
     }
 
