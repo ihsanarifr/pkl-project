@@ -63,8 +63,9 @@ class siswa_model extends CI_Model
 
     public function delete($id)
     {
-
         $this->db->delete('siswa',array('id'=>$id));
+        $this->db->delete('user',array('id'=>$id));
+        $this->ion_auth->delete_user($id);
     }
 
     public function last_user_id()
