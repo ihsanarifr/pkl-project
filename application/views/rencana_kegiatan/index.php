@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Data Grup Pengguna</a></li>
+            <li class="active"><a href="#">Data Rencana Kegiatan</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -42,8 +42,8 @@
                             <td>a</td>
                             <td>a</td>
                             <td>
-                                <a href="<?php echo site_url('grup_user/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('grup_user/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('rencana_kegiatan/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a href="<?php echo site_url('rencana_kegiatan/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                     </tbody>
