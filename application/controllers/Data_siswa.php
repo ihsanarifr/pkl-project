@@ -141,8 +141,8 @@ class Data_siswa extends CI_Controller
                     'jenis_user_id'=> 2,
                 );
 
-                $this->siswa_model->save_user($data_user);
-                $this->siswa_model->save($data);
+                $this->pembimbing_siswa_model->save_user($data_user);
+                $this->pembimbing_siswa_model->save($data);
                 $this->session->set_flashdata('status','success');
                 $this->session->set_flashdata('message', 'Simpan data siswa pengguna sudah selesai');
             }

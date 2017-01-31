@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
+            <li><a href="<?php echo site_url('index')?>">Home</a></li>
             <li class="active"><a href="#">Data Rencana Kegiatan</a></li>
             </ol>
         </div>

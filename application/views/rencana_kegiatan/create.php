@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Tambah Data Rencana Kegiatan</a></li>
+            <li class="active"><a href="#">Tambah Data Pembimbing Unit</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,13 +21,13 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Tambah Rencana Kegiatan
+                    Tambah Pembimbing Unit
                     </h3>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('rencana_kegiatan/save')?>" method="post" class="form-horizontal"> 
+                    <form action="<?php echo site_url('Pembimbing_unit/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama Rencana Kegiatan</label>
                             <div class="col-sm-10">
