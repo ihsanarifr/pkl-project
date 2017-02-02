@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Edit Data Kegiatan</a></li>
+            <li class="active"><a href="#">Edit Log Kegiatan</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -31,29 +31,30 @@
                          <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="tanggal" placeholder="Uraian Kegiatan" value="">
+                                <input type="text" class="form-control" name="tanggal" placeholder="Uraian Kegiatan" value="<?php echo $kegiatan->tanggal?>">
+                                <input type="hidden" class="form-control" name="id"  value="<?php echo $kegiatan->id?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jam Mulai</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="jam_mulai" placeholder="Jam Mulai" value="">
+                                <input type="text" class="form-control" name="mulai" placeholder="Jam Mulai" value="<?php echo $kegiatan->mulai?>">
                             </div>
                             <label class="col-sm-2 control-label">Jam Selesai</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="jam_selesai" placeholder="Jam Selesai" value="">
+                                <input type="text" class="form-control" name="selesai" placeholder="Jam Selesai" value="<?php echo $kegiatan->selesai?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <textarea name="uraian_kegiatan" id="" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea rows="10" cols="30" class="form-control" name="uraian_kegiatan" placeholder="Uraian Kegiatan" value=""><?php echo $kegiatan->uraian_kegiatan?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Sarana</label>
                             <div class="col-sm-10">
-                                <textarea name="sarana" id="" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea rows="10" cols="30" class="form-control" name="sarana" placeholder="Sarana" value=""><?php echo $kegiatan->sarana?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -68,3 +69,11 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+    var table = $('#example').DataTable();
+    var tt = new $.fn.dataTable.TableTools( table );
+ 
+    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+} );
+</script>
