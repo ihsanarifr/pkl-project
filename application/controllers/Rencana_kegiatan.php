@@ -58,7 +58,7 @@ class Rencana_kegiatan extends CI_Controller
 
 
         $data = array(
-            'id' => $this->rencana_kegiatan_model->last_user_id(),
+            //'id' => $this->rencana_kegiatan_model->last_user_id(),
             'uraian_kegiatan' => $this->input->post('uraian_kegiatan'),
             'tanggal_mulai' => $this->input->post('tanggal_mulai'),
             'tanggal_selesai' => $this->input->post('tanggal_selesai'),
@@ -82,7 +82,7 @@ class Rencana_kegiatan extends CI_Controller
             // memanggil fungsi di model grup_user_model
             $this->rencana_kegiatan_model->save($data);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Simpan data grup pengguna sudah selesai');
+            $this->session->set_flashdata('message', 'Simpan data Rencana Kegiatan sudah selesai');
             redirect('rencana_kegiatan');
         }
     }
