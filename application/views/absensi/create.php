@@ -31,30 +31,30 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="tanggal" placeholder="Uraian Kegiatan" value="">
+                                <input type="text" class="form-control" name="tanggal" placeholder="Tanggal Kegiatan">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jam Datang</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="jam_datang" placeholder="Tanggal Mulai" value="">
+                                <input type="text" class="form-control" name="datang" placeholder="Jam Datang">
                             </div>
                             <label class="col-sm-2 control-label">Jam Pulang</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="jam_pulang" placeholder="Tanggal Selesai" value="">
+                                <input type="text" class="form-control" name="pulang" placeholder="Jam Pulang">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Status Kehadiran</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 <select name="status_kehadiran_id" id="" class="form-control">
-                                    <option value="">A</option>
+                                    <option value="">-</option>
+                                    <?php foreach($status_kehadiran as $row){?>
+                                        <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
-                        </div>
+                            </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">
