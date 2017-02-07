@@ -12,8 +12,9 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
+            <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Data program Keahlian</a></li>
+            <li class="active"><a href="#">Data Pembimbing Unit</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -23,7 +24,7 @@
                     <h3 class="panel-title pull-left">
                    Program Keahlian
                     </h3>
-                    <a href="<?php echo site_url('program_keahlian/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah program keahlian</a>
+                    <a href="<?php echo site_url('Pembimbing_unit/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Data Pembimbing Unit</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -33,19 +34,25 @@
                     <thead>
                         <tr>
                             <th width="10px">No</th>
-                            <th>Nama Program Keahlian</th>
+                            <th>Nama Pembimbing Unit</th>
+                            <th>Nomor Handphone</th>
+                            <th>NIP</th>
+                            <th>Unit</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <?php foreach($Program_keahlian as $row) {?>
+                        <?php foreach($pembimbing_unit as $pu) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $row->nama ?></td>
+                            <td><?php echo $pu->nama ?></td>
+                            <td><?php echo $pu->no_hp ?></td>
+                            <td><?php echo $pu->nip ?></td>
+                            <td><?php echo $pu->unit ?></td>
                             <td>
-                                <a href="<?php echo site_url('Program_keahlian/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('Program_keahlian/delete')?>/<?php echo $row->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('Pembimbing_unit/edit')?>/<?php echo $pu ->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('Pembimbing_unit/delete')?>/<?php echo $pu ->id ?>"> <i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php
