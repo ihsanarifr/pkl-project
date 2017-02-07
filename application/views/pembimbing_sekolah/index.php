@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Data program Keahlian</a></li>
+             <li><a href="<?php echo site_url('index')?>">Home</a></li>
+            <li class="active"><a href="<?php echo site_url('pembimbing_sekolah')?>">Pembimbing Sekolah</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,9 +21,9 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                   Program Keahlian
+                     Pembimbing Sekolah 
                     </h3>
-                    <a href="<?php echo site_url('program_keahlian/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah program keahlian</a>
+                    <a href="<?php echo site_url('pembimbing_sekolah/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Pembimbing Sekolah</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -33,19 +33,28 @@
                     <thead>
                         <tr>
                             <th width="10px">No</th>
-                            <th>Nama Program Keahlian</th>
+                            <th>Nama Pembimbing Sekolah</th>
+                            <th>Nomor Hp</th>
+                            <th>Nama Sekolah</th>
+
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <?php foreach($Program_keahlian as $row) {?>
+                        <?php foreach($pembimbing_sekolah as $ps) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $row->nama ?></td>
+                           <td><?php echo $ps->nama?></td>
+                            <td><?php echo $ps->no_hp?></td>
+                            <td><?php echo $ps->nama_sekolah ?></td>
+                           
+
+
                             <td>
-                                <a href="<?php echo site_url('Program_keahlian/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('Program_keahlian/delete')?>/<?php echo $row->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('pembimbing_sekolah/edit/')?>/<?php echo $ps->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('pembimbing_sekolah/delete/')?><?php echo $ps->id ?>
+                                "><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php

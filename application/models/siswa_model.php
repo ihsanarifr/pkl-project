@@ -107,6 +107,16 @@ class siswa_model extends CI_Model
         return $query->result();
     }
 
+ public function siswa_belum_berlangsung(){
+        $query = $this->db->query("select prak.id, s.nama, s.nomor_induk, nms.nama as sekolah, ps.nama as pembimbing, prak.tanggal_mulai , prak.tanggal_selesai
+            from siswa s
+            left outer join nama_sekolah nms on s.nama_sekolah_id = nms.id
+            left outer join pembimbing_sekolah ps on ps.nama_sekolah_id = nms.id
+            left outer join prakerin_siswa prak on prak.siswa_id = s.id
+            where NOW() >= prak.tanggal_mulai ");
+        return $query->result();
+    }
+
     public function siswa_selesai(){
         $query = $this->db->query("select prak.id, s.nama, s.nomor_induk, nms.nama as sekolah, ps.nama as pembimbing, prak.tanggal_mulai , prak.tanggal_selesai
             from siswa s

@@ -29,31 +29,36 @@
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('log_kegiatan/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Tanggal</label>
+                             <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="tanggal" placeholder="Uraian Kegiatan" value="">
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="tanggal" placeholder="Tanggal" value="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jam Mulai</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="jam_mulai" placeholder="Jam Mulai" value="">
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="mulai" placeholder="Jam mulai" value="">
                             </div>
-                            <label class="col-sm-2 control-label">Jam Selesai</label>
+                            <label class="col-sm-2 control-label">JAm Selesai</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="jam_selesai" placeholder="Jam Selesai" value="">
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="selesai" placeholder="Jam selesai" value="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <textarea name="uraian_kegiatan" id="" cols="30" rows="10" class="form-control"></textarea>
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Sarana</label>
                             <div class="col-sm-10">
-                                <textarea name="sarana" id="" cols="30" rows="10" class="form-control"></textarea>
+                                <input type="hidden" name="id" value="">
+                                <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -68,3 +73,11 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+    var table = $('#example').DataTable();
+    var tt = new $.fn.dataTable.TableTools( table );
+ 
+    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+} );
+</script>
