@@ -141,8 +141,8 @@ class Data_siswa extends CI_Controller
                     'jenis_user_id'=> 2,
                 );
 
-                $this->pembimbing_siswa_model->save_user($data_user);
-                $this->pembimbing_siswa_model->save($data);
+                $this->siswa_model->save_user($data_user);
+                $this->siswa_model->save($data);
                 $this->session->set_flashdata('status','success');
                 $this->session->set_flashdata('message', 'Simpan data siswa pengguna sudah selesai');
             }
@@ -216,7 +216,16 @@ class Data_siswa extends CI_Controller
             $this->siswa_model->update($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Ubah data siswa sudah selesai');
-            redirect('data_siswa');
+
+            // untuk mengarahkan apakah user dari siswa atau administrator
+            if($this->ion_auth->group('2'))
+            {
+                redirect('profile');
+            }
+            else
+            {
+                redirect('data_siswa');
+            }
         }
     }
 
@@ -564,7 +573,16 @@ class Data_siswa extends CI_Controller
             $this->siswa_model->update($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Berkas Foto Sudah diunggah');
-            redirect('data_siswa/view/'.$user->id);
+
+             // untuk mengarahkan apakah user dari siswa atau administrator
+            if($this->ion_auth->group('2'))
+            {
+                redirect('profile');
+            }
+            else
+            {
+                redirect('data_siswa/view/'.$user->id);
+            }
         }
     }
 

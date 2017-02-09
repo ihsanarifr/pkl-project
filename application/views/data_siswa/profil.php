@@ -9,6 +9,11 @@
     <a href="<?php echo site_url('data_siswa/change_password')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-lock"></i> Ganti Password</a>
     <a href="<?php echo site_url('data_siswa/change_photo_profile')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-user"></i> Ganti Foto</a>
     <?php } ?>
+
+     <?php if($this->ion_auth->group('2')){?>
+    <a href="<?php echo site_url('profile/edit')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-lock"></i> Edit Profil</a>
+    <a href="<?php echo site_url('profile/change_photo')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-user"></i> Ganti Foto</a>
+    <?php } ?>
 </div>
 <div class="col-md-8">
     <table class="table table-striped">

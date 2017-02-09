@@ -151,7 +151,7 @@ class Penilaian extends CI_Controller
 
     public function pembimbing_unit_index()
     {
-       $data['main']='penilaian/pembimbing_unit/index';
+        $data['main']='penilaian/pembimbing_unit/index';
         $data['menu']=1;
         $data['judul']='Penilaian Siswa PKL';
         $data['penilaian'] = $this->penilaian_model->get_by_pembimbing_id($this->ion_auth->user()->row()->id);
@@ -159,6 +159,18 @@ class Penilaian extends CI_Controller
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
         $this->load->view('layouts/master',$data);
     }
+
+    public function pembimbing_unit_siswa($siswa_id)
+    {
+        $data['main']='penilaian/pembimbing_unit/index';
+        $data['menu']=1;
+        $data['judul']='Penilaian Siswa PKL';
+        $data['penilaian'] = $this->penilaian_model->get_by_pembimbing_id_siswa_id($this->ion_auth->user()->row()->id,$siswa_id);
+        $data['css']=array('css/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
+        $this->load->view('layouts/master',$data);
+    }
+
     public function pembimbing_unit_view()
     {
         if(empty($id))
@@ -299,7 +311,7 @@ class Penilaian extends CI_Controller
 
     public function pembimbing_sekolah_index()
     {
-       $data['main']='penilaian/pembimbing_unit/index';
+       $data['main']='penilaian/pembimbing_sekolah/index';
         $data['menu']=1;
         $data['judul']='Penilaian Siswa PKL';
         $data['penilaian'] = $this->penilaian_model->get_by_pembimbing_id($this->ion_auth->user()->row()->id);

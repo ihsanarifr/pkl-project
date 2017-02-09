@@ -25,6 +25,19 @@ class Penilaian_model extends CI_Model
                     ->get()->result();
     }
 
+    public function get_by_pembimbing_id_siswa_id($pembimbing_id,$siswa_id)
+    {
+        return $this->db->select('p.id,p.prakerin_siswa_id, kp.nama nama_kelompok_penilaian,ap.nama nama_aspek_penilaian,p.nilai_angka,p.nilai_huruf,p.keterangan')
+                    ->from('penilaian p')
+                    ->join('aspek_penilaian ap','ap.id=p.aspek_penilaian_id')
+                    ->join('kelompok_penilaian kp','kp.id=ap.kelompok_penilaian_id')
+                    ->join('prakerin_siswa ps','ps.id = p.prakerin_siswa_id')
+                    ->where('ps.pembimbing_unit_id',$pembimbing_id)
+                    ->or_where('ps.pembimbing_sekolah_id',$pembimbing_id)
+                    ->where('ps.siswa_id',$siswa_id)
+                    ->get()->result();
+    }
+
 
     public function viewall()
     {
