@@ -105,7 +105,7 @@
                                         <tbody>
                                             <?php foreach($penilaian as $p){ ?>
                                             <tr>
-                                                <td><?php echo $p->nama?></td>
+                                                <td><?php echo $p->nama_aspek_penilaian?></td>
                                                 <td><?php echo $p->nilai_angka?></td>
                                                 <td><?php echo $p->nilai_huruf?></td>
                                                 <td><?php echo $p->keterangan ?></td>
