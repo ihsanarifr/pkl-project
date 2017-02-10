@@ -31,8 +31,13 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="tanggal" placeholder="Tanggal" value="<?php echo $permasalahan->tanggal?>">
                                 <input type="hidden" class="form-control" name="id"  value="<?php echo $permasalahan->id?>">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal" placeholder="Tanggal" value="<?php echo $permasalahan->tanggal?>" readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
