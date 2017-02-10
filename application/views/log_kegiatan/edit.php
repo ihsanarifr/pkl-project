@@ -72,6 +72,12 @@
                                 <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">&nbsp;</label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
