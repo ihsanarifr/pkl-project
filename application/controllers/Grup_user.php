@@ -127,7 +127,7 @@ class Grup_user extends CI_Controller
         {
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', 'Anda Tidak bisa akses');
-            redirect('group_user');
+            redirect('grup_user');
         }
         else
         {

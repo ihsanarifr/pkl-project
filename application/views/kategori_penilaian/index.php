@@ -38,11 +38,19 @@
                         </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
+                       <?php $no = 1; ?>
+=======
                         <?php $no = 1; ?>
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                         <?php foreach($kategori_penilaian as $row) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $row->nama ?></td>
+<<<<<<< HEAD
+                           
+=======
+>>>>>>> 62caf12253c476ba815acfe16fa562b77fca6179
                             <td>
                                 <a href="<?php echo site_url('kategori_penilaian/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('kategori_penilaian/delete')?>/<?php echo $row->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
