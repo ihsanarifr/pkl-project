@@ -47,7 +47,7 @@
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><b><a href="<?php echo site_url('penilaian/pembimbing_unit_siswa')?>/<?php echo $pe->id?>" ><?php echo $pe->nama ?> (<?php echo $pe->nomor_induk ?>)</a></b></td>
+                                <td><b><a href="<?php echo site_url('penilaian/pembimbing_sekolah_siswa')?>/<?php echo $pe->id?>" ><?php echo $pe->nama ?> (<?php echo $pe->nomor_induk ?>)</a></b></td>
                                 <td><?php echo $pe->sekolah ?></td>
                                 <td><?php echo $pe->pembimbing ?></td>
                                 <td><?php echo $pe->tanggal_mulai ?> - <?php echo $pe->tanggal_selesai ?></td>

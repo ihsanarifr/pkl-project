@@ -32,10 +32,12 @@
                         <thead>
                             <tr>
                                <th width="10px">No</th>
-                                <th>Siswa</th>
-                                <th>Sekolah</th>
-                                <th>Pembimbing</th>
-                                <th>Tanggal Pelaksanaan</th>
+                                <th>Kelompok Penilaian</th>
+                                <th>Aspek Penilaian</th>
+                                <th>Nilai Angka</th>
+                                <th>Nilai Huruf</th>
+                                <th>Keterangan</th>
+                                <th>Action</th>
                             <?php } ?>
                             </tr>
                         </thead>
@@ -47,12 +49,19 @@
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><b><a href="<?php echo site_url('penilaian/pembimbing_unit_siswa')?>/<?php echo $pe->id?>" ><?php echo $pe->nama ?> (<?php echo $pe->nomor_induk ?>)</a></b></td>
-                                <td><?php echo $pe->sekolah ?></td>
-                                <td><?php echo $pe->pembimbing ?></td>
-                                <td><?php echo $pe->tanggal_mulai ?> - <?php echo $pe->tanggal_selesai ?></td>
-                            <?php
-                             }?>
+                                <td><?php echo $pe->nama_kelompok_penilaian ?></td>
+                                <td><?php echo $pe->nama_aspek_penilaian ?></td>
+                                <td><?php echo $pe->nilai_angka ?></td>
+                                <td><?php echo $pe->nilai_huruf ?></td>
+                                <td><?php echo $pe->keterangan ?></td>
+                                <td>
+                                    <?php if($pe->nilai_angka == '' and $pe->nilai_huruf == ''){?>
+                                    <a href="<?php echo site_url('penilaian/pembimbing_unit_nilai')?>/<?php echo $pe->id ?>" class="label label-info"><i class="glyphicon glyphicon-pencil"></i> Nilai</a>
+                                    <?php }else{?>
+                                    <a href="<?php echo site_url('penilaian/pembimbing_unit_edit')?>/<?php echo $pe->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                    <?php } ?>
+                                </td>
+                                <?php } ?>
                             </tr>
                         </tbody>
                     </table>
