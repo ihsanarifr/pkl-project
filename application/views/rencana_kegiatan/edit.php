@@ -31,7 +31,6 @@
                          <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
                                 <input type="text" class="form-control" name="uraian_kegiatan" placeholder="Uraian Kegiatan" value="<?php echo $rencana_kegiatan->uraian_kegiatan?>">
                                 <input type="hidden" class="form-control" name="id"  value="<?php echo $rencana_kegiatan->id?>">
                             </div>
@@ -39,19 +38,16 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal Mulai</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
                                 <input type="text" class="form-control" name="tanggal_mulai" placeholder="Tanggal Mulai" value="<?php echo $rencana_kegiatan->tanggal_mulai?>">
                             </div>
                             <label class="col-sm-2 control-label">Tanggal Selesai</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
                                 <input type="text" class="form-control" name="tanggal_selesai" placeholder="Tanggal Selesai" value="<?php echo $rencana_kegiatan->tanggal_selesai?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Keterangan</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
                                 <input type="text" class="form-control" name="keterangan" placeholder="Keterangan" value="<?php echo $rencana_kegiatan->keterangan?>">
                             </div>
                         </div>

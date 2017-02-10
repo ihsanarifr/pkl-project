@@ -17,33 +17,13 @@ class Rencana_kegiatan extends CI_Controller
 		$data['main']='rencana_kegiatan/index';
 		$data['menu']=0;
 		$data['judul']='Data Rencana Kegiatan';
-<<<<<<< HEAD
         $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->viewall();
-=======
-<<<<<<< HEAD
-        $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->viewall();
-=======
-
-        $data['grup_user'] = $this->rencana_kegiatan_model->viewall()->result();
-
-
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
 	}   
 
-<<<<<<< HEAD
-
      public function view($id)
-=======
-<<<<<<< HEAD
-     public function view($id)
-=======
-    public function view($id)
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
     {
         if(empty($id))
         {
@@ -53,27 +33,12 @@ class Rencana_kegiatan extends CI_Controller
         $data['main']='data_siswa/view';
         $data['menu']=1;
         $data['css']=array('css/datatables.min');
-<<<<<<< HEAD
         $data['rencana_kegiatan']= $this->rencana_kegiatan_model->select_by_id($id);
         $data['prakerin_siswa']= $this->prakerin_siswa_model->get_data_by_siswa($id);
-=======
-<<<<<<< HEAD
-        $data['rencana_kegiatan']= $this->rencana_kegiatan_model->select_by_id($id);
-        $data['prakerin_siswa']= $this->prakerin_siswa_model->get_data_by_siswa($id);
-=======
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
         $data['judul']='Lihat Siswa PKL';
         $this->load->view('layouts/master',$data);
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
 
     public function add()
     {
@@ -85,17 +50,10 @@ class Rencana_kegiatan extends CI_Controller
 
     public function save()
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
         $this->form_validation->set_rules('uraian_kegiatan', 'Uraian Kegiatan', 'required');
         $this->form_validation->set_rules('tanggal_mulai', 'Tanggal Mulai', 'required');
         $this->form_validation->set_rules('tanggal_selesai', 'Tanggal Selesai', 'required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
-<<<<<<< HEAD
-=======
-
 
         $data = array(
             //'id' => $this->rencana_kegiatan_model->last_user_id(),
@@ -110,33 +68,10 @@ class Rencana_kegiatan extends CI_Controller
         {
             $data['main']='rencana_kegiatan/create';
             $data['menu']=1;
-            $data['judul']='Tambah Rencana Kegiatan';
-            
-            $this->session->set_flashdata('status','danger');
-            $this->session->set_flashdata('message', validation_errors());
-
-=======
-        $this->form_validation->set_rules('nama', 'Nama Rencana', 'required');
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
-
-
-        $data = array(
-            'name' => $this->input->post('nama'),
-        );
-
-        if ($this->form_validation->run() == FALSE)
-        {
-            $data['main']='rencana_kegiatan/create';
-            $data['menu']=1;
             $data['judul']='Tambah Siswa PKL';
             
             $this->session->set_flashdata('status','danger');
             $this->session->set_flashdata('message', validation_errors());
-<<<<<<< HEAD
-=======
-
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
             $this->load->view('layouts/master',$data);
         }
         else
@@ -144,16 +79,7 @@ class Rencana_kegiatan extends CI_Controller
             // memanggil fungsi di model grup_user_model
             $this->rencana_kegiatan_model->save($data);
             $this->session->set_flashdata('status','success');
-<<<<<<< HEAD
-
-            $this->session->set_flashdata('message', 'Simpan data Rencana Kegiatan sudah selesai');
-=======
-<<<<<<< HEAD
-            $this->session->set_flashdata('message', 'Simpan data Rencana Kegiatan sudah selesai');
-=======
             $this->session->set_flashdata('message', 'Simpan rencana kegiatan pengguna sudah selesai');
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
             redirect('rencana_kegiatan');
         }
     }
@@ -175,10 +101,6 @@ class Rencana_kegiatan extends CI_Controller
 
     public function update()
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
         $this->form_validation->set_rules('uraian_kegiatan', 'Uraian Kegiatan', 'required');
         $this->form_validation->set_rules('tanggal_mulai', 'Tanggal Mulai', 'required');
         $this->form_validation->set_rules('tanggal_selesai', 'Tanggal Selesai', 'required');
@@ -186,22 +108,12 @@ class Rencana_kegiatan extends CI_Controller
 
 
         $data = array(
-             'id' => $this->rencana_kegiatan_model->last_user_id(),
-             'uraian_kegiatan' => $this->input->post('uraian_kegiatan'),
+            'id' => $this->input->post('id'),
+            'uraian_kegiatan' => $this->input->post('uraian_kegiatan'),
             'tanggal_mulai' => $this->input->post('tanggal_mulai'),
             'tanggal_selesai' => $this->input->post('tanggal_selesai'),
             'keterangan' => $this->input->post('keterangan'),
             'prakerin_siswa_id' => $this->session->userdata('prakerin_id'),
-<<<<<<< HEAD
-=======
-=======
-        $this->form_validation->set_rules('nama', 'Nama Rencana', 'required');
-
-        $data = array(
-            'id' => $this->input->post('id'),
-            'name' => $this->input->post('nama'),
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
         );
 
         if ($this->form_validation->run() == FALSE)
@@ -233,14 +145,6 @@ class Rencana_kegiatan extends CI_Controller
             $this->rencana_kegiatan_model->delete($id);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Hapus data rencana kegiatan sudah selesai');
-<<<<<<< HEAD
-            $this->db->delete('rencana_kegiatan',array('id'=>$id));
-=======
-<<<<<<< HEAD
-            $this->db->delete('rencana_kegiatan',array('id'=>$id));
-=======
->>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
->>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
             redirect('rencana_kegiatan');   
         }
     }

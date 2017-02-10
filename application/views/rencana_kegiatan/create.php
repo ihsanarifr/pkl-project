@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active"><a href="#">Tambah Data Pembimbing Unit</a></li>
+            <li class="active"><a href="#">Tambah Data Rencana Kegiatan</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,20 +21,14 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Tambah Pembimbing Unit
+                    Tambah Rencana Kegiatan
                     </h3>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('Pembimbing_unit/save')?>" method="post" class="form-horizontal"> 
+                    <form action="<?php echo site_url('rencana_kegiatan/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama Rencana Kegiatan</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Rencana Kegiatan">
-                            </div>
-                        </div>
-                        <br><br>
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
                                 <input type="hidden" name="id" value="">
@@ -74,4 +68,10 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+    var table = $('#example').DataTable();
+    var tt = new $.fn.dataTable.TableTools( table );
+ 
+    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+} );
 </script>
