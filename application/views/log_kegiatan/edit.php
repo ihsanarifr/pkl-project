@@ -29,13 +29,13 @@
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('log_kegiatan/update')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
-                             <label class="col-sm-2 control-label">Tanggal</label>
+                            <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="tanggal" placeholder="Uraian Kegiatan" value="<?php echo $kegiatan->tanggal?>" id="datepicker" readonly="true">
+                                    <input type="text" class="form-control datepicker" name="tanggal" placeholder="Uraian Kegiatan" value="<?php echo $kegiatan->tanggal?>" id="datepicker" readonly="true">
                                     <input type="hidden" class="form-control" name="id"  value="<?php echo $kegiatan->id?>">
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-time"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="mulai" placeholder="Jam mulai" value="<?php echo $kegiatan->mulai?>" id="datang" readonly="true">
+                                    <input type="text" class="form-control timepicker" name="mulai" placeholder="Jam mulai" value="<?php echo $kegiatan->mulai?>" id="datang" readonly="true">
                                 </div>
                             </div>
                             <label class="col-sm-2 control-label">JAm Selesai</label>
@@ -56,26 +56,20 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-time"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="selesai" placeholder="Jam selesai" value="<?php echo $kegiatan->selesai?>" id="pulang" readonly="true">
+                                    <input type="text" class="form-control timepicker" name="selesai" placeholder="Jam selesai" value="<?php echo $kegiatan->selesai?>" id="pulang" readonly="true">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value="<?php echo $kegiatan->uraian_kegiatan?>"></textarea>
+                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value=""></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Sarana</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="<?php echo $kegiatan->sarana?>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">&nbsp;</label>
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                                <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="">
                             </div>
                         </div>
                     </form>
@@ -84,28 +78,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    $('#datepicker').datepicker({
-        format: "yyyy-mm-dd",
-        language: "id",
-    });
-
-    $('#datang').timepicker({
-        defaultTime: 'value',
-        minuteStep: 1,
-        disableFocus: true,
-        template: 'dropdown',
-        showMeridian:false,
-        format: 'hh:mm:ss'
-    });
-    $('#pulang').timepicker({
-        defaultTime: 'value',
-        minuteStep: 1,
-        disableFocus: true,
-        template: 'dropdown',
-        showMeridian:false,
-        format: 'hh:mm:ss'
-    });
-} );
-</script>
