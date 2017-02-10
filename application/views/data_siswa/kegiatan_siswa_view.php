@@ -12,6 +12,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
+                        <?php $this->load->view('data_siswa/profil')?>
                         <?php $this->load->view('data_siswa/kegiatan_siswa_profil')?>
                     </div>
                     <div class="row">

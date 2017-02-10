@@ -270,6 +270,7 @@ class Data_siswa extends CI_Controller
         $data['menu']=1;
         $data['css']=array('css/datatables.min');
         $data['prakerin_siswa']= $this->prakerin_siswa_model->get_kegiatan_siswa_by_id($id);
+        $data['siswa']= $this->siswa_model->siswa_detail_by_id($data['prakerin_siswa']->siswa_id);
         $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->get_by_prakerin_id($id);
         $data['absensi_kegiatan'] = $this->absensi_model->get_by_prakerin_id($id);
         $data['log_kegiatan'] = $this->log_kegiatan_model->get_by_prakerin_id($id);
