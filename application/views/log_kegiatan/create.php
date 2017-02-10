@@ -31,29 +31,44 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="tanggal" placeholder="Uraian Kegiatan" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal" placeholder="Tanggal" value="" readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jam Mulai</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="jam_mulai" placeholder="Jam Mulai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker" name="mulai" placeholder="Jam mulai" value="" readonly="true">
+                                </div>
                             </div>
-                            <label class="col-sm-2 control-label">Jam Selesai</label>
+                            <label class="col-sm-2 control-label">JAm Selesai</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="jam_selesai" placeholder="Jam Selesai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker" name="selesai" placeholder="Jam selesai" value=""readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <textarea name="uraian_kegiatan" id="" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value=""></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Sarana</label>
                             <div class="col-sm-10">
-                                <textarea name="sarana" id="" cols="30" rows="10" class="form-control"></textarea>
+                                <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="">
                             </div>
                         </div>
                         <div class="form-group">

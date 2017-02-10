@@ -13,10 +13,22 @@
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('data_siswa/save')?>" method="post" class="form-horizontal"> 
+                     <div class="form-group">
+                            <label class="col-sm-2 control-label">Usename</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="username" placeholder="username">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -26,8 +38,9 @@
                             </div>
                             <label class="col-sm-2 control-label">Golongan Darah</label>
                             <div class="col-sm-4">
-                               <select name="gol_darah_id" id="" class="form-control">
-                                    <option value="">-</option>
+                              <select name="gol_darah_id" id="" class="form-control">
+                                    <option value=""> - </option>
+                                    
                                     <?php foreach($gol_darah as $row){?>
                                         <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
                                     <?php } ?>

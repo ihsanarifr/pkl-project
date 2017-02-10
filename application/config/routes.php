@@ -52,3 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['profile'] = 'home/profile';
+$route['profile/edit/(:num)'] = 'data_siswa/edit/$1';
+$route['profile/change_photo/(:num)'] = 'data_siswa/change_photo_profile/$1';
+

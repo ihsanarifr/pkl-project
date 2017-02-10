@@ -18,6 +18,7 @@
         </div>
         <div class="col-md-12">
             <div class="panel panel-default">
+
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
@@ -25,7 +26,7 @@
                     </h3>
                     <a href="<?php echo site_url('grup_user/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Grup</a>
                     <div class="clearfix"></div>
-                </div>
+                </div>r
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
                     <br><br>

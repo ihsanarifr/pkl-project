@@ -2,19 +2,27 @@
     <?php if(empty($siswa->foto)){ ?>
         <img class="thumbnail" src="<?php echo base_url()?>assets/images/sample.svg" alt="...">
     <?php }else{ ?>
-        <img class="thumbnail" src="<?php echo base_url()?>assets/images/<?php echo $siswa->foto ?>" alt="...">
+        <img class="thumbnail" src="<?php echo base_url()?>assets/images/users/<?php echo $siswa->foto ?>" width="250">
     <?php } ?>
+
+    <?php if($this->ion_auth->is_admin()){?>
     <a href="<?php echo site_url('data_siswa/change_password')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-lock"></i> Ganti Password</a>
     <a href="<?php echo site_url('data_siswa/change_photo_profile')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-user"></i> Ganti Foto</a>
+    <?php } ?>
+
+     <?php if($this->ion_auth->in_group('2')){?>
+    <a href="<?php echo site_url('profile/edit')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-lock"></i> Edit Profil</a>
+    <a href="<?php echo site_url('profile/change_photo')?>/<?php echo $siswa->id ?>" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-user"></i> Ganti Foto</a>
+    <?php } ?>
 </div>
 <div class="col-md-8">
     <table class="table table-striped">
         <tr>
-            <td width="200">Nomo Induk Siswa</td>
+            <td width="200">Nomor Induk Siswa</td>
             <td width="30">:</td>
             <td><?php echo $siswa->nomor_induk?></td>
         </tr>
-        <tr>
+        <tr>           
             <td width="100">Nama Lengkap</td>
             <td>:</td>
             <td><?php echo $siswa->nama?></td>
@@ -33,11 +41,6 @@
             <td width="100">Golongan Darah</td>
             <td>:</td>
             <td><?php echo $siswa->nama_golongan_darah?></td>
-        </tr>
-        <tr>
-            <td width="100">Jenis Kelamin</td>
-            <td>:</td>
-            <td><?php echo $siswa->nama_jenis_kelamin?></td>
         </tr>
         <tr>
             <td width="100">Alamat</td>

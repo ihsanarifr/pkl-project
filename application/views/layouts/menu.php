@@ -33,10 +33,14 @@ else
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url('grup_user')?>">Group Users</a></li>
             <li><a href="<?php echo site_url('unit')?>">Unit</a></li>
+            <li><a href="<?php echo site_url('pembimbing_sekolah')?>">Pembimbing Sekolah</a></li>
+            <li><a href="<?php echo site_url('pembimbing_unit')?>">Pembimbing Unit</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="<?php echo site_url('status_kehadiran')?>">Status Kehadiran</a></li>
             <li><a href="<?php echo site_url('kategori_penilaian')?>">Kategori Penilaian</a></li>
+            <li><a href="<?php echo site_url('aspek_penilaian')?>">Aspek Penilaian</a></li>
             <li role="separator" class="divider"></li>
+            <li><a href="<?php echo site_url('golongan_darah')?>">Golongan Darah</a></li>
             <li><a href="<?php echo site_url('program_keahlian')?>">Program Keahlian</a></li>
             <li><a href="<?php echo site_url('sekolah')?>">Sekolah</a></li>
             <li><a href="<?php echo site_url('kelas')?>">Kelas</a></li>
@@ -53,7 +57,7 @@ else
     else if($this->ion_auth->in_group(2))
     {
     ?>
-    <!--Members-->
+    <!--Members siswa-->
     <ul class="nav navbar-nav">
         <li <?php if($menu == 0){ echo 'class="active"'; }?>><a href="<?php echo site_url('/')?>"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
         <li class="dropdown">
@@ -68,7 +72,7 @@ else
         <li <?php if($menu == 1){ echo 'class="active"'; }?>><a href="<?php echo site_url('penilaian')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Penilaian</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url() ?>profile/<?php echo $this->ion_auth->user()->row()->id ?>"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>
+        <li><a href="<?php echo base_url() ?>profile/"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>
         <li><a href="<?php echo base_url() ?>auth/logout"><i class="glyphicon glyphicon-log-out"></i> Keluar</a></li>
     </ul>
     <?php
@@ -76,14 +80,14 @@ else
     else if($this->ion_auth->in_group(3))
     {
     ?>
-    <!--Pembimbing-->
+    <!--Pembimbing sekolah-->
     <ul class="nav navbar-nav">
         <li <?php if($menu == 0){ echo 'class="active"'; }?>><a href="<?php echo site_url('/')?>"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
         <li <?php if($menu == 1){ echo 'class="active"'; }?>><a href="<?php echo site_url('data_siswa')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Data Siswa</a></li>
-        <li <?php if($menu == 2){ echo 'class="active"'; }?>><a href="<?php echo site_url('penilaian')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Penilaian</a></li>
+        <li <?php if($menu == 2){ echo 'class="active"'; }?>><a href="<?php echo site_url('penilaian/pembimbing_sekolah_index')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Penilaian</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url() ?>profile/<?php echo $this->ion_auth->user()->row()->id ?>"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>
+        <li><a href="<?php echo base_url() ?>profile/"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>
         <li><a href="<?php echo base_url() ?>auth/logout"><i class="glyphicon glyphicon-log-out"></i> Keluar</a></li>
     </ul>
     <?php
@@ -91,7 +95,16 @@ else
     else
     {
     ?>
-    <!--Guru/Dari Pihak Sekolah-->
+    <!--Pembimbing unit-->
+    <ul class="nav navbar-nav">
+        <li <?php if($menu == 0){ echo 'class="active"'; }?>><a href="<?php echo site_url('/')?>"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
+        <li <?php if($menu == 1){ echo 'class="active"'; }?>><a href="<?php echo site_url('data_siswa')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Data Siswa</a></li>
+        <li <?php if($menu == 2){ echo 'class="active"'; }?>><a href="<?php echo site_url('penilaian/pembimbing_unit_index')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Penilaian</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?php echo base_url() ?>profile/"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>
+        <li><a href="<?php echo base_url() ?>auth/logout"><i class="glyphicon glyphicon-log-out"></i> Keluar</a></li>
+    </ul>
     <?php
     }
 }
