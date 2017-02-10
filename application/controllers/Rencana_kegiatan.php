@@ -15,7 +15,7 @@ class Rencana_kegiatan extends CI_Controller
 	public function index()
 	{
 		$data['main']='rencana_kegiatan/index';
-		$data['menu']=0;
+		$data['menu']=2;
 		$data['judul']='Data Rencana Kegiatan';
         $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->get_by_prakerin_id($this->session->userdata('prakerin_id'));
 		$data['css']=array('css/datatables.min');
@@ -31,7 +31,7 @@ class Rencana_kegiatan extends CI_Controller
         }
 
         $data['main']='data_siswa/view';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['css']=array('css/datatables.min');
         $data['rencana_kegiatan']= $this->rencana_kegiatan_model->select_by_id($id);
         $data['prakerin_siswa']= $this->prakerin_siswa_model->get_data_by_siswa($id);
@@ -43,7 +43,7 @@ class Rencana_kegiatan extends CI_Controller
     public function add()
     {
         $data['main']='rencana_kegiatan/create';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Tambah Rencana Kegiatan';
 		$this->load->view('layouts/master',$data);
     }
@@ -67,7 +67,7 @@ class Rencana_kegiatan extends CI_Controller
         if ($this->form_validation->run() == FALSE)
         {
             $data['main']='rencana_kegiatan/create';
-            $data['menu']=1;
+            $data['menu']=2;
             $data['judul']='Tambah Siswa PKL';
             
             $this->session->set_flashdata('status','danger');
@@ -92,7 +92,7 @@ class Rencana_kegiatan extends CI_Controller
         }
 
         $data['main']='rencana_kegiatan/edit';
-		$data['menu']=1;
+		$data['menu']=2;
         $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->select_by_id($id)->row();
 		$data['judul']='Edit Rencana Kegiatan';
 		$this->load->view('layouts/master',$data);

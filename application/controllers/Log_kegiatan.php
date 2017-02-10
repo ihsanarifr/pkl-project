@@ -15,7 +15,7 @@ class Log_kegiatan extends CI_Controller
 	public function index()
 	{
 		$data['main']='log_kegiatan/index';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Data Log Kegiatan';
         $data['kegiatan'] = $this->log_kegiatan_model->get_by_prakerin_id($this->session->userdata('prakerin_id'));
 		$data['css']=array('css/datatables.min');
@@ -28,7 +28,7 @@ class Log_kegiatan extends CI_Controller
     public function add()
     {
         $data['main']='log_kegiatan/create';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Tambah Log Kegiatan';
 		$this->load->view('layouts/master',$data);
     }
@@ -56,7 +56,7 @@ class Log_kegiatan extends CI_Controller
         if ($this->form_validation->run() == FALSE)
         {
             $data['main']='log_kegiatan/create';
-            $data['menu']=1;
+            $data['menu']=2;
             $data['judul']='Tambah Permasalahan Kerja';
             
             $this->session->set_flashdata('status','danger');
@@ -82,7 +82,7 @@ class Log_kegiatan extends CI_Controller
         }
 
         $data['main']='log_kegiatan/edit';
-		$data['menu']=1;
+		$data['menu']=2;
         $data['kegiatan'] = $this->log_kegiatan_model->select_by_id($id)->row();
 		$data['judul']='Edit Log Kegiatan';
 		$this->load->view('layouts/master',$data);

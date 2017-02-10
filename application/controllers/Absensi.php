@@ -16,7 +16,7 @@ class Absensi extends CI_Controller
 	public function index()
 	{
 		$data['main']='absensi/index';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Data Absensi';
         $data['absensi'] = $this->absensi_model->get_by_prakerin_id($this->session->userdata('prakerin_id'));
 		$data['css']=array('css/datatables.min');
@@ -29,7 +29,7 @@ class Absensi extends CI_Controller
     public function add()
     {
         $data['main']='absensi/create';
-		$data['menu']=0;
+		$data['menu']=2;
 		$data['judul']='Tambah Absensi';
         $data['absensi'] = $this->absensi_model->viewall();
         $data['status_kehadiran'] = $this->status_kehadiran_model->viewall()->result();
@@ -56,7 +56,7 @@ class Absensi extends CI_Controller
         if ($this->form_validation->run() == FALSE)
         {
             $data['main']='absensi/create';
-            $data['menu']=1;
+            $data['menu']=2;
             $data['judul']='Tambah siswa';
             $data['status_kehadiran'] = $this->status_kehadiran_model->viewall()->result();
 
@@ -87,7 +87,7 @@ class Absensi extends CI_Controller
         }
 
         $data['main']='absensi/edit';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Edit Absensi';
         $data['status_kehadiran'] = $this->status_kehadiran_model->viewall()->result();
         $data['absensi'] = $this->absensi_model->get_by_id($id);

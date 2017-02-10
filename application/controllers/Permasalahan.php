@@ -15,7 +15,7 @@ class Permasalahan extends CI_Controller
 	public function index()
 	{
 		$data['main']='permasalahan/index';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Data Rencana Kegiatan';
         $data['permasalahan'] = $this->permasalahan_model->get_by_prakerin_id($this->session->userdata('prakerin_id'));
 		$data['css']=array('css/datatables.min');
@@ -31,7 +31,7 @@ class Permasalahan extends CI_Controller
         }
 
         $data['main']='permasalahan/view';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['css']=array('css/datatables.min');
         $data['permasalahan']= $this->permasalahan_model->select_by_id($id);
         $data['prakerin_siswa']= $this->prakerin_siswa_model->get_data_by_siswa($id);
@@ -43,7 +43,7 @@ class Permasalahan extends CI_Controller
     public function add()
     {
         $data['main']='permasalahan/create';
-		$data['menu']=1;
+		$data['menu']=2;
 		$data['judul']='Tambah Permasalahan';
 		$this->load->view('layouts/master',$data);
     }
@@ -68,7 +68,7 @@ class Permasalahan extends CI_Controller
         if ($this->form_validation->run() == FALSE)
         {
             $data['main']='permasalahan/create';
-            $data['menu']=1;
+            $data['menu']=2;
             $data['judul']='Tambah Permasalahan Kerja';
             
             $this->session->set_flashdata('status','danger');
@@ -94,7 +94,7 @@ class Permasalahan extends CI_Controller
         }
 
         $data['main']='permasalahan/edit';
-		$data['menu']=1;
+		$data['menu']=2;
         $data['permasalahan'] = $this->permasalahan_model->select_by_id($id)->row();
 		$data['judul']='Edit Permasalahan';
 		$this->load->view('layouts/master',$data);
