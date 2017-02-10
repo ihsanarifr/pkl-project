@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Keterangan</label>
                             <div class="col-sm-10">
-                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan"></textarea>
+                                <textarea rows="" cols="" class="form-control" name="keterangan"></textarea>
                             </div>
                         </div>
                         <div class="form-group">

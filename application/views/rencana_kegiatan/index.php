@@ -47,7 +47,7 @@
                             <td><?php echo $rk->tanggal_selesai ?></td>
                             <td><?php echo $rk->keterangan ?></td>
                             <td>
-                                <a href="<?php echo site_url('rencana_kegiatan/edit/')?>/<?php echo $rk->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a href="<?php echo site_url('rencana_kegiatan/edit')?>/<?php echo $rk->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('rencana_kegiatan/delete/')?><?php echo $rk->id ?>
                                 "><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>

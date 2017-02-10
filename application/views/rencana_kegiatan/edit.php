@@ -42,7 +42,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </div>
-                                    <input type="text" class="form-control datepicker" name="tanggal_mulai" placeholder="Tanggal" value="<?php echo $rencana_kegiatan->tanggal_mulai?>" id="mulai" readonly="true">
+                                    <input type="text" class="form-control datepicker" name="tanggal_mulai" placeholder="Tanggal" value="<?php echo $rencana_kegiatan->tanggal_mulai?>" readonly="true">
                                 </div>
                             </div>
                             <label class="col-sm-2 control-label">Tanggal Selesai</label>
@@ -51,7 +51,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="tanggal_selesai" placeholder="Tanggal Selesai" value="<?php echo $rencana_kegiatan->tanggal_selesai?>" readonly="true">
+                                    <input type="text" class="form-control datepicker" name="tanggal_selesai" placeholder="Tanggal Selesai" value="<?php echo $rencana_kegiatan->tanggal_selesai?>" readonly="true">
                                 </div>
                             </div>
                         </div>
