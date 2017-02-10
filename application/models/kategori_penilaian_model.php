@@ -13,6 +13,11 @@ class Kategori_penilaian_model extends CI_Model
         return $this->db->get('kelompok_penilaian');
     }
 
+    public function get_by_prakerin_id($id)
+    {
+        return $this->db->where('prakerin_siswa_id',$id)->get('kelompok_penilaian')->result();
+    }
+
     public function save($data)
     {
         $this->db->insert('kelompok_penilaian',$data);
