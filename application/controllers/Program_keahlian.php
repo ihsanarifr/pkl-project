@@ -30,6 +30,7 @@ class Program_keahlian extends CI_Controller
         $data['main']='program_keahlian/create';
 		$data['menu']=1;
 		$data['judul']='Tambah Program Keahlian';
+        $data['program_keahlian'] = $this->program_keahlian_model->viewall()->result();
 		$this->load->view('layouts/master',$data);
     }
 
