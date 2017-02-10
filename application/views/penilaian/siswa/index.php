@@ -55,12 +55,13 @@
                                 <td><?php echo $pe->nilai_angka ?></td>
                                 <td><?php echo $pe->nilai_huruf ?></td>
                                 <td><?php echo $pe->keterangan ?></td>
-
+                                <?php if($pe->nilai_angka == '' and $pe->nilai_huruf==''){?>
                                 <td>
                                     <a href="<?php echo site_url('penilaian/edit')?>/<?php echo $pe->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                     <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('penilaian/delete')?>/<?php echo $pe->id ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                                 </td>
-                                <?php } ?>
+                            <?php }
+                             }?>
                             </tr>
                         </tbody>
                     </table>
