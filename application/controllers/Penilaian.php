@@ -152,7 +152,7 @@ class Penilaian extends CI_Controller
     public function pembimbing_unit_index()
     {
         $data['main']='penilaian/pembimbing_unit/index';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['judul']='Penilaian Siswa PKL';
         $data['penilaian'] = $this->siswa_model->get_siswa_by_pembimbing_unit_sedang_berjalan();
         $data['css']=array('css/datatables.min');
@@ -163,7 +163,7 @@ class Penilaian extends CI_Controller
     public function pembimbing_unit_siswa($prakerin_siswa_id)
     {
         $data['main']='penilaian/pembimbing_unit/siswa';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['judul']='Penilaian Siswa PKL';
         $data['penilaian'] = $this->penilaian_model->get_by_pembimbing_id_siswa_id($this->ion_auth->user()->row()->id,$prakerin_siswa_id);
         $data['css']=array('css/datatables.min');
@@ -181,7 +181,7 @@ class Penilaian extends CI_Controller
         }
 
         $data['main']='penilaian/pembimbing_unit/edit';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['penilaian'] = $this->penilaian_model->select_by_id($id)->row();
         $data['aspek_penilaian'] = $this->aspek_penilaian_model->viewall();
         $data['kelompok_penilaian'] = $this->kategori_penilaian_model->viewall();
@@ -199,7 +199,7 @@ class Penilaian extends CI_Controller
         }
 
         $data['main']='penilaian/pembimbing_unit/edit';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['penilaian'] = $this->penilaian_model->select_by_id($id)->row();
         $data['aspek_penilaian'] = $this->aspek_penilaian_model->viewall();
         $data['kelompok_penilaian'] = $this->kategori_penilaian_model->viewall();
@@ -243,7 +243,7 @@ class Penilaian extends CI_Controller
     public function pembimbing_sekolah_index()
     {
         $data['main']='penilaian/pembimbing_sekolah/index';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['judul']='Penilaian Siswa PKL';
         $data['penilaian'] = $this->siswa_model->get_siswa_by_pembimbing_sekolah_sedang_berjalan();
         $data['css']=array('css/datatables.min');
@@ -254,7 +254,7 @@ class Penilaian extends CI_Controller
     public function pembimbing_sekolah_siswa($prakerin_siswa_id)
     {
         $data['main']='penilaian/pembimbing_sekolah/siswa';
-        $data['menu']=1;
+        $data['menu']=2;
         $data['judul']='Penilaian Siswa PKL';
         $data['penilaian'] = $this->penilaian_model->get_by_pembimbing_sekolah_id_siswa_id($this->ion_auth->user()->row()->id,$prakerin_siswa_id);
         $data['css']=array('css/datatables.min');
