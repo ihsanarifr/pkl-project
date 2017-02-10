@@ -32,17 +32,32 @@
                             <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
                                 <input type="hidden" name="id" value="<?php echo $absensi->id ?>">
-                                <input type="text" class="form-control" name="tanggal" placeholder="tanggal" value="<?php echo $absensi->tanggal ?>">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal" id="datepicker" readonly="true" value="<?php echo $absensi->tanggal ?>">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jam Datang</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="datang" placeholder="Jam Datang" value="<?php echo $absensi->datang ?>">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker" name="datang" placeholder="Jam mulai" readonly="true" value="<?php echo $absensi->datang ?>">
+                                </div>
                             </div>
                             <label class="col-sm-2 control-label">Jam Pulang</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="pulang" placeholder="Jam Pulang" value="<?php echo $absensi->pulang?>">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker" name="pulang" placeholder="Jam mulai" readonly="true" value="<?php echo $absensi->pulang?>">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
