@@ -79,6 +79,12 @@
     <div class="content">
         <?php $this->load->view($main) ?>
     </div>
+
+    <nav class="footer navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+          <p style="padding-top:15px;" class="text-left">Copyright 2016-2017 DIDSI & Prakerin Siswa SMK Negeri 1 Ciomas.</p>
+      </div>
+    </nav>
   </body>
   <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
