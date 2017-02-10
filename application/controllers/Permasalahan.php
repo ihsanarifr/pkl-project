@@ -17,7 +17,7 @@ class Permasalahan extends CI_Controller
 		$data['main']='permasalahan/index';
 		$data['menu']=1;
 		$data['judul']='Data Rencana Kegiatan';
-        $data['permasalahan'] = $this->permasalahan_model->viewall();
+        $data['permasalahan'] = $this->permasalahan_model->get_by_prakerin_id($this->session->userdata('prakerin_id'));
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);

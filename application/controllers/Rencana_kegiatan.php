@@ -17,7 +17,7 @@ class Rencana_kegiatan extends CI_Controller
 		$data['main']='rencana_kegiatan/index';
 		$data['menu']=0;
 		$data['judul']='Data Rencana Kegiatan';
-        $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->viewall();
+        $data['rencana_kegiatan'] = $this->rencana_kegiatan_model->get_by_prakerin_id($this->session->userdata('prakerin_id'));
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);
