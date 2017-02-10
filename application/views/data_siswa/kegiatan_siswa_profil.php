@@ -3,7 +3,7 @@
         <tr>
             <td width="200">Pelaksanaan PKL</td>
             <td width="30">:</td>
-            <td><?php echo $prakerin_siswa->tanggal_mulai?> s.d <?php echo $prakerin_siswa->tanggal_selesai ?></td>
+            <td><?php echo TanggalIndo($prakerin_siswa->tanggal_mulai)?> s.d <?php echo TanggalIndo($prakerin_siswa->tanggal_selesai) ?></td>
         </tr>
         <tr>           
             <td width="100">Unit PKL</td>

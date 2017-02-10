@@ -43,7 +43,7 @@
                       <tbody>
                        <?php foreach($kegiatan as $kg) {?>
                         <tr>
-                            <td><?php echo $kg->tanggal?></td>
+                            <td><?php echo TanggalIndo($kg->tanggal)?></td>
                             <td><?php echo $kg->mulai ?></td>
                             <td><?php echo $kg->selesai?></td>
                             <td><?php echo $kg->uraian_kegiatan ?></td>

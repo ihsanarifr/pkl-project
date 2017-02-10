@@ -30,7 +30,7 @@
         <tr>
             <td width="100">Tempat, tanggal lahir</td>
             <td>:</td>
-            <td><?php echo $siswa->tempat_lahir?>, <?php echo $siswa->tanggal_lahir ?></td>
+            <td><?php echo $siswa->tempat_lahir?>, <?php echo TanggalIndo($siswa->tanggal_lahir) ?></td>
         </tr>
         <tr>
             <td width="100">Ayah/Ibu</td>

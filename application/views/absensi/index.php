@@ -45,7 +45,7 @@
                         <?php foreach($absensi as $ab) {?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $ab->tanggal ?></td>
+                            <td><?php echo TanggalIndo($ab->tanggal) ?></td>
                             <td><?php echo $ab->datang ?></td>
                             <td><?php echo $ab->pulang ?></td>
                             <td><?php echo $ab->status_kehadiran ?></td>

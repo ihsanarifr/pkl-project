@@ -37,7 +37,7 @@
                                         <tbody>
                                             <?php foreach($rencana_kegiatan as $rk){ ?>
                                             <tr>
-                                                <td><?php echo $rk->tanggal_mulai?> - <?php echo $rk->tanggal_selesai?></td>
+                                                <td><?php echo TanggalIndo($rk->tanggal_mulai)?> - <?php echo TanggalIndo($rk->tanggal_selesai)?></td>
                                                 <td><?php echo $rk->uraian_kegiatan ?></td>
                                             </tr>
                                             <?php } ?>
@@ -59,8 +59,8 @@
                                         <tbody>
                                             <?php foreach($absensi_kegiatan as $ak){ ?>
                                             <tr>
-                                                <td><?php echo $ak->tanggal ?></td>
-                                                <td><?php echo $ak->tanggal ?></td>
+                                                <td><?php echo TanggalIndo($ak->tanggal)?></td>
+                                                <td><?php echo DayIndonesia($ak->tanggal) ?></td>
                                                 <td><?php echo $ak->datang ?></td>
                                                 <td><?php echo $ak->pulang ?></td>
                                                 <td><?php echo $ak->status_kehadiran_id ?></td>
@@ -83,7 +83,7 @@
                                         <tbody>
                                             <?php foreach($log_kegiatan as $lg){ ?>
                                             <tr>
-                                                <td><?php echo $lg->tanggal?></td>
+                                                <td><?php echo TanggalIndo($lg->tanggal)?></td>
                                                 <td><?php echo $lg->mulai?> sd <?php echo $lg->selesai?></td>
                                                 <td><?php echo $lg->uraian_kegiatan?></td>
                                                 <td><?php echo $lg->sarana ?></td>

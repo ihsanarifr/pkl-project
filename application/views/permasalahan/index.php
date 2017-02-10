@@ -42,7 +42,7 @@
                     <tbody>
                        <?php foreach($permasalahan as $pm) {?>
                         <tr>
-                            <td><?php echo $pm->tanggal?></td>
+                            <td><?php echo TanggalIndo($pm->tanggal)?></td>
                             <td><?php echo $pm->masalah ?></td>
                             <td><?php echo $pm->solusi?></td>
                             <td><?php echo $pm->oleh ?></td>

@@ -38,7 +38,7 @@
                                 <tr>
                                 <td>
                                     <a href="<?php echo site_url('data_siswa/kegiatan_siswa_view')?>/<?php echo $ps->id ?>"> 
-                                    <?php echo $ps->tanggal_mulai?> - <?php echo $ps->tanggal_selesai?></a>
+                                    <?php echo TanggalIndo($ps->tanggal_mulai)?> - <?php echo TanggalIndo($ps->tanggal_selesai)?></a>
                                 </td>
                                 <td><?php echo $ps->nama_unit?></td>
                                 <td><?php echo $ps->pembimbing_sekolah?></td>

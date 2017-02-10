@@ -43,8 +43,8 @@
                        <?php foreach($rencana_kegiatan as $rk) {?>
                         <tr>
                             <td><?php echo $rk->uraian_kegiatan?></td>
-                            <td><?php echo $rk->tanggal_mulai ?></td>
-                            <td><?php echo $rk->tanggal_selesai ?></td>
+                            <td><?php echo TanggalIndo($rk->tanggal_mulai) ?></td>
+                            <td><?php echo TanggalIndo($rk->tanggal_selesai) ?></td>
                             <td><?php echo $rk->keterangan ?></td>
                             <td>
                                 <a href="<?php echo site_url('rencana_kegiatan/edit')?>/<?php echo $rk->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
