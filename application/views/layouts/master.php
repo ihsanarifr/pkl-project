@@ -93,7 +93,8 @@
           minuteStep: 1,
           disableFocus: true,
           template: 'dropdown',
-          showMeridian:false
+          showMeridian:false,
+          use24hours: true
       });
   });
   </script>
