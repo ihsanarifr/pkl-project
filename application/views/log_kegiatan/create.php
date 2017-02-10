@@ -29,13 +29,13 @@
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('log_kegiatan/save')?>" method="post" class="form-horizontal"> 
                         <div class="form-group">
-                             <label class="col-sm-2 control-label">Tanggal</label>
+                            <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="tanggal" placeholder="Tanggal" value="" id="datepicker" readonly="true">
+                                    <input type="text" class="form-control datepicker" name="tanggal" placeholder="Tanggal" value="" readonly="true">
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-time"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="mulai" placeholder="Jam mulai" value="" id="datang" readonly="true">
+                                    <input type="text" class="form-control timepicker" name="mulai" placeholder="Jam mulai" value="" readonly="true">
                                 </div>
                             </div>
                             <label class="col-sm-2 control-label">JAm Selesai</label>
@@ -55,7 +55,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-time"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="selesai" placeholder="Jam selesai" value="" id="pulang" readonly="true">
+                                    <input type="text" class="form-control timepicker" name="selesai" placeholder="Jam selesai" value=""readonly="true">
                                 </div>
                             </div>
                         </div>
@@ -83,26 +83,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    $('#datepicker').datepicker({
-        format: "yyyy-mm-dd",
-        language: "id",
-    });
-
-    $('#datang').timepicker({
-        defaultTime: 'value',
-        minuteStep: 1,
-        disableFocus: true,
-        template: 'dropdown',
-        showMeridian:false
-    });
-    $('#pulang').timepicker({
-        defaultTime: 'value',
-        minuteStep: 1,
-        disableFocus: true,
-        template: 'dropdown',
-        showMeridian:false
-    });
-});
-</script>
