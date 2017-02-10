@@ -18,7 +18,7 @@ class Absensi extends CI_Controller
 		$data['main']='absensi/index';
 		$data['menu']=1;
 		$data['judul']='Data Absensi';
-        $data['absensi'] = $this->absensi_model->viewall();
+        $data['absensi'] = $this->absensi_model->get_by_prakerin_id($this->session->userdata('prakerin_id'));
 		$data['css']=array('css/datatables.min');
         $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
 		$this->load->view('layouts/master',$data);

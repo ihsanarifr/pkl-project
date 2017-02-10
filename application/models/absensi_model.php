@@ -5,8 +5,7 @@ class Absensi_model extends CI_Model
 	public function viewall()
     {
     	 $query = $this->db->query('select ab.*,sk.nama status_kehadiran from absensi ab
-             join status_kehadiran sk on sk.id = ab.status_kehadiran_id
-    	 	 ');
+             join status_kehadiran sk on sk.id = ab.status_kehadiran_id');
     	 return $query->result();
     }
 
@@ -15,7 +14,7 @@ class Absensi_model extends CI_Model
     	 return $this->db->where('id',$id)->get('absensi')->row();
     }
 
-     public function select_by_id($id)
+    public function select_by_id($id)
     {
         $this->db->where('status_kehadiran.id',$id);
         return $this->db->get('status_kehadiran');
@@ -24,7 +23,12 @@ class Absensi_model extends CI_Model
 
     public function get_by_prakerin_id($id)
     {
-        return $this->db->where('prakerin_siswa_id',$id)->get('absensi')->result();
+        return $this->db->select('ab.*,sk.nama status_kehadiran')
+                        ->from('absensi ab')
+                        ->join('status_kehadiran sk','sk.id=ab.status_kehadiran_id')
+                        ->where('prakerin_siswa_id',$id)
+                        ->get()
+                        ->result();
     }
 
     public function save($data)
