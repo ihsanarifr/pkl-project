@@ -32,29 +32,14 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-<<<<<<< HEAD
-                            <th width="10px">No</th>
-                            <th>Nama Rencana</th>
-=======
                             <th>Uraian Kegitan</th>
                             <th>Tanggal Mulai</th>
                             <th>Tanggal Selesai</th>
                             <th>Keterangan</th>
->>>>>>> ec15430ede11d446931f574eaad9cb5941a11087
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-<<<<<<< HEAD
-                        <?php $no = 1; ?>
-                        <?php foreach($rencana_kegiatan as $row) {?>
-                        <tr>
-                            <td><?php echo $no++; ?></td>
-                            <td><?php echo $row->name ?></td>
-                            <td>
-                                <a href="<?php echo site_url('rencana_kegiatan/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('rencana_kegiatan/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
-=======
                        <?php foreach($rencana_kegiatan as $rk) {?>
                         <tr>
                             <td><?php echo $rk->uraian_kegiatan?></td>
@@ -68,7 +53,6 @@
                                 <a href="<?php echo site_url('rencana_kegiatan/edit/')?>/<?php echo $rk->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('rencana_kegiatan/delete/')?><?php echo $rk->id ?>
                                 "><i class="glyphicon glyphicon-trash"></i> Hapus</a>
->>>>>>> ec15430ede11d446931f574eaad9cb5941a11087
                             </td>
                         </tr>
                         <?php

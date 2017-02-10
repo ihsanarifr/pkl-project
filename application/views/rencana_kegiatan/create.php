@@ -74,10 +74,4 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-} );
 </script>
