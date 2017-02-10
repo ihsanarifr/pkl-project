@@ -13,10 +13,10 @@
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('data_siswa/kegiatan_siswa_update')?>" method="post" class="form-horizontal">
-                         <input type="hidden" name="id" value="<?php echo $query->id; ?>"> 
-                         <div class="form-group">
-                           <label class="col-sm-2 control-label">Nama Siswa <?php echo $query->id_siswa; ?></label>
-                            <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="hidden" name="id" value="<?php echo $query->id; ?>"> 
+                            <label class="col-sm-2 control-label">Nama Siswa</label>
+                            <div class="col-sm-10">
                               <select name="siswa_id" id="" class="form-control">
                                     <option value=""> - </option>
                                     <?php foreach($siswa as $row){
@@ -29,7 +29,7 @@
                                 </select>
                             </div>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label class="col-sm-2 control-label"> Unit </label>
                             <div class="col-sm-4">
                               <select name="unit_id" id="" class="form-control">
@@ -43,9 +43,7 @@
                                      } ?>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group">
-                        <label class="col-sm-2 control-label"> Pembimbing Unit </label>
+                            <label class="col-sm-2 control-label"> Pembimbing Unit </label>
                             <div class="col-sm-4">
                               <select name="pembimbing_unit_id" id="" class="form-control">
                                     <option value=""> - </option>
@@ -60,9 +58,36 @@
                             </div>
                         </div>
                         <div class="form-group">
-                        <label class="col-sm-2 control-label"> Pembimbing Sekolah </label>
-                            <div class="col-sm-4">
-                              <select name="pembimbing_sekolah_id" id="" class="form-control">
+                            <label class="col-sm-2 control-label"> Jabatan Pembimbing Unit </label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name= "jabatan_pembimbing" placeholder="-"
+                            value="<?php echo $query->jabatan_pembimbing; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Tanggal masuk </label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal_mulai" placeholder="Tanggal" readonly="true" value="<?php echo $query->tanggal_mulai; ?>">
+                                </div>
+                            </div>
+                            <label class="col-sm-2 control-label"> Tanggal keluar </label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal_selesai" placeholder="Tanggal" readonly="true" value="<?php echo $query->tanggal_selesai; ?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Pembimbing Sekolah </label>
+                            <div class="col-md-4">
+                                <select name="pembimbing_sekolah_id" id="" class="form-control">
                                     <option value=""> - </option>
                                    <?php foreach($pembimbing_sekolah as $row){
                                         if($query->pembimbing_sekolah_id == $row->id){ ?>
@@ -73,22 +98,16 @@
                                      } ?>
                                 </select>
                             </div>
-                        </div>
-                     <div class="form-group">                        
-                        <label class="col-sm-2 control-label"> Tanggal masuk </label>
-                        <div class="col-xs-2">
-                            <input type="text" class="form-control" name= "tanggal_mulai" placeholder="tanggal masuk" value="<?php echo $query->tanggal_mulai; ?>">                            
+                            <label class="col-sm-2 control-label"> Jabatan Pembimbing Sekolah </label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name= "jabatan_pembimbing_sekolah" placeholder="-"
+                            value="<?php echo $query->jabatan_pembimbing_sekolah; ?>">
+                            </div>
                         </div>
                         <div class="form-group">
-                        <label class="col-sm-2 control-label"> Tanggal keluar </label>
-                        <div class="col-xs-2">
-                            <input type="text" class="form-control" name= "tanggal_selesai" placeholder="tanggal selesai" value="<?php echo $query->tanggal_selesai; ?>">
-                        </div>
-                        </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label"> Kelas </label> 
+                            <label class="col-sm-2 control-label"> Kelas </label> 
                             <div class="col-sm-4">
-                              <select name="kelas_id" id="" class="form-control">
+                               <select name="kelas_id" id="" class="form-control">
                                     <option value=""> - </option>
                                      <?php foreach($kelas as $row){
                                         if($query->id_kelas == $row->id){ ?>
@@ -99,19 +118,6 @@
                                      } ?>
                                 </select>
                             </div>
-                        </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label"> Jabatan Pembimbing Unit </label>
-                        <div class="col-xs-3">
-                            <input type="text" class="form-control" name= "jabatan_pembimbing" placeholder="-"
-                            value="<?php echo $query->jabatan_pembimbing; ?>">
-                        </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label"> Jabatan Pembimbing Sekolah </label>
-                        <div class="col-xs-3">
-                            <input type="text" class="form-control" name= "jabatan_pembimbing_sekolah" placeholder="-"
-                            value="<?php echo $query->jabatan_pembimbing_sekolah; ?>">
-                        </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">&nbsp;</label>
@@ -125,14 +131,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    $('#datepicker').datepicker();
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-
-
-} );
-</script>

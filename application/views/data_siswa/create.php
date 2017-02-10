@@ -54,7 +54,12 @@
                             </div>
                             <label class="col-sm-2 control-label">Tanggal Lahir</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="tanggal_lahir" placeholder="Tanggal lahir">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal_lahir" placeholder="Tanggal" readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -114,11 +119,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-} );
-</script>
