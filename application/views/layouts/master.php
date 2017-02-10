@@ -80,4 +80,21 @@
         <?php $this->load->view($main) ?>
     </div>
   </body>
+  <script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+      $('.datepicker').datepicker({
+          format: "yyyy-mm-dd",
+          language: "id",
+          todayHighlight: true,
+      });
+
+      $('.timepicker').timepicker({
+          defaultTime: 'value',
+          minuteStep: 1,
+          disableFocus: true,
+          template: 'dropdown',
+          showMeridian:false
+      });
+  });
+  </script>
 </html>
