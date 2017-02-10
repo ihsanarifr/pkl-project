@@ -32,14 +32,29 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
                             <th>Uraian Kegitan</th>
                             <th>Tanggal Mulai</th>
                             <th>Tanggal Selesai</th>
                             <th>Keterangan</th>
+<<<<<<< HEAD
+=======
+=======
+                            <th width="10px">No</th>
+                            <th>Nama Rencana</th>
+>>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
+>>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
                        <?php foreach($rencana_kegiatan as $rk) {?>
                         <tr>
                             <td><?php echo $rk->uraian_kegiatan?></td>
@@ -53,6 +68,19 @@
                                 <a href="<?php echo site_url('rencana_kegiatan/edit/')?>/<?php echo $rk->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                 <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('rencana_kegiatan/delete/')?><?php echo $rk->id ?>
                                 "><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+<<<<<<< HEAD
+=======
+=======
+                        <?php $no = 1; ?>
+                        <?php foreach($rencana_kegiatan as $row) {?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $row->name ?></td>
+                            <td>
+                                <a href="<?php echo site_url('rencana_kegiatan/edit')?>/<?php echo $row->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a href="<?php echo site_url('rencana_kegiatan/delete')?>/<?php echo $row->id ?>" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+>>>>>>> 765a237925e931b9e6bab24da046ee5e2bede662
+>>>>>>> 33119c54b65e3753949a5d3cd68bc342339a3031
                             </td>
                         </tr>
                         <?php
