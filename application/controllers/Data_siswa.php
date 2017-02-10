@@ -218,7 +218,7 @@ class Data_siswa extends CI_Controller
             $this->session->set_flashdata('message', 'Ubah data siswa sudah selesai');
 
             // untuk mengarahkan apakah user dari siswa atau administrator
-            if($this->ion_auth->group('2'))
+            if($this->ion_auth->in_group('2'))
             {
                 redirect('profile');
             }
@@ -575,7 +575,7 @@ class Data_siswa extends CI_Controller
             $this->session->set_flashdata('message', 'Berkas Foto Sudah diunggah');
 
              // untuk mengarahkan apakah user dari siswa atau administrator
-            if($this->ion_auth->group('2'))
+            if($this->ion_auth->in_group('2'))
             {
                 redirect('profile');
             }
