@@ -31,33 +31,43 @@
                         <div class="form-group">
                              <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="tanggal" placeholder="Tanggal" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="tanggal" placeholder="Tanggal" value="" id="datepicker" readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jam Mulai</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="mulai" placeholder="Jam mulai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="mulai" placeholder="Jam mulai" value="" id="datang" readonly="true">
+                                </div>
                             </div>
                             <label class="col-sm-2 control-label">JAm Selesai</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="selesai" placeholder="Jam selesai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="selesai" placeholder="Jam selesai" value="" id="pulang" readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value="">
+                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value=""></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Sarana</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
                                 <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="">
                             </div>
                         </div>
@@ -75,9 +85,24 @@
 </div>
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-} );
+    $('#datepicker').datepicker({
+        format: "yyyy-mm-dd",
+        language: "id",
+    });
+
+    $('#datang').timepicker({
+        defaultTime: 'value',
+        minuteStep: 1,
+        disableFocus: true,
+        template: 'dropdown',
+        showMeridian:false
+    });
+    $('#pulang').timepicker({
+        defaultTime: 'value',
+        minuteStep: 1,
+        disableFocus: true,
+        template: 'dropdown',
+        showMeridian:false
+    });
+});
 </script>
