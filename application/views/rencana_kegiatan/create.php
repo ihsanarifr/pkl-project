@@ -31,27 +31,33 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="uraian_kegiatan" placeholder="Uraian Kegiatan" value="">
+                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal Mulai</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="tanggal_mulai" placeholder="Tanggal Mulai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal_mulai" placeholder="Tanggal" value="" id="mulai" readonly="true">
+                                </div>
                             </div>
                             <label class="col-sm-2 control-label">Tanggal Selesai</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="tanggal_selesai" placeholder="Tanggal Selesai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal_selesai" placeholder="Tanggal" value="" id="selesai" readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Keterangan</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="keterangan" placeholder="Keterangan" value="">
+                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -66,12 +72,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-} );
-</script>
