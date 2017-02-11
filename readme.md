@@ -1,69 +1,49 @@
-###################
-What is CodeIgniter
-###################
+# Sistem Informasi Prakerin Siswa #
+Sistem Informasi dibuat untuk siswa yang akan melaksanakan PKL (Praktik Kerja Lapang) di Institut Pertanian Bogor. Sistem Informasi ini dibawah naungan dan bimbingan Direktorat Integrasi Data dan Sistem Informasi Institut Pertanian Bogor.
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+## Kebutuhan Fungsional ##
+* Pemrograman menggunakan bahasa PHP 
+* Framework CodeIgniter (3.0.0)
+* Database MySQL
 
-Release Information
-*******************
+## IDE yang digunakan ##
+* SublimeText 3
+* MySQL Workbench
+* SourceTree
+* XAMPP (bagi yang menggunakan Windows)
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+## Kontribusi & Kolaborasi ##
+* [Ihsan Arif Rahman](http://github.com/ihsanarifr/)
+* [Alin Nur](https://github.com/alinnural)
+* [Andini Putri](https://github.com/andiniputri)
+* [Siti Nurhikmah](https://github.com/SitiNurhikmah11)
+* [Febrilia Syahputri](https://github.com/febriliasyahputri)
+* [Melenia Dwi](https://github.com/meleniadwia22)
+* [Vini Mulyani](https://github.com/vinimulyani)
+* [Salsabila Latifah](https://github.com/salsabillalatifah00)
+* [Dina Dewi Anjani](https://github.com/dinadewianjani)
 
-**************************
-Changelog and New Features
-**************************
+## Cara mengambil `source code` menggunakan `command terminal`
+1. Posisi folder sudah masuk ke dalam `htdocs` (windows) atau `/var/www/`
+2. Lakukan cloning dengan perintah `git clone http://github.com/ihsanarifr/pkl-project/`
+3. masuk ke folder pkl dengan perintah `cd pkl-project`
+4. Buat branch baru jika akan melakukan perubahan dengan perintah `git checkout -b <namabranch>`
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+## Perintah `git` yang sering digunakan `command terminal`
+1. Mengambil data pada repository `git pull origin master`
+2. Mengambil data pada repository branch tertentu `git pull origin <namabranch>`
+3. Melakukan stagging pada semua file perubahan `git add .`
+4. Memberikan label pada stage `git commit -m 'namalabel'`
+4. Melakukan kirim data ke repository `git push origin <namabranch>`
+6. Menggabungkan beberapa file dari beda branch `git merge --no-ff origin <namabranch>`
+7. Melakukan pindah branch `git checkout <namabranch>`
 
-*******************
-Server Requirements
-*******************
+## Tanya Jawab
+### Kenapa CSS tidak muncul dan error?
+Jika CSS tidak terlihat dan tampilan hanya putih dan tulisan saja maka coba lihat pada file `applications/config/config.php` dan cari kode `$config['base_url'] = 'http://pkl.ipb.dev/'` lalu ganti dengan sintaks `$config['base_url'] = ''`.
 
-PHP version 5.6 or newer is recommended.
+### Mengapa koneksi timeout dan selalu seperti itu?
+Jika mengalami koneksi lambat memang database yang digunakan `public` sehingga memang akan terlihat lambat jika koneksi pada komputer Anda lambat.
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
-
-************
-Installation
-************
-
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community IRC <https://webchat.freenode.net/?channels=%23codeigniter>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+### Bagaimana agar datbase-nya mau disimpan di `local` komputer sendiri?
+Bisa saja Anda tinggal melakukan eksekusi file yang sudah ada pada file `database/backup-20170130.sql` pada project ini. Tetapi datanya masih kosong hanya skemanya saja, sehingga Anda harus mengisi sendiri. Setelah itu ubah koneksinya pada file `application/config/database.php`
