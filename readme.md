@@ -1,5 +1,5 @@
 # Sistem Informasi Prakerin Siswa #
-Sistem Informasi dibuat untuk siswa yang akan melaksanakan PKL (Praktik Kerja Lapang) di Institut Pertanian Bogor. Sistem Informasi ini dibawah naungan dan bimbingan Direktorat Integrasi Data dan Sistem Informasi Institut Pertanian Bogor.
+Sistem Informasi dibuat untuk siswa yang akan melaksanakan PKL (Praktik Kerja Lapang) di [Institut Pertanian Bogor](http://ipb.ac.id). Sistem Informasi ini dibawah naungan dan bimbingan [Direktorat Integrasi Data dan Sistem Informasi](http://ict.ipb.ac.id) Institut Pertanian Bogor.
 
 ## Kebutuhan Fungsional ##
 * Pemrograman menggunakan bahasa PHP 
