@@ -45,5 +45,5 @@ Jika CSS tidak terlihat dan tampilan hanya putih dan tulisan saja maka coba liha
 ### Mengapa koneksi timeout dan selalu seperti itu?
 Jika mengalami koneksi lambat memang database yang digunakan `public` sehingga memang akan terlihat lambat jika koneksi pada komputer Anda lambat.
 
-### Bagaimana agar datbase-nya mau disimpan di `local` komputer sendiri?
+### Bagaimana agar database-nya mau disimpan di `local` komputer sendiri?
 Bisa saja Anda tinggal melakukan eksekusi file yang sudah ada pada file `database/backup-20170130.sql` pada project ini. Tetapi datanya masih kosong hanya skemanya saja, sehingga Anda harus mengisi sendiri. Setelah itu ubah koneksinya pada file `application/config/database.php`
