@@ -13,10 +13,22 @@
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
                     <form action="<?php echo site_url('data_siswa/save')?>" method="post" class="form-horizontal"> 
+                     <div class="form-group">
+                            <label class="col-sm-2 control-label">Usename</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="username" placeholder="username">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -26,8 +38,9 @@
                             </div>
                             <label class="col-sm-2 control-label">Golongan Darah</label>
                             <div class="col-sm-4">
-                               <select name="gol_darah_id" id="" class="form-control">
-                                    <option value="">-</option>
+                              <select name="gol_darah_id" id="" class="form-control">
+                                    <option value=""> - </option>
+                                    
                                     <?php foreach($gol_darah as $row){?>
                                         <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
                                     <?php } ?>
@@ -41,7 +54,12 @@
                             </div>
                             <label class="col-sm-2 control-label">Tanggal Lahir</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="tanggal_lahir" placeholder="Tanggal lahir">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal_lahir" placeholder="Tanggal" readonly="true">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -101,11 +119,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-    var table = $('#example').DataTable();
-    var tt = new $.fn.dataTable.TableTools( table );
- 
-    $( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-} );
-</script>

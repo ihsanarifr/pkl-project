@@ -7,6 +7,7 @@ class Home extends CI_Controller {
 	function __construct(){
     	parent::__construct();
 		$this->load->model('prakerin_siswa_model');
+		$this->load->model('siswa_model');
 
 		// check was logged in
 		if($this->ion_auth->logged_in())
@@ -49,5 +50,27 @@ class Home extends CI_Controller {
 	public function check()
 	{
 		echo $this->prakerin_siswa_model->check_prakerin_today($this->user->id);
+	}
+
+	public function profile()
+	{
+		$id = $this->ion_auth->user()->row()->id;
+
+		if($this->ion_auth->logged_in())
+		{
+			if($this->ion_auth->get_users_groups()->row()->id == 2)
+			{
+				$data['prakerin'] = $this->prakerin_siswa_model->check_prakerin_by_user($this->user->id);
+			}
+		}
+		
+		$data['main']='home/profile';
+		$data['menu']=0;
+		$data['judul']='Profil Siswa';
+		$data['siswa'] = $this->siswa_model->siswa_detail_by_id($id);
+
+		$data['css']=array('css/datatables.min');
+        $data['js']= array('js/jquery.dataTables','js/dataTables.bootstrap');
+		$this->load->view('layouts/master',$data);
 	}
 }

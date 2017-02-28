@@ -31,27 +31,47 @@
                          <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="tanggal" placeholder="Uraian Kegiatan" value="">
+                                <input type="hidden" name="id" value="<?php echo $absensi->id ?>">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" name="tanggal" id="datepicker" readonly="true" value="<?php echo $absensi->tanggal ?>">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Jam Datang</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="jam_datang" placeholder="Tanggal Mulai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker" name="datang" placeholder="Jam mulai" readonly="true" value="<?php echo $absensi->datang ?>">
+                                </div>
                             </div>
                             <label class="col-sm-2 control-label">Jam Pulang</label>
                             <div class="col-sm-4">
-                                <input type="hidden" name="id" value="">
-                                <input type="text" class="form-control" name="jam_pulang" placeholder="Tanggal Selesai" value="">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker" name="pulang" placeholder="Jam mulai" readonly="true" value="<?php echo $absensi->pulang?>">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Status Kehadiran</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 <select name="status_kehadiran_id" id="" class="form-control">
-                                    <option value="">A</option>
+                                    <option value="">-</option>
+                                     <?php foreach($status_kehadiran as $row){
+                                    if($absensi->status_kehadiran_id == $row->id) { ?>
+                                            <option value="<?php echo $row->id; ?>" selected><?php echo $row->nama ?></option>
+                                        <?php }else{ ?>
+                                            <option value="<?php echo $row->id; ?>"><?php echo $row->nama ?></option>
+                                    <?php }
+                                     } ?>
                                 </select>
                             </div>
                         </div>

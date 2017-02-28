@@ -26,8 +26,8 @@
                 foreach($prakerin as $p){?>
                 <tr>
                     <td><?php echo $no++;?></td>
-                    <td><?php echo $p->tanggal_mulai ?></td>
-                    <td><?php echo $p->tanggal_selesai ?></td>
+                    <td><?php echo TanggalIndo($p->tanggal_mulai) ?></td>
+                    <td><?php echo TanggalIndo($p->tanggal_selesai) ?></td>
                     <td><?php if($p->id == $this->session->userdata('prakerin_id')){ echo "<label class='label label-success'>Aktif</label>"; } else { echo "<label class='label label-warning'>Non-Aktif</label>"; } ?></td>
                 </tr>
                 <?php } ?>

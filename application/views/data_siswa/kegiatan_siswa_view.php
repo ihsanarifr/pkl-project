@@ -13,6 +13,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <?php $this->load->view('data_siswa/profil')?>
+                        <?php $this->load->view('data_siswa/kegiatan_siswa_profil')?>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -34,15 +35,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($rencana_kegiatan as $rk){ ?>
                                             <tr>
-                                                <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                
+                                                <td><?php echo TanggalIndo($rk->tanggal_mulai)?> - <?php echo TanggalIndo($rk->tanggal_selesai)?></td>
+                                                <td><?php echo $rk->uraian_kegiatan ?></td>
                                             </tr>
-                                            <tr>
-                                                <td><a href="#">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -55,21 +53,19 @@
                                                 <th>Hari</th>
                                                 <th>Masuk</th>
                                                 <th>Pulang</th>
+                                                <th>Status Kehadiran</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($absensi_kegiatan as $ak){ ?>
                                             <tr>
-                                                <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                                <td>a</td>
+                                                <td><?php echo TanggalIndo($ak->tanggal)?></td>
+                                                <td><?php echo DayIndonesia($ak->tanggal) ?></td>
+                                                <td><?php echo $ak->datang ?></td>
+                                                <td><?php echo $ak->pulang ?></td>
+                                                <td><?php echo $ak->status_kehadiran_id ?></td>
                                             </tr>
-                                            <tr>
-                                                <td><a href="#">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -81,24 +77,43 @@
                                                 <th>Tanggal</th>
                                                 <th>Hari</th>
                                                 <th>Kegiatan</th>
+                                                <th>Sarana</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($log_kegiatan as $lg){ ?>
                                             <tr>
-                                                <td><a href="<?php echo site_url('data_siswa/view')?>/1">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
+                                                <td><?php echo TanggalIndo($lg->tanggal)?></td>
+                                                <td><?php echo $lg->mulai?> sd <?php echo $lg->selesai?></td>
+                                                <td><?php echo $lg->uraian_kegiatan?></td>
+                                                <td><?php echo $lg->sarana ?></td>
                                             </tr>
-                                            <tr>
-                                                <td><a href="#">Nama Orangnya</a></td>
-                                                <td>a</td>
-                                                <td>a</td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="tab-pane" id="4">
-                                    <h3>Nilai Siswa</h3>
+                                    <br>
+                                    <table id="table4" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Aspek Nilai</th>
+                                                <th>Nilai Angka</th>
+                                                <th>Nilai Huruf</th>
+                                                <th>Keterangan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($penilaian as $p){ ?>
+                                            <tr>
+                                                <td><?php echo $p->nama_aspek_penilaian?></td>
+                                                <td><?php echo $p->nilai_angka?></td>
+                                                <td><?php echo $p->nilai_huruf?></td>
+                                                <td><?php echo $p->keterangan ?></td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

@@ -14,10 +14,12 @@
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
-
+    
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url() ?>assets/css/navbar-fixed-top.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,6 +29,8 @@
 
     <script src="<?php echo base_url()?>assets/js/jquery-1.12.3.js"></script>
     <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
     
     <?php if(isset($css))
     {
@@ -75,5 +79,29 @@
     <div class="content">
         <?php $this->load->view($main) ?>
     </div>
+
+    <nav class="footer navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+          <p style="padding-top:15px;" class="text-left">Copyright 2016-2017 DIDSI & Prakerin Siswa SMK Negeri 1 Ciomas.</p>
+      </div>
+    </nav>
   </body>
+  <script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+      $('.datepicker').datepicker({
+          format: "yyyy-mm-dd",
+          language: "id",
+          todayHighlight: true,
+      });
+
+      $('.timepicker').timepicker({
+          defaultTime: 'value',
+          minuteStep: 1,
+          disableFocus: true,
+          template: 'dropdown',
+          showMeridian:false,
+          use24hours: true
+      });
+  });
+  </script>
 </html>

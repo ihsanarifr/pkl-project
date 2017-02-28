@@ -33,19 +33,28 @@
                     <thead>
                         <tr>
                             <th width="10px">No</th>
-                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Jam Datang</th>
+                            <th>Jam Pulang</th>
+                            <th>Status Kehadiran</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                       <?php $no = 1; ?>
+                        <?php foreach($absensi as $ab) {?>
                         <tr>
-                            <td>a</td>
-                            <td>a</td>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo TanggalIndo($ab->tanggal) ?></td>
+                            <td><?php echo $ab->datang ?></td>
+                            <td><?php echo $ab->pulang ?></td>
+                            <td><?php echo $ab->status_kehadiran ?></td>
                             <td>
-                                <a href="<?php echo site_url('absensi/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('absensi/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('absensi/edit')?>/<?php echo $ab ->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('absensi/delete')?>/<?php echo $ab ->id ?>"> <i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
                 </div>

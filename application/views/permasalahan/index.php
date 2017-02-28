@@ -32,20 +32,32 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th width="10px">No</th>
-                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Masalah</th>
+                            <th>Solusi</th>
+                            <th>Oleh</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                       <?php foreach($permasalahan as $pm) {?>
                         <tr>
-                            <td>a</td>
-                            <td>a</td>
+                            <td><?php echo TanggalIndo($pm->tanggal)?></td>
+                            <td><?php echo $pm->masalah ?></td>
+                            <td><?php echo $pm->solusi?></td>
+                            <td><?php echo $pm->oleh ?></td>
+
+
+
                             <td>
-                                <a href="<?php echo site_url('permasalahan/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('permasalahan/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('permasalahan/edit/')?><?php echo $pm->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('permasalahan/delete/')?><?php echo $pm->id ?>
+                                "><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                 </div>

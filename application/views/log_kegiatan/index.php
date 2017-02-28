@@ -23,7 +23,7 @@
                     <h3 class="panel-title pull-left">
                     Kegiatan
                     </h3>
-                    <a href="<?php echo site_url('log_kegiatan/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Absensi</a>
+                    <a href="<?php echo site_url('log_kegiatan/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Log Kegiatan</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
@@ -32,20 +32,33 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th width="10px">No</th>
-                            <th>Nama</th>
+                            <th>Tanggal</th>
+                             <th>Jam Mulai</th>
+                              <th>Jam Selesai</th>
+                               <th>Uraian Kegiatan</th>
+                                <th>Sarana</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                      <tbody>
+                       <?php foreach($kegiatan as $kg) {?>
                         <tr>
-                            <td>a</td>
-                            <td>a</td>
+                            <td><?php echo TanggalIndo($kg->tanggal)?></td>
+                            <td><?php echo $kg->mulai ?></td>
+                            <td><?php echo $kg->selesai?></td>
+                            <td><?php echo $kg->uraian_kegiatan ?></td>
+                            <td><?php echo $kg->sarana ?></td>
+
+
                             <td>
-                                <a href="<?php echo site_url('log_kegiatan/edit')?>/1" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                                <a href="<?php echo site_url('log_kegiatan/delete')?>/1" class="label label-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+                                <a href="<?php echo site_url('log_kegiatan/edit/')?><?php echo $kg->id ?>" class="label label-warning"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                                <a onclick="return confirm('Anda Yakin akan menghapus?')" class="label label-danger" href="<?php echo site_url('log_kegiatan/delete/')?><?php echo $kg->id ?>
+                                "><i class="glyphicon glyphicon-trash"></i> Hapus</a>
                             </td>
                         </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                 </div>
