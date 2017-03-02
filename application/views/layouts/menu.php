@@ -47,7 +47,7 @@ else
         </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo base_url() ?>profile"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->get_users_groups($this->ion_auth->user()->row()->id)->row()->name ?></a></li>
+            <!--<li><a href="<?php echo base_url() ?>profile"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->get_users_groups($this->ion_auth->user()->row()->id)->row()->name ?></a></li>-->
             <li><a href="<?php echo base_url() ?>auth/logout"><i class="glyphicon glyphicon-log-out"></i> Keluar</a></li>
         </ul>
 
@@ -86,7 +86,7 @@ else
         <li <?php if($menu == 2){ echo 'class="active"'; }?>><a href="<?php echo site_url('penilaian/pembimbing_sekolah_index')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Penilaian</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url() ?>profile/"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>
+        <!--<li><a href="<?php echo base_url() ?>profile/"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>-->
         <li><a href="<?php echo base_url() ?>auth/logout"><i class="glyphicon glyphicon-log-out"></i> Keluar</a></li>
     </ul>
     <?php
@@ -101,7 +101,7 @@ else
         <li <?php if($menu == 2){ echo 'class="active"'; }?>><a href="<?php echo site_url('penilaian/pembimbing_unit_index')?>"><i class="glyphicon glyphicon-thumbs-up"></i>  Penilaian</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url() ?>profile/"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>
+        <!--<li><a href="<?php echo base_url() ?>profile/"><i class="glyphicon glyphicon-user"></i> <?php echo $this->ion_auth->user()->row()->first_name ?></a></li>-->
         <li><a href="<?php echo base_url() ?>auth/logout"><i class="glyphicon glyphicon-log-out"></i> Keluar</a></li>
     </ul>
     <?php
