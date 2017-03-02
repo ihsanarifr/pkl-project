@@ -92,7 +92,7 @@ class Pembimbing_unit extends CI_Controller
                 $this->pembimbing_unit_model->save_user($data_user);
                 $this->pembimbing_unit_model->save($data);
                 $this->session->set_flashdata('status','success');
-                $this->session->set_flashdata('message', 'Simpan data siswa pengguna sudah selesai');
+                $this->session->set_flashdata('message', 'Simpan pembimbing unit sudah selesai');
                 redirect('pembimbing_unit');
             }
             else

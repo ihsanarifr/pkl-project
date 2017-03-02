@@ -38,13 +38,13 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Bidang</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="bidang" placeholder="Bidang" value="<?php echo $unit->bidang?>">
+                                <input type="text" class="form-control" name="bidang" placeholder="Bidang Unit" value="<?php echo $unit->bidang?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Alamat</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $unit->alamat?>">
+                                <input type="text" class="form-control" name="alamat" placeholder="Alamat Unit" value="<?php echo $unit->alamat?>">
                             </div>
                         </div>
         

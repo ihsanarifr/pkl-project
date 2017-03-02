@@ -54,16 +54,36 @@
                             </div>
                          </div>
 
-                         <div class="form-group">
+                     
+						    <div class="form-group">
                             <label class="col-sm-2 control-label">Nilai Angka</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nilai_angka" placeholder="Nilai angka" value="<?php echo $penilaian->nilai_angka?>">
+                               <input type="text" class="form-control" name="nilai_angka" placeholder="Nilai angka" value="<?php echo $penilaian->nilai_angka?>" onkeypress="return hanyaAngka(event)"/>
+ 
+	<script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+		}
+	</script>
                          </div>
                          </div>
                          <div class="form-group">
                             <label class="col-sm-2 control-label">Nilai Huruf</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nilai_huruf" placeholder="Nilai angka" value="<?php echo $penilaian->nilai_huruf?>">
+                                <input type="text" class="form-control" name="nilai_huruf" placeholder="Nilai Huruf" value="<?php echo $penilaian->nilai_huruf?>" onkeypress='return isNumberKey(event)'"/>
+								<script>
+  function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if ((charCode < 65) || (charCode == 32))
+            return false;         
+         return true;
+      }
+</script>
                          </div>
                          </div>
                           <div class="form-group">

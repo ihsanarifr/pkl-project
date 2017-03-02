@@ -26,7 +26,7 @@
                     </h3>
                     <a href="<?php echo site_url('grup_user/add')?>" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-user"></i> Tambah Grup</a>
                     <div class="clearfix"></div>
-                </div>r
+                </div>
                 <div class="panel-body">
                     <?php $this->load->view('layouts/alert')?>
                     <br><br>

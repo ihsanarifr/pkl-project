@@ -120,7 +120,7 @@ class Log_kegiatan extends CI_Controller
         {
             $this->log_kegiatan_model->update($data);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Ubah data Permasalahan sudah selesai');
+            $this->session->set_flashdata('message', 'Ubah data Log Kegiatan sudah selesai');
             redirect('log_kegiatan');
         }
     }

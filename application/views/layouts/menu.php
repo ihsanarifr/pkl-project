@@ -8,7 +8,6 @@ if (!$this->ion_auth->logged_in())
 <li><a href="#contact">Kontak</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-    <li><a href="<?php echo base_url() ?>auth/register"><i class="glyphicon glyphicon-user"></i> Mendaftar</a></li>
     <li><a href="<?php echo base_url() ?>auth/login"><i class="glyphicon glyphicon-log-out"></i> Masuk</a></li>
 </ul>
 <?php  

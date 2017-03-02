@@ -74,7 +74,7 @@ class Sekolah extends CI_Controller
         {
             $this->sekolah_model->save($data);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Simpan data unit pengguna sudah selesai');
+            $this->session->set_flashdata('message', 'Simpan data sekolah sudah selesai');
             redirect('sekolah');
         }
     }
@@ -138,7 +138,7 @@ class Sekolah extends CI_Controller
         {
             $this->sekolah_model->delete($id);
             $this->session->set_flashdata('status','success');
-            $this->session->set_flashdata('message', 'Hapus data grup pengguna sudah selesai');
+            $this->session->set_flashdata('message', 'Hapus data sekolah sudah selesai');
             redirect('sekolah');   
         }
     }

@@ -35,7 +35,7 @@
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </div>
-                                    <input type="text" class="form-control datepicker" name="tanggal" placeholder="Uraian Kegiatan" value="<?php echo $kegiatan->tanggal?>" id="datepicker" readonly="true">
+                                    <input type="text" class="form-control datepicker" name="tanggal" placeholder="Uraian Kegiatan" value="<?php echo $kegiatan->tanggal?>" id="datepicker" readonly="true" >
                                     <input type="hidden" class="form-control" name="id"  value="<?php echo $kegiatan->id?>">
                                 </div>
                             </div>
@@ -63,13 +63,13 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Uraian Kegiatan</label>
                             <div class="col-sm-10">
-                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value=""></textarea>
+                                <textarea rows="" cols="" class="form-control" name="uraian_kegiatan" placeholder="Uraian kegiatan" value=""><?php echo $kegiatan->uraian_kegiatan?> </textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Sarana</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="">
+                                <input type="text" class="form-control" name="sarana" placeholder="Sarana" value="<?php echo $kegiatan->sarana?>">
                             </div>
                         </div>
                         <div class="form-group">

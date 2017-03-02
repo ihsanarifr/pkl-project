@@ -117,7 +117,7 @@ class Grup_user extends CI_Controller
             $this->grup_user_model->update($data);
             $this->session->set_flashdata('status','success');
             $this->session->set_flashdata('message', 'Ubah data grup pengguna sudah selesai');
-            redirect('grup_user');
+            redirect('Grup_user');
         }
     }
 

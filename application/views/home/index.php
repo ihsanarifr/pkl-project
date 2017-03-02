@@ -4,9 +4,7 @@
         <h1>SIM PKL</h1>
         <p>Sistem Informasi Penerimaan Siswa PKL</p>
         <p>Institut Pertanian Bogor</p>
-        <p>
-            <a class="btn btn-lg btn-primary" href="<?php echo base_url()?>auth/register" role="button">Mendaftar</a>
-        </p>
+        
     </div>
     <?php
     if($this->ion_auth->logged_in() && $this->ion_auth->get_users_groups()->row()->id == 2)

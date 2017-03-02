@@ -63,7 +63,7 @@
                          <div class="form-group">
                             <label class="col-sm-2 control-label">Nilai Huruf</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nilai_huruf" placeholder="Nilai angka" value="<?php echo $penilaian->nilai_huruf?>">
+                                <input type="text" class="form-control" name="nilai_huruf" placeholder="Nilai huruf" value="<?php echo $penilaian->nilai_huruf?>">
                          </div>
                          </div>
                           <div class="form-group">
