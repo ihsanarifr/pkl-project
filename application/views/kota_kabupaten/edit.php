@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('home')?>">Home</a></li>
-            <li class="active"><a href="#">Tambah Data Program Keahlian</a></li>
+            <li><a href="<?php echo site_url('home') ?>">Home</a></li>
+            <li class="active"><a href="#">Edit Kota Kabupaten</a></li>
             </ol>
         </div>
         <div class="col-md-12">
@@ -21,26 +21,33 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <h3 class="panel-title pull-left">
-                    Edit aspek penilaian
+                    Edit Kota Kabupaten
                     </h3>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
+
                     <?php $this->load->view('layouts/alert')?>
-                    <form action="<?php echo site_url('program_keahlian/update')?>" method="post"> 
+                    <form action="<?php echo site_url('kota_kabupaten/update')?>" method="post" class="form-horizontal">
+
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nama program Keahlian</label>
+                            <label class="col-sm-2 control-label">Nama kota/kab</label>
                             <div class="col-sm-10">
-								<input type="hidden" name="id" value="<?php echo $program_keahlian->id ?>">
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Program Keahlian" value="<?php echo $program_keahlian->nama ?>">
+                                <input type="text" class="form-control" name="nama" placeholder="kota_kabupaten" value="<?php echo $kota_kabupaten->nama?>">
+                                <input type="hidden" class="form-control" name="id" value="<?php echo $kota_kabupaten->id?>">
                             </div>
                         </div>
-                        <br><br>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label"></label>
+                            <label class="col-sm-2 control-label">Inisial</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="inisial" placeholder="kota_kabupaten" value="<?php echo $kota_kabupaten->inisial?>">
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-2 control-label">&nbsp;</label>
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                             </div>
+                        </div>
                         </div>
                     </form>
                 </div>
